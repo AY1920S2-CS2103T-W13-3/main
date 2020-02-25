@@ -70,3 +70,4 @@ public class TypicalPersons {
         return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
     }
 }
+
