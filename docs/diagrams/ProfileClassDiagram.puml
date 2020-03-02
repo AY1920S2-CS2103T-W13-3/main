@@ -23,7 +23,6 @@ Profile *-r-> Deadlines
 
 Deadlines o--> TaskList
 Deadlines .r.> ReadOnlyDeadlines
-
 }
 
 
