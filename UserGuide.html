@@ -77,7 +77,7 @@ Enjoy!</p>
 <p>Items in square brackets are optional e.g <code>m/MODULE [g/GRADE]</code> can be used as <code>m/CS2103 g/A+</code> or as <code>m/CS2103</code>.</p>
 </li>
 <li>
-<p>Parameters must follow this order: <code>m/MODULE</code>, <code>y/SEMESTER_TAKEN</code>, <code>g/GRADE</code>, <code>t/TASK</code>, <code>d/DEADLINE</code>, <code>s/STATUS</code>, although some are optional.</p>
+<p>Parameters must follow this order: <code>m/MODULE</code>, <code>y/SEMESTER_TAKEN</code>, <code>g/GRADE</code>, <code>t/TASK</code>, <code>d/DEADLINE</code>, although some are optional.</p>
 </li>
 </ul>
 </div>
@@ -101,7 +101,7 @@ Format: <code>add m/MODULE y/SEMESTER_TAKEN [g/GRADE]</code><br></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>g/GRADE</code> is compulsory if module is completed.</p>
+<p><code>g/GRADE</code> is compulsory if module is completed</p>
 </li>
 <li>
 <p><code>y/SEMESTER_TAKEN</code> must be in the format <code>y/YEAR.SEMESTER</code> (eg. y/1.2)</p>
@@ -113,9 +113,9 @@ Format: <code>add m/MODULE y/SEMESTER_TAKEN [g/GRADE]</code><br></p>
 <div class="paragraph">
 <p>2) Adds a task to a module in the manager<br>
 If the module is new,<br>
-Format: <code>add m/MODULE y/SEMESTER_TAKEN [g/GRADE] t/TASK d/DEADLINE s/STATUS</code><br>
+Format: <code>add m/MODULE y/SEMESTER_TAKEN [g/GRADE] t/TASK d/DEADLINE</code><br>
 If the module is existing,<br>
-Format: <code>add m/MODULE t/TASK d/DEADLINE s/STATUS</code></p>
+Format: <code>add m/MODULE t/TASK d/DEADLINE</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -123,6 +123,9 @@ Format: <code>add m/MODULE t/TASK d/DEADLINE s/STATUS</code></p>
 <ul>
 <li>
 <p><code>d/DEADLINE</code> must be in the format <code>YYYY-MM-DD HH:mm</code> (eg. 2020-03-31 23:59)</p>
+</li>
+<li>
+<p><code>t/TASK d/DEADLINE</code> will be auto deleted when it is completed</p>
 </li>
 </ul>
 </div>
@@ -137,7 +140,7 @@ Format: <code>add m/MODULE t/TASK d/DEADLINE s/STATUS</code></p>
 <p><code>add m/CS2105 y/1.2 g/A+</code></p>
 </li>
 <li>
-<p><code>add m/CS2107 t/Assignment d/2020-03-31 23:59 s/not done</code></p>
+<p><code>add m/CS2107 t/Assignment d/2020-03-31 23:59</code></p>
 </li>
 </ul>
 </div>
@@ -185,4 +188,4 @@ There is no need to save manually.</p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-03 08:41:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-03 14:10:57 UTC</div></div></div></body></html>
