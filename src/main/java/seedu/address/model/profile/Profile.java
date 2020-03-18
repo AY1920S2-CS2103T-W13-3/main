@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.address.model.CourseManager;
+import seedu.address.model.profile.course.Course;
 import seedu.address.model.profile.course.CourseName;
 import seedu.address.model.profile.course.module.Module;
 import seedu.address.model.profile.course.module.personal.Deadline;
@@ -23,6 +25,7 @@ public class Profile {
     private static HashMap<Integer, ArrayList<Module>> moduleHash;
     private static String currentSemester;
     private final Name name;
+    private final Course course;
     private final CourseName courseName;
     private final String specialisation;
 
@@ -36,6 +39,7 @@ public class Profile {
         requireAllNonNull(currentSemester);
         this.name = name;
         this.courseName = courseName;
+        this.course = setCourse(courseName);
         this.currentSemester = currentSemester;
         this.specialisation = specialisation;
         HashMap<Integer, ArrayList<Module>> moduleHash = new HashMap<Integer, ArrayList<Module>>();
@@ -69,6 +73,10 @@ public class Profile {
 
     public String getSpecialisation() {
         return specialisation;
+    }
+
+    public Course setCourse(CourseName courseName) {
+        return CourseManager.getCourse(courseName);
     }
 
     public static ArrayList<Module> getModules(Integer semester) {
