@@ -1,12 +1,13 @@
 package seedu.address.model;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 import seedu.address.model.profile.course.Course;
 import seedu.address.model.profile.course.CourseName;
 
-import static java.util.Objects.requireNonNull;
 
 /**
  * Creates a new CourseList object which contains Module objects.
@@ -28,7 +29,7 @@ public class CourseList {
      * Returns the Course with course name {@code courseName} in the course list, if it exists.
      * @throws NoSuchElementException No module in the module list contains {@code moduleCode}.
      */
-    public Course getCourse(CourseName courseName) {
+    public Course getCourse(CourseName courseName) throws NoSuchElementException {
         requireNonNull(courseName);
         for (Course course : courseList) {
             if (course.getCourseName().equals(courseName)) {

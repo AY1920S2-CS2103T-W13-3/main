@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.profile.course.Course;
-import seedu.address.model.profile.course.CourseName;
 import seedu.address.model.profile.course.CourseFocusArea;
+import seedu.address.model.profile.course.CourseName;
 
 /**
  * Jackson-friendly version of {@link JsonCourse}.
