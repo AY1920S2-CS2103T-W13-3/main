@@ -24,6 +24,17 @@ public class CourseFocusArea {
         this.modularCredits = modularCredits;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder output = new StringBuilder();
+        output.append(focusAreaName + ":");
+        for (ModuleCode moduleCode : modules) {
+            output.append("\n");
+            output.append(moduleCode);
+        }
+        return output.toString();
+    }
+
     // Implement getter setter
     // equals
     // tostring
