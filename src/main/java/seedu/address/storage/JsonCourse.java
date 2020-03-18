@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.profile.course.Course;
+import seedu.address.model.profile.course.CourseName;
 import seedu.address.model.profile.course.CourseFocusArea;
 
 /**
@@ -42,13 +43,14 @@ class JsonCourse {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "Focus Area"));
         }
 
+        CourseName modelCourseName = new CourseName(courseName);
         List<CourseFocusArea> courseFocusAreas = new ArrayList<>();
         for (JsonCourseFocusArea focusArea : focusAreas) {
             CourseFocusArea modelFocusArea = focusArea.toModelType();
             courseFocusAreas.add(modelFocusArea);
         }
 
-        return new Course(courseName, courseFocusAreas);
+        return new Course(modelCourseName, courseFocusAreas);
     }
 }
 
