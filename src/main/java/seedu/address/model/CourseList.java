@@ -1,8 +1,12 @@
 package seedu.address.model;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 import seedu.address.model.profile.course.Course;
+import seedu.address.model.profile.course.CourseName;
+
+import static java.util.Objects.requireNonNull;
 
 /**
  * Creates a new CourseList object which contains Module objects.
@@ -21,23 +25,18 @@ public class CourseList {
     }
 
     /**
-     * Returns true if a module with the same fields as {@code module} exists in the module list.
+     * Returns the Course with course name {@code courseName} in the course list, if it exists.
+     * @throws NoSuchElementException No module in the module list contains {@code moduleCode}.
      */
-    /*
-    public boolean hasModule(Module module) {
-        requireNonNull(module);
-        return moduleList.contains(module);
+    public Course getCourse(CourseName courseName) {
+        requireNonNull(courseName);
+        for (Course course : courseList) {
+            if (course.getCourseName().equals(courseName)) {
+                return course;
+            }
+        }
+        throw new NoSuchElementException("The course " + courseName + " does not exist!");
     }
-*/
-    /**
-     * Returns true if a module with the module code {@code moduleCode} exists in the module list.
-     */
-    /*
-    public boolean hasModuleWithModuleCode(ModuleCode moduleCode) {
-        requireNonNull(moduleCode);
-        return moduleCodes.contains(moduleCode);
-    }
-     */
 
     /**
      * Returns the module with module code {@code moduleCode} in the module list, if it exists.

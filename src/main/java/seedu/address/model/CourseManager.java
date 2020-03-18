@@ -1,5 +1,8 @@
 package seedu.address.model;
 
+import seedu.address.model.profile.course.Course;
+import seedu.address.model.profile.course.CourseName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
@@ -18,9 +21,7 @@ public class CourseManager {
         this(new CourseList());
     }
 
-    /*
-    Consider implementing
-    hasCourse()
-    getCourse()
-    */
+    public static Course getCourse(CourseName courseName) {
+        return courseList.getCourse(courseName);
+    }
 }
