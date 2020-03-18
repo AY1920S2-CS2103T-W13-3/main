@@ -72,6 +72,7 @@ public class MainApp extends Application {
         initLogging(config);
 
         //model = initModelManager(storage, userPrefs);
+        courseManager = initCourseManager(userPrefs);
         model = initProfileManager(storage, userPrefs);
 
         logic = new LogicManager(model, storage);
@@ -81,7 +82,6 @@ public class MainApp extends Application {
         moduleManager = initModuleManager(userPrefs);
         //profileManager = initProfileManager(userPrefs);
 
-        courseManager = initCourseManager(userPrefs);
     }
 
     /**
