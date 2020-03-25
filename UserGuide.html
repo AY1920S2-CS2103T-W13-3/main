@@ -13,9 +13,9 @@
 <li><a href="#quick-start-coming-in-v2-0">2. Quick Start (coming in v2.0)</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code-coming-in-v2-0">3.1. Viewing help : <code>help</code> (coming in v2.0)</a></li>
-<li><a href="#adding-a-module-task-code-add-code">3.2. Adding a module/task: <code>add</code></a></li>
-<li><a href="#editing-a-module-code-edit-code">3.3. Editing a module : <code>edit</code></a></li>
+<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
+<li><a href="#adding-code-add-code">3.2. Adding: <code>add</code></a></li>
+<li><a href="#editing-code-edit-code">3.3. Editing: <code>edit</code></a></li>
 <li><a href="#showing-code-show-code">3.4. Showing: <code>show</code></a></li>
 <li><a href="#new-user-profile-code-new-code">3.5. New user profile : <code>new</code></a></li>
 <li><a href="#delete-a-user-profile-code-delete-code-coming-in-v2-0">3.6. Delete a user profile : <code>delete</code> (coming in v2.0)</a></li>
@@ -68,32 +68,40 @@ Enjoy!</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add m/MODULE</code>, <code>MODULE</code> is a parameter which can be used as <code>add m/CS2103</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters supplied by you e.g. in <code>add m/MODULE</code>, <code>MODULE</code> is a parameter which can be used as <code>add m/CS2103</code></p>
 </li>
 <li>
-<p>Parameters can be entered in any format, unless stated otherwise.</p>
+<p>Parameters can be entered in any format, unless stated otherwise</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>m/MODULE [g/GRADE]</code> can be used as <code>m/CS2103 g/A+</code> or as <code>m/CS2103</code>.</p>
+<p>Items in square brackets are optional e.g <code>m/MODULE [g/GRADE]</code> can be used as <code>m/CS2103 g/A+</code> or as <code>m/CS2103</code></p>
 </li>
 <li>
-<p>Parameters must follow this order: <code>m/MODULE</code>, <code>y/SEMESTER_INDEX</code>, <code>g/GRADE</code>, <code>t/TASK</code>, <code>d/DEADLINE</code>, although some are optional.</p>
+<p>Parameters must follow this order: <code>m/MODULE</code>, <code>y/SEMESTER_INDEX</code>, <code>g/GRADE</code>, <code>t/TASK</code>, <code>d/DEADLINE</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code-coming-in-v2-0"><a class="link" href="#viewing-help-code-help-code-coming-in-v2-0">3.1. Viewing help : <code>help</code> (coming in v2.0)</a></h3>
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<div class="paragraph">
+<p>You will be directed to MODdy&#8217;s User Guide.<br></p>
+</div>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-module-task-code-add-code"><a class="link" href="#adding-a-module-task-code-add-code">3.2. Adding a module/task: <code>add</code></a></h3>
+<h3 id="adding-code-add-code"><a class="link" href="#adding-code-add-code">3.2. Adding: <code>add</code></a></h3>
 <div class="paragraph">
-<p>There are <strong>two</strong> things you can do using the <code>add</code> command:<br>
-1) Adds a current/completed module to the manager<br>
+<p>Adds a module or a task to an existing module in MODdy.<br></p>
+</div>
+<div class="paragraph">
+<p>There are <strong>two</strong> ways you can use the <code>add</code> command:<br></p>
+</div>
+<div class="paragraph">
+<p>1) Add a current/completed module to MODdy<br>
 Format: <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE]</code><br></p>
 </div>
 <div class="sidebarblock">
@@ -106,12 +114,15 @@ Format: <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE]</code><br></p>
 <li>
 <p><code>y/SEMESTER_INDEX</code> must be in the format <code>y/INTEGER</code> (eg. A module taken in Year 2 Semester 1 will be y/3)</p>
 </li>
+<li>
+<p>As you have already specified the current semester you currently are in your academic journey at the start, MODdy will indicate modules added to prior semesters as "completed", while modules that are added to the current semester or to future semesters are indicated as "currently taking" or "planning to take" respectively</p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>2) Adds a deadline to a module in the manager<br>
+<p>2) Add a task with a deadline to a module in MODdy<br>
 Format: <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE] t/TASK d/DEADLINE</code><br></p>
 </div>
 <div class="sidebarblock">
@@ -119,13 +130,13 @@ Format: <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE] t/TASK d/DEADLINE</code><b
 <div class="ulist">
 <ul>
 <li>
-<p>Module must exist in the manager before a deadline can be added</p>
+<p>The module must already exist in MODdy before a task can be added</p>
 </li>
 <li>
-<p><code>d/DEADLINE</code> must be in the format <code>YYYY-MM-DD HH:mm</code> (eg. 2020-03-31 23:59)</p>
+<p><code>d/DEADLINE</code> must be in the format <code>YYYY-MM-DD HH:mm</code> (e.g. 2020-03-31 23:59)</p>
 </li>
 <li>
-<p><code>t/TASK d/DEADLINE</code> will be auto deleted when it is completed</p>
+<p><code>t/TASK d/DEADLINE</code> should be deleted using the <code>delete</code> command when completed</p>
 </li>
 </ul>
 </div>
@@ -138,20 +149,22 @@ Format: <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE] t/TASK d/DEADLINE</code><b
 <ul>
 <li>
 <p><code>add m/CS2105 y/3 g/A+</code><br>
-Adds CS2105 to the list of modules in the MODdy profile with the attributes semester taken (3) and grade (A+)</p>
+Adds CS2105 to the list of modules in the MODdy profile with the semester the module was taken in (3) and the resulting grade (A+)</p>
 </li>
 <li>
 <p><code>add m/CS2105 y/3 t/Assignment d/2020-03-31 23:59</code><br>
-Adds a deadline "Assignment" with its deadline "2020-03-31 23:59" to the existing module CS2105</p>
+Adds a task named "Assignment" with the deadline "31 March 2020 23:59" to the already-existing module CS2105</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-module-code-edit-code"><a class="link" href="#editing-a-module-code-edit-code">3.3. Editing a module : <code>edit</code></a></h3>
+<h3 id="editing-code-edit-code"><a class="link" href="#editing-code-edit-code">3.3. Editing: <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing profile or module in MODdy.<br>
-There are <strong>two</strong> ways you can use the <code>edit</code> command:<br></p>
+<p>Edits an existing profile or module in MODdy.<br></p>
+</div>
+<div class="paragraph">
+<p>There are <strong>two</strong> ways you can use the <code>edit</code> command:<br></p>
 </div>
 <div class="paragraph">
 <p>1) Edit the Profile of the user<br>
@@ -162,25 +175,7 @@ Format: <code>edit [n/NAME] [c/COURSE] [cs/CURRENT_SEMESTER] [s/SPECIALISATION]<
 <div class="ulist">
 <ul>
 <li>
-<p>Fields in brackets [] are optional, but at least one field should be present to be edited.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>2) Edit a module present in MODdy<br>
-Format: `edit m/MODULE [y/SEMESTER_TAKEN] [g/GRADE]</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Fields in brackets [] are optional, but at least one field should be present to be edited.</p>
-</li>
-<li>
-<p>Feature to edit tasks and deadlines will be coming in later versions.</p>
+<p>Fields in brackets [] are optional, but at least one of these fields should be present to be edited</p>
 </li>
 </ul>
 </div>
@@ -192,12 +187,41 @@ Format: `edit m/MODULE [y/SEMESTER_TAKEN] [g/GRADE]</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit s/Theory and Algorithm</code><br>
-Edits current profile&#8217;s specialisation to Theory and Algorithm.</p>
+<p><code>edit n/Brad c/Information Security</code><br>
+Edits your current profile name to "Brad" and your current course to "Information Security" from what they were previously</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>2) Edit a module previously added in MODdy<br>
+Format: <code>edit m/MODULE [y/SEMESTER_TAKEN] [g/GRADE]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Fields in brackets [] are optional, but at least one of these fields should be present to be edited</p>
+</li>
+<li>
+<p>Feature to edit tasks and deadlines will be coming in later versions</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit s/Algorithms &amp; Theory</code><br>
+Edits current profile&#8217;s specialisation to "Algorithms &amp; Theory". If you did not previously specify your specialisation, this adds the specialisation to your profile.</p>
 </li>
 <li>
 <p><code>edit m/CS2103 g/A+</code><br>
-Edits the grade of existing module CS2103 to A+.</p>
+Edits the grade of the module CS2103 to A+</p>
 </li>
 </ul>
 </div>
@@ -205,16 +229,16 @@ Edits the grade of existing module CS2103 to A+.</p>
 <div class="sect2">
 <h3 id="showing-code-show-code"><a class="link" href="#showing-code-show-code">3.4. Showing: <code>show</code></a></h3>
 <div class="paragraph">
-<p>There are multiple details you can show with the <code>show</code> command:</p>
+<p>There are <strong>three</strong> ways you can use the <code>show</code> command:</p>
 </div>
 <div class="paragraph">
-<p>1) Show all modules in a specified semester</p>
+<p>1) Show all modules in a given semester</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>show y/SEMESTER_INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>This lists the modules that have been added in this specified semester.</p>
+<p>This lists the modules that have been added in this given semester.</p>
 </div>
 <div class="paragraph">
 <p>2) Show all modules in a course&#8217;s requirements</p>
@@ -229,16 +253,35 @@ Edits the grade of existing module CS2103 to A+.</p>
 <p>3) Show details of a module</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>show m/MODULE</code></p>
+<p>Format: <code>show m/MODULE_CODE</code></p>
 </div>
 <div class="paragraph">
-<p>This displays all the details of a specified module.</p>
+<p>This displays all the details of the specified module.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>show y/3</code><br>
+Shows all the modules added to the 3rd semester (Year 2 Semester 1)</p>
+</li>
+<li>
+<p><code>show c/computer science</code><br>
+Shows the module requirements and focus areas under Computer Science</p>
+</li>
+<li>
+<p><code>show m/CS2107</code><br>
+Shows the module name, prerequisites, modular credits, description and semesters CS2107 is offered in</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="new-user-profile-code-new-code"><a class="link" href="#new-user-profile-code-new-code">3.5. New user profile : <code>new</code></a></h3>
 <div class="paragraph">
-<p>Creates a new Profile.<br>
+<p>This helps you to create a new Profile.<br>
 Format: <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code></p>
 </div>
 <div class="sidebarblock">
@@ -249,7 +292,7 @@ Format: <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code><
 <p>Fields in brackets [] are optional.</p>
 </li>
 <li>
-<p>Only one profile is allowed. Changing the profile is to be done using the <code>edit</code> command.</p>
+<p>Only one profile is allowed. Changing profile fields are to be done using the <code>edit</code> command. If you wish to create a new profile, please remove it with the <code>delete</code> feature mentioned below</p>
 </li>
 </ul>
 </div>
@@ -262,7 +305,7 @@ Format: <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code><
 <ul>
 <li>
 <p><code>new n/John c/Computer Science cs/4</code><br>
-Creates a new profile with the name John.</p>
+Creates a new profile with the name "John", currently majoring in "Computer Science" and is in his 4th semester of study.</p>
 </li>
 </ul>
 </div>
@@ -298,4 +341,4 @@ There is no need to save manually.</p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 11:40:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 19:31:49 UTC</div></div></div></body></html>
