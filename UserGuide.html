@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>MODdy - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>AY1920S2-CS2103T-W13-3</code>      Since: <code>Jan 2020</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -18,13 +18,13 @@
 <li><a href="#Edit">3.3. Editing: <code>edit</code></a></li>
 <li><a href="#Show">3.4. Showing: <code>show</code></a></li>
 <li><a href="#New">3.5. New user profile : <code>new</code></a></li>
-<li><a href="#Delete">3.6. Delete a user profile : <code>delete</code> (coming in v2.0)</a></li>
+<li><a href="#Delete">3.6. Deleting: <code>delete</code></a></li>
 <li><a href="#Exit">3.7. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">3.8. Saving the data</a></li>
 </ul>
 </li>
-<li><a href="#faq-coming-in-v2-0">4. FAQ (coming in v2.0)</a></li>
-<li><a href="#command-summary-coming-in-v2-0">5. Command Summary (coming in v2.0)</a></li>
+<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -311,8 +311,56 @@ Creates a new profile with the name "John", currently majoring in "Computer Scie
 </div>
 </div>
 <div class="sect2">
-<h3 id="Delete"><a class="link" href="#Delete">3.6. Delete a user profile : <code>delete</code> (coming in v2.0)</a></h3>
-
+<h3 id="Delete"><a class="link" href="#Delete">3.6. Deleting: <code>delete</code></a></h3>
+<div class="paragraph">
+<p>There are <strong>three</strong> ways you can use the <code>delete</code> command:</p>
+</div>
+<div class="paragraph">
+<p>1) Delete a user profile</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete n/NAME</code></p>
+</div>
+<div class="paragraph">
+<p>This deletes the profile of the specified user, including all modules, tasks and deadlines of that profile.</p>
+</div>
+<div class="paragraph">
+<p>2) Delete a module</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete m/MODULE_CODE</code></p>
+</div>
+<div class="paragraph">
+<p>This deletes the specified module from the current profile, including all tasks and deadlines of that module.</p>
+</div>
+<div class="paragraph">
+<p>3) Delete a task</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete m/MODULE_CODE t/TASK</code></p>
+</div>
+<div class="paragraph">
+<p>This deletes the specified task and its deadline from the specified module.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete n/John</code><br>
+Deletes the profile of the user "John".</p>
+</li>
+<li>
+<p><code>delete m/CS2103T</code><br>
+Deletes the module CS2103T from the current profile.</p>
+</li>
+<li>
+<p><code>delete m/CS2103T t/Assignment</code><br>
+Deletes the task "Assignment" from the module CS2103T in the current profile.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
 <h3 id="Exit"><a class="link" href="#Exit">3.7. Exiting the program : <code>exit</code></a></h3>
@@ -331,14 +379,46 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq-coming-in-v2-0"><a class="link" href="#faq-coming-in-v2-0">4. FAQ (coming in v2.0)</a></h2>
+<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous MODdy folder.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary-coming-in-v2-0"><a class="link" href="#command-summary-coming-in-v2-0">5. Command Summary (coming in v2.0)</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
-
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add</strong> <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE] [t/TASK d/DEADLINE]</code><br>
+e.g. <code>add m/CS2105 y/3 t/Assignment d/2020-03-31 23:59</code></p>
+</li>
+<li>
+<p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Delete</strong> : Either <code>delete n/NAME</code> or <code>delete m/MODULE_CODE [t/TASK]</code><br>
+e.g. <code>delete m/CS2103T t/Assignment</code></p>
+</li>
+<li>
+<p><strong>Edit</strong> : <code>edit [n/NAME] [c/COURSE] [cs/CURRENT_SEMESTER] [s/SPECIALISATION]</code><br>
+e.g. <code>edit n/Brad c/Information Security</code></p>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>New</strong> : <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code><br>
+e.g. <code>new n/John c/Computer Science cs/4</code></p>
+</li>
+<li>
+<p><strong>Show</strong> : <code>show [y/SEMESTER_INDEX] [c/COURSE_NAME] [m/MODULE_CODE]</code><br>
+e.g. <code>show c/computer science</code></p>
+</li>
+</ul>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 07:28:49 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 07:35:46 UTC</div></div></div></body></html>
