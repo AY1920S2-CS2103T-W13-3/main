@@ -26,7 +26,7 @@
 <li><a href="#logging">3.2. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.3. Configuration</a></li>
 <li><a href="#new-profile-feature">3.4. New Profile Feature</a></li>
-<li><a href="#add-module-deadline-feature">3.5. Add Module / Deadline Feature</a></li>
+<li><a href="#add-feature">3.5. Add Feature</a></li>
 <li><a href="#show-feature">3.6. Show Feature</a></li>
 <li><a href="#edit-profile-module-feature">3.7. Edit Profile / Module Feature</a></li>
 <li><a href="#delete-profile-module-deadline-feature">3.8. Delete Profile / Module / Deadline Feature</a></li>
@@ -387,9 +387,22 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 
 </div>
 <div class="sect2">
-<h3 id="add-module-deadline-feature"><a class="link" href="#add-module-deadline-feature">3.5. Add Module / Deadline Feature</a></h3>
+<h3 id="add-feature"><a class="link" href="#add-feature">3.5. Add Feature</a></h3>
 <div class="paragraph">
-<p>The <code>add</code> command adds the entity (module, deadline) with the fields provided by the user. <code>add m/module_code y/semester_index</code> adds a module and <code>add m/module_code y/semester_index t/task d/deadline</code> adds a deadline.</p>
+<p>The <code>add</code> feature allows the user to add a module and a task with a deadline for an existing module with the command <code>add</code>, appended with the tags.</p>
+</div>
+<div class="paragraph">
+<p>The tags are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>m/module_code y/semester_index</code> for adding a module</p>
+</li>
+<li>
+<p><code>m/module_code y/semester_index t/task d/deadline</code> for adding a task to an existing module</p>
+</li>
+</ul>
 </div>
 <div class="sect3">
 <h4 id="current-implementations"><a class="link" href="#current-implementations">3.5.1. Current Implementations</a></h4>
@@ -397,52 +410,48 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p><code>AddCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>AddCommand</code> is parsed using <code>AddCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
-<p>The following high-level sequence diagram illustrates the interactions between the <code>Ui</code>, <code>Logic</code> &amp; <code>Model</code> components when a module is being added.</p>
+<p>The following sequence diagram shows how the <code>add</code> operation works with input: <code>add m/CS2105 y/4</code></p>
 </div>
-<div class="paragraph">
-<p>(diagram)</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddSequenceDiagram.png" alt="AddSequenceDiagram">
 </div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the <code>add</code> mechanism behaves at each step:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User launches the application.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>If it is the first time, a <code>Profile</code> object will be created using <code>NewCommand</code>.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>User enters the command. <code>AddCommandParser</code> will create a <code>AddCommand</code> object, which can contain <code>moduleCode</code>, <code>semesterIndex</code>, <code>grade</code>, <code>task</code>, <code>deadline</code>.</p>
-</li>
-<li>
-<p><code>AddCommand#execute(Model model) is executed. `Profile#getHashmap()#values()</code> is called to check if the module already exists.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>If module exists, user will be prompted to add a task and deadline.</p>
-</li>
-<li>
-<p>If module does not exists, a <code>Personal</code> object will be created.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>After the module is added, a <code>CommandResult</code> containing the log of execution result will be returned.</p>
-</li>
-</ol>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">3.5.2. Design Considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Both <code>date</code> and <code>time</code> is compulsory for a <code>deadline</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement since both date and time will be parsed</p>
+</li>
+<li>
+<p>Cons: Some tasks do not have a timing that it must be completed by, making it user-unfriendly</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> The <code>date</code> is compulsory while <code>time</code> is optional for a <code>deadline</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Gives user the flexibility to input different types of tasks</p>
+</li>
+<li>
+<p>Cons: Bugs in <code>deadline</code> related method calls</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>Aspect: How <code>add</code> executes</p>
+<p>Eventually, we decided on alternative 1 due to the benefits of consistency in types of tasks allowed in MODdy as well as to reduce the bugs faced.</p>
 </div>
 </div>
 </div>
@@ -473,7 +482,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect3">
 <h4 id="current-implementations-2"><a class="link" href="#current-implementations-2">3.6.1. Current Implementations</a></h4>
 <div class="paragraph">
-<p><code>show</code> command is parsed using <code>ShowCommandParser</code> to split the user input into relevant fields.</p>
+<p><code>ShowCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>ShowCommand</code> is parsed using <code>ShowCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>show</code> operation works with input: <code>show c/Computer Science</code></p>
@@ -1148,4 +1157,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 06:46:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 07:28:49 UTC</div></div></div></body></html>
