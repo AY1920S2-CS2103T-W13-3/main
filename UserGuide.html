@@ -14,13 +14,14 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#Help">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#add">3.2. Adding: <code>add</code></a></li>
-<li><a href="#Edit">3.3. Editing: <code>edit</code></a></li>
-<li><a href="#Show">3.4. Showing: <code>show</code></a></li>
-<li><a href="#New">3.5. New user profile : <code>new</code></a></li>
+<li><a href="#New">3.2. New user profile : <code>new</code></a></li>
+<li><a href="#Add">3.3. Adding: <code>add</code></a></li>
+<li><a href="#Edit">3.4. Editing: <code>edit</code></a></li>
+<li><a href="#Show">3.5. Showing: <code>show</code></a></li>
 <li><a href="#Delete">3.6. Deleting: <code>delete</code></a></li>
-<li><a href="#Exit">3.7. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.8. Saving the data</a></li>
+<li><a href="#Clear">3.7. Resets the whole application : <code>clear</code></a></li>
+<li><a href="#Exit">3.8. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.9. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -43,13 +44,48 @@ Enjoy!</p>
 <div class="sect1">
 <h2 id="quick-start-coming-in-v2-0"><a class="link" href="#quick-start-coming-in-v2-0">2. Quick Start (coming in v2.0)</a></h2>
 <div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
+</li>
+<li>
+<p>Download the latest <code>MODdy.jar</code> <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/releases">here</a>.</p>
+</li>
+<li>
+<p>Copy the file to the folder you want to use as the home folder for your personalised MODdy.</p>
+</li>
+<li>
+<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
+<li>
+<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+</li>
+<li>
+<p>Create your own profile using <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code></p>
+</li>
+<li>
+<p>Some example commands you can try:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>add</code></strong><code>m/CS2103T y/1</code> : adds CS2103T into your Module List under semester 1</p>
+</li>
+<li>
+<p><strong><code>delete</code></strong><code>n/NAME</code> : deletes your whole profile and its data</p>
+</li>
+<li>
+<p><strong><code>exit</code></strong> : exits the app</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
 </li>
@@ -93,7 +129,39 @@ Enjoy!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add"><a class="link" href="#add">3.2. Adding: <code>add</code></a></h3>
+<h3 id="New"><a class="link" href="#New">3.2. New user profile : <code>new</code></a></h3>
+<div class="paragraph">
+<p>This helps you to create a new Profile.<br>
+Format: <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Fields in brackets [] are optional.</p>
+</li>
+<li>
+<p>Only one profile is allowed. Changing profile fields are to be done using the <code>edit</code> command. If you wish to create a new profile, please remove it with the <a href="#delete"><code>delete</code></a> feature mentioned below</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>new n/John c/Computer Science cs/4</code><br>
+Creates a new profile with the name "John", currently majoring in "Computer Science" and is in his 4th semester of study.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Add"><a class="link" href="#Add">3.3. Adding: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a module or a task to an existing module in MODdy.<br></p>
 </div>
@@ -159,7 +227,7 @@ Adds a task named "Assignment" with the deadline "31 March 2020 23:59" to the al
 </div>
 </div>
 <div class="sect2">
-<h3 id="Edit"><a class="link" href="#Edit">3.3. Editing: <code>edit</code></a></h3>
+<h3 id="Edit"><a class="link" href="#Edit">3.4. Editing: <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing profile or module in MODdy.<br></p>
 </div>
@@ -227,7 +295,7 @@ Edits the grade of the module CS2103 to A+</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Show"><a class="link" href="#Show">3.4. Showing: <code>show</code></a></h3>
+<h3 id="Show"><a class="link" href="#Show">3.5. Showing: <code>show</code></a></h3>
 <div class="paragraph">
 <p>There are <strong>three</strong> ways you can use the <code>show</code> command:</p>
 </div>
@@ -274,38 +342,6 @@ Shows the module requirements and focus areas under Computer Science</p>
 <li>
 <p><code>show m/CS2107</code><br>
 Shows the module name, prerequisites, modular credits, description and semesters CS2107 is offered in</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="New"><a class="link" href="#New">3.5. New user profile : <code>new</code></a></h3>
-<div class="paragraph">
-<p>This helps you to create a new Profile.<br>
-Format: <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Fields in brackets [] are optional.</p>
-</li>
-<li>
-<p>Only one profile is allowed. Changing profile fields are to be done using the <code>edit</code> command. If you wish to create a new profile, please remove it with the <a href="#delete"><code>delete</code></a> feature mentioned below</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>new n/John c/Computer Science cs/4</code><br>
-Creates a new profile with the name "John", currently majoring in "Computer Science" and is in his 4th semester of study.</p>
 </li>
 </ul>
 </div>
@@ -363,14 +399,26 @@ Deletes the task "Assignment" from the module CS2103T in the current profile.</p
 </div>
 </div>
 <div class="sect2">
-<h3 id="Exit"><a class="link" href="#Exit">3.7. Exiting the program : <code>exit</code></a></h3>
+<h3 id="Clear"><a class="link" href="#Clear">3.7. Resets the whole application : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+This allows you to clear all entries from the application including your profile and its data.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.8. Saving the data</a></h3>
+<h3 id="Exit"><a class="link" href="#Exit">3.8. Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
 <div class="paragraph">
 <p>MODdy data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -421,4 +469,4 @@ e.g. <code>show c/computer science</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 07:55:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 08:07:05 UTC</div></div></div></body></html>
