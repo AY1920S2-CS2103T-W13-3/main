@@ -10,22 +10,23 @@
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start-coming-in-v2-0">2. Quick Start (coming in v2.0)</a></li>
-<li><a href="#Features">3. Features</a>
+<li><a href="#about-the-user-guide">2. About the User Guide</a></li>
+<li><a href="#quick-start">3. Quick Start</a></li>
+<li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
-<li><a href="#Help">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#New">3.2. New user profile : <code>new</code></a></li>
-<li><a href="#Add">3.3. Adding: <code>add</code></a></li>
-<li><a href="#Edit">3.4. Editing: <code>edit</code></a></li>
-<li><a href="#Show">3.5. Showing: <code>show</code></a></li>
-<li><a href="#Delete">3.6. Deleting: <code>delete</code></a></li>
-<li><a href="#Clear">3.7. Resets the whole application : <code>clear</code></a></li>
-<li><a href="#Exit">3.8. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
+<li><a href="#Help">4.1. Viewing help : <code>help</code></a></li>
+<li><a href="#New">4.2. New user profile : <code>new</code></a></li>
+<li><a href="#Add">4.3. Adding: <code>add</code></a></li>
+<li><a href="#Edit">4.4. Editing: <code>edit</code></a></li>
+<li><a href="#Show">4.5. Showing: <code>show</code></a></li>
+<li><a href="#Delete">4.6. Deleting: <code>delete</code></a></li>
+<li><a href="#Clear">4.7. Resetting MODdy : <code>clear</code></a></li>
+<li><a href="#Exit">4.8. Exiting MODdy : <code>exit</code></a></li>
+<li><a href="#saving-your-data">4.9. Saving your data</a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -33,34 +34,89 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>MODdy is an one-stop application for all your academic needs, keeping you organized and well-planned throughout your course of study.
+<p>Welcome to MODdy! MODdy is an one-stop application for all your academic needs, keeping you organized and well-planned throughout your course of study.
 It is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI).
-Currently, MODdy targets student from <strong>School of Computing (SoC)</strong> in the National University of Singapore (NUS).
-If you are from SoC and is looking for an application to manage all your modules throughout your degree progression, jump to <a href="#Quick Start">[Quick Start]</a> to get started.
-Enjoy!</p>
+This user guide aims to give you a clearer understanding on how to use MODdy as well as a summary of its features.</p>
+</div>
+<div class="paragraph">
+<p>Currently, MODdy targets student from <strong>School of Computing (SoC)</strong> in the National University of Singapore (NUS).
+If you are from SoC and is looking for an application to manage all your modules and tasks throughout your degree progression, what are you waiting for?
+Jump to <a href="#quick-start">Quick Start</a> to get started. Hope you enjoy the company of MODdy on your SoC journey!</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="quick-start-coming-in-v2-0"><a class="link" href="#quick-start-coming-in-v2-0">2. Quick Start (coming in v2.0)</a></h2>
+<h2 id="about-the-user-guide"><a class="link" href="#about-the-user-guide">2. About the User Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This user guide presents to you the following features of MODdy:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>View help</p>
+</li>
+<li>
+<p>New user profile</p>
+</li>
+<li>
+<p>Add module &amp; task</p>
+</li>
+<li>
+<p>Edit profile &amp; module</p>
+</li>
+<li>
+<p>Show profile, semester, course, focus area &amp; module</p>
+</li>
+<li>
+<p>Delete profile, module &amp; task</p>
+</li>
+<li>
+<p>Reset MODdy</p>
+</li>
+<li>
+<p>Exit MODdy</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Please note the following which may serve as points of interests:</p>
+</div>
+<div class="paragraph">
+<p><kbd>Enter</kbd> : This grey highlight with white outline indicates a keyboard&#8217;s key</p>
+</div>
+<div class="paragraph">
+<p><code>word</code> : This grey highlight indicates commands that you can type into MODdy&#8217;s command box</p>
+</div>
+<div class="paragraph">
+<p>NOTE : This symbol indicates information that you may wish to note</p>
+</div>
+<div class="paragraph">
+<p>TIP : This symbol indicates examples or tips provided by us</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="quick-start"><a class="link" href="#quick-start">3. Quick Start</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
+<p>Ensure you have Java <strong>11</strong> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>MODdy.jar</code> <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/releases">here</a>.</p>
+<p>Download the latest <strong>MODdy.jar</strong> <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your personalised MODdy.</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Double-click the file to start the app. The GUI, as shown in the figure below, should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
 </div>
+<div class="title">Figure 1: GUI of MODdy</div>
 </div>
 </li>
 <li>
@@ -75,10 +131,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>add</code></strong><code>m/CS2103T y/1</code> : adds CS2103T into your Module List under semester 1</p>
+<p><strong><code>add</code></strong><code>m/CS2103T y/1</code> : adds CS2103T into your list of modules under Year 1 Semester 1</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>n/NAME</code> : deletes your whole profile and its data</p>
+<p><strong><code>delete</code></strong><code>n/NAME</code> : deletes your entire profile and its data</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -87,14 +143,14 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 <li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>Refer to <a href="#Features">Section 4, &#8220;Features&#8221;</a> for details of each command.</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
+<h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
@@ -107,7 +163,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Words in <code>UPPER_CASE</code> are the parameters supplied by you e.g. in <code>add m/MODULE</code>, <code>MODULE</code> is a parameter which can be used as <code>add m/CS2103</code></p>
 </li>
 <li>
-<p>Parameters can be entered in any format, unless stated otherwise</p>
+<p>Parameters can be entered in any format and are case-insensitive, unless stated otherwise</p>
 </li>
 <li>
 <p>Items in square brackets are optional e.g <code>m/MODULE [g/GRADE]</code> can be used as <code>m/CS2103 g/A+</code> or as <code>m/CS2103</code></p>
@@ -120,19 +176,31 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="Help"><a class="link" href="#Help">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="Help"><a class="link" href="#Help">4.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>You will be directed to MODdy&#8217;s User Guide.<br></p>
+<p>This command provides you with a link as shown in the figure below. The link directs you to this User Guide where you can get more information on how to use each feature in MODdy.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Help.png" alt="Help" width="790">
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="New"><a class="link" href="#New">3.2. New user profile : <code>new</code></a></h3>
+<h3 id="New"><a class="link" href="#New">4.2. New user profile : <code>new</code></a></h3>
 <div class="paragraph">
-<p>This helps you to create a new Profile.<br>
-Format: <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code></p>
+<p>This command creates a new profile for you as shown in the figure below. You will have to provide your details as parameters.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/New.png" alt="New" width="790">
+</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -142,28 +210,33 @@ Format: <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code><
 <p>Fields in brackets [] are optional.</p>
 </li>
 <li>
-<p>Only one profile is allowed. Changing profile fields are to be done using the <code>edit</code> command. If you wish to create a new profile, please remove it with the <a href="#delete"><code>delete</code></a> feature mentioned below</p>
+<p><code>cs/CURRENT_SEMESTER</code> must be entered as an integer, e.g. if you are currently in Year 2 Semester 1, you will enter <code>cs/3</code></p>
 </li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><code>new n/John c/Computer Science cs/4</code><br>
-Creates a new profile with the name "John", currently majoring in "Computer Science" and is in his 4th semester of study.</p>
+<p>Only one profile is allowed. Changing profile fields are to be done using the <code>edit</code> command. If you wish to create a new profile, please remove it with the <a href="#Delete"><code>delete</code></a> feature mentioned in <a href="#Delete">Section 4.6.</a></p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>new n/John c/Computer Science cs/4</code><br>
+Creates a new profile with the name "John", currently majoring in "Computer Science" and is in his 4th semester of study.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Add"><a class="link" href="#Add">3.3. Adding: <code>add</code></a></h3>
+<h3 id="Add"><a class="link" href="#Add">4.3. Adding: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a module or a task to an existing module in MODdy.<br></p>
+<p>This command adds a module or a task to an existing module in MODdy.</p>
 </div>
 <div class="paragraph">
 <p>There are <strong>two</strong> ways you can use the <code>add</code> command:<br></p>
@@ -172,26 +245,52 @@ Creates a new profile with the name "John", currently majoring in "Computer Scie
 <p>1) Add a current/completed module to MODdy<br>
 Format: <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE]</code><br></p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddModule.png" alt="AddModule" width="790">
+</div>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
+<p><code>m/MODULE</code> is case-sensitive and must be entered in capital letters</p>
+</li>
+<li>
+<p><code>y/SEMESTER_INDEX</code> must be entered as an integer, e.g. if you took the module in Year 2 Semester 1, you will enter <code>y/3</code></p>
+</li>
+<li>
+<p>As you have already specified the current semester you are currently in when creating your profile, MODdy will indicate modules added to prior semesters as <strong>"completed"</strong>, and modules that are added to the current semester or to future semesters are indicated as <strong>"currently taking"</strong> or <strong>"planning to take"</strong> respectively</p>
+</li>
+<li>
 <p><code>g/GRADE</code> is optional</p>
-</li>
-<li>
-<p><code>y/SEMESTER_INDEX</code> must be in the format <code>y/INTEGER</code> (eg. A module taken in Year 2 Semester 1 will be y/3)</p>
-</li>
-<li>
-<p>As you have already specified the current semester you currently are in your academic journey at the start, MODdy will indicate modules added to prior semesters as "completed", while modules that are added to the current semester or to future semesters are indicated as "currently taking" or "planning to take" respectively</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>add m/CS2105 y/3 g/A+</code><br>
+Adds CS2105 to the list of modules under the 3rd semester (Year 2 Semester 1) with the resulting grade, A+
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>2) Add a task with a deadline to a module in MODdy<br>
 Format: <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE] t/TASK d/DEADLINE</code><br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddTask.png" alt="AddTask" width="790">
+</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -201,42 +300,45 @@ Format: <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE] t/TASK d/DEADLINE</code><b
 <p>The module must already exist in MODdy before a task can be added</p>
 </li>
 <li>
-<p><code>d/DEADLINE</code> must be in the format <code>YYYY-MM-DD HH:mm</code> (e.g. 2020-03-31 23:59)</p>
+<p><code>d/DEADLINE</code> must be entered in the format <code>YYYY-MM-DD HH:mm</code> (e.g. 2020-03-31 23:59)</p>
 </li>
 <li>
-<p><code>t/TASK d/DEADLINE</code> should be deleted using the <code>delete</code> command when completed</p>
+<p>Completed <code>t/TASK d/DEADLINE</code> should be deleted by you using the <a href="#Delete"><code>delete</code></a> feature</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add m/CS2105 y/3 g/A+</code><br>
-Adds CS2105 to the list of modules in the MODdy profile with the semester the module was taken in (3) and the resulting grade (A+)</p>
-</li>
-<li>
-<p><code>add m/CS2105 y/3 t/Assignment d/2020-03-31 23:59</code><br>
-Adds a task named "Assignment" with the deadline "31 March 2020 23:59" to the already-existing module CS2105</p>
-</li>
-</ul>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>add m/CS2105 y/3 t/Assignment d/2020-03-31 23:59</code><br>
+Adds a task named "Assignment" with the deadline "31 March 2020 23:59" to the already-existing module CS2105
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Edit"><a class="link" href="#Edit">3.4. Editing: <code>edit</code></a></h3>
+<h3 id="Edit"><a class="link" href="#Edit">4.4. Editing: <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing profile or module in MODdy.<br></p>
+<p>This command edits your profile or a module in MODdy.<br></p>
 </div>
 <div class="paragraph">
 <p>There are <strong>two</strong> ways you can use the <code>edit</code> command:<br></p>
 </div>
 <div class="paragraph">
-<p>1) Edit the Profile of the user<br>
+<p>1) Edit your profile<br>
 Format: <code>edit [n/NAME] [c/COURSE] [cs/CURRENT_SEMESTER] [s/SPECIALISATION]</code><br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditProfile.png" alt="EditProfile" width="790">
+</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -245,24 +347,34 @@ Format: <code>edit [n/NAME] [c/COURSE] [cs/CURRENT_SEMESTER] [s/SPECIALISATION]<
 <li>
 <p>Fields in brackets [] are optional, but at least one of these fields should be present to be edited</p>
 </li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><code>edit n/Brad c/Information Security</code><br>
-Edits your current profile name to "Brad" and your current course to "Information Security" from what they were previously</p>
+<p>If you did not specify your specialisation when you created your profile, <code>edit s/SPECIALISATION</code> adds the specialisation to your profile</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>edit n/Brad c/Information Security s/Software Engineering</code><br>
+Edits your profile name to "Brad", your course to "Information Security", and your specialisation to "Software Engineering" from what they were previously
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>2) Edit a module previously added in MODdy<br>
 Format: <code>edit m/MODULE [y/SEMESTER_TAKEN] [g/GRADE]</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditModule.png" alt="EditModule" width="790">
+</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -278,156 +390,258 @@ Format: <code>edit m/MODULE [y/SEMESTER_TAKEN] [g/GRADE]</code></p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit s/Algorithms &amp; Theory</code><br>
-Edits current profile&#8217;s specialisation to "Algorithms &amp; Theory". If you did not previously specify your specialisation, this adds the specialisation to your profile.</p>
-</li>
-<li>
-<p><code>edit m/CS2103 g/A+</code><br>
-Edits the grade of the module CS2103 to A+</p>
-</li>
-</ul>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>edit m/CS2103 g/A+</code><br>
+Edits your grade of the module CS2103 to A+
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Show"><a class="link" href="#Show">3.5. Showing: <code>show</code></a></h3>
+<h3 id="Show"><a class="link" href="#Show">4.5. Showing: <code>show</code></a></h3>
 <div class="paragraph">
-<p>There are <strong>three</strong> ways you can use the <code>show</code> command:</p>
+<p>This command displays the details of your parameter.<br></p>
 </div>
 <div class="paragraph">
-<p>1) Show all modules in a given semester</p>
+<p>There are <strong>four</strong> ways you can use the <code>show</code> command:</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>show y/SEMESTER_INDEX</code></p>
+<p>1) Show your profile<br>
+Format: <code>show n/NAME</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ShowProfile.png" alt="ShowProfile" width="790">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All the modules under every semester, grades of completed modules, as well as your current Cumulative Average Point (CAP) will be displayed
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>This lists the modules that have been added in this given semester.</p>
+<p>2) Show modules in the specified semester<br>
+Format: <code>show y/SEMESTER_INDEX</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ShowSemester.png" alt="ShowSemester" width="790">
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>show y/4</code><br>
+Shows all the modules added to the 3rd semester (Year 2 Semester 2)
+</td>
+</tr>
+</table>
+</div>
+<div id="showCourse" class="paragraph">
+<p>3) Show the course&#8217;s requirements<br>
+Format: <code>show c/COURSE_NAME</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ShowCourse.png" alt="ShowCourse" width="790">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All required modules as well as modules under focus areas of the course will be displayed
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>2) Show all modules in a course&#8217;s requirements</p>
+<p>4) Show modules under the specified focus area<br>
+Format: <code>show f/FOCUS_AREA</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ShowFocusArea.png" alt="ShowFocusArea" width="790">
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can retrieve the list of focus areas under a course using the <a href="#showCourse"><code>show c/COURSE</code></a> command
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Format: <code>show c/COURSE_NAME</code></p>
+<p>5) Show details of a module<br>
+Format: <code>show m/MODULE_CODE</code></p>
 </div>
-<div class="paragraph">
-<p>This lists the module requirements under this course.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ShowModule.png" alt="ShowModule" width="790">
 </div>
-<div class="paragraph">
-<p>3) Show details of a module</p>
 </div>
-<div class="paragraph">
-<p>Format: <code>show m/MODULE_CODE</code></p>
-</div>
-<div class="paragraph">
-<p>This displays all the details of the specified module.</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>show y/3</code><br>
-Shows all the modules added to the 3rd semester (Year 2 Semester 1)</p>
-</li>
-<li>
-<p><code>show c/computer science</code><br>
-Shows the module requirements and focus areas under Computer Science</p>
-</li>
-<li>
-<p><code>show m/CS2107</code><br>
-Shows the module name, prerequisites, modular credits, description and semesters CS2107 is offered in</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The module name, prerequisites, modular credits, description and semesters the module is offered will be displayed
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Delete"><a class="link" href="#Delete">3.6. Deleting: <code>delete</code></a></h3>
+<h3 id="Delete"><a class="link" href="#Delete">4.6. Deleting: <code>delete</code></a></h3>
+<div class="paragraph">
+<p>This command deletes the data in MODdy according to your parameters.</p>
+</div>
 <div class="paragraph">
 <p>There are <strong>three</strong> ways you can use the <code>delete</code> command:</p>
 </div>
 <div class="paragraph">
-<p>1) Delete a user profile</p>
+<p>1) Delete your profile<br>
+Format: <code>delete n/NAME</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteProfile.png" alt="DeleteProfile" width="790">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Your profile, including all modules, grades and deadlines under your name, will be deleted from MODdy
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete n/NAME</code></p>
+<p>2) Delete a module<br>
+Format: <code>delete m/MODULE_CODE</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteModule.png" alt="DeleteModule" width="790">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The specified module, including all tasks and deadlines of that module, will be deleted from MODdy
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>This deletes the profile of the specified user, including all modules, tasks and deadlines of that profile.</p>
+<p>3) Delete a task<br>
+Format: <code>delete m/MODULE_CODE t/TASK</code></p>
 </div>
-<div class="paragraph">
-<p>2) Delete a module</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteTask.png" alt="DeleteTask" width="790">
 </div>
-<div class="paragraph">
-<p>Format: <code>delete m/MODULE_CODE</code></p>
 </div>
-<div class="paragraph">
-<p>This deletes the specified module from the current profile, including all tasks and deadlines of that module.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The specified task and its deadline will be deleted from the specified module
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>3) Delete a task</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete m/MODULE_CODE t/TASK</code></p>
-</div>
-<div class="paragraph">
-<p>This deletes the specified task and its deadline from the specified module.</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete n/John</code><br>
-Deletes the profile of the user "John".</p>
-</li>
-<li>
-<p><code>delete m/CS2103T</code><br>
-Deletes the module CS2103T from the current profile.</p>
-</li>
-<li>
-<p><code>delete m/CS2103T t/Assignment</code><br>
-Deletes the task "Assignment" from the module CS2103T in the current profile.</p>
-</li>
-</ul>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>delete m/CS2103T t/Assignment</code><br>
+Deletes the task "Assignment" from the module CS2103T in your profile
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Clear"><a class="link" href="#Clear">3.7. Resets the whole application : <code>clear</code></a></h3>
+<h3 id="Clear"><a class="link" href="#Clear">4.7. Resetting MODdy : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-This allows you to clear all entries from the application including your profile and its data.</p>
+<p>This command clears all entries from MODdy including your profile and its data, as shown in the figure below.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>clear</code></p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Clear.png" alt="Clear" width="790">
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="Exit"><a class="link" href="#Exit">3.8. Exiting the program : <code>exit</code></a></h3>
+<h3 id="Exit"><a class="link" href="#Exit">4.8. Exiting MODdy : <code>exit</code></a></h3>
 <div class="paragraph">
-<p>Exits the program.</p>
+<p>This command closes the GUI and exits MODdy.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>exit</code></p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Exit.png" alt="Exit" width="790">
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
+<h3 id="saving-your-data"><a class="link" href="#saving-your-data">4.9. Saving your data</a></h3>
 <div class="paragraph">
-<p>MODdy data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
+<p>Your MODdy&#8217;s data are saved in the hard disk automatically after any command that changes the data. There is no need for you to save manually.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
@@ -436,37 +650,41 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE] [t/TASK d/DEADLINE]</code><br>
-e.g. <code>add m/CS2105 y/3 t/Assignment d/2020-03-31 23:59</code></p>
+<p><a href="#Help"><strong>Help</strong></a> : <code>help</code></p>
 </li>
 <li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : Either <code>delete n/NAME</code> or <code>delete m/MODULE_CODE [t/TASK]</code><br>
-e.g. <code>delete m/CS2103T t/Assignment</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit [n/NAME] [c/COURSE] [cs/CURRENT_SEMESTER] [s/SPECIALISATION]</code><br>
-e.g. <code>edit n/Brad c/Information Security</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>New</strong> : <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code><br>
+<p><a href="#New"><strong>New</strong></a> : <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code><br>
 e.g. <code>new n/John c/Computer Science cs/4</code></p>
 </li>
 <li>
-<p><strong>Show</strong> : <code>show [y/SEMESTER_INDEX] [c/COURSE_NAME] [m/MODULE_CODE]</code><br>
-e.g. <code>show c/computer science</code></p>
+<p><a href="#Add"><strong>Add</strong></a> : <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE] [t/TASK] [d/DEADLINE]</code><br>
+e.g. <code>add m/CS2105 y/3 t/Assignment d/2020-03-31 23:59</code></p>
+</li>
+<li>
+<p><a href="#Edit"><strong>Edit</strong></a> : <code>edit [n/NAME] [c/COURSE] [cs/CURRENT_SEMESTER] [s/SPECIALISATION]</code><br>
+e.g. <code>edit n/Brad c/Information Security s/Software Engineering</code><br>
+or <code>edit m/MODULE [y/SEMESTER_TAKEN] [g/GRADE]</code><br>
+e.g. <code>edit m/CS2103 g/A+</code></p>
+</li>
+<li>
+<p><a href="#Show"><strong>Show</strong></a> : <code>show [y/SEMESTER_INDEX] [c/COURSE_NAME] [f/FOCUS_AREA] [m/MODULE_CODE]</code><br>
+e.g. <code>show y/4</code>, <code>show c/computer science</code>, <code>show f/software engineering</code>, <code>show m/CS2103T</code></p>
+</li>
+<li>
+<p><a href="#Delete"><strong>Delete</strong></a> : <code>delete n/NAME</code><br>
+e.g. <code>delete n/Brad</code><br>
+or <code>delete m/MODULE_CODE [t/TASK]</code><br>
+e.g. <code>delete m/CS2103T</code>, <code>delete m/CS2103T t/Assignment</code></p>
+</li>
+<li>
+<p><a href="#Clear"><strong>Clear</strong></a> : <code>clear</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-28 15:55:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-29 07:33:45 UTC</div></div></div></body></html>
