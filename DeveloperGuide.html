@@ -614,31 +614,40 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="ulist">
 <ul>
 <li>
-<p><code>n/NAME</code></p>
+<p><code>n/NAME</code> : New name</p>
 </li>
 <li>
-<p><code>c/COURSE</code></p>
+<p><code>c/COURSE</code> : New course</p>
 </li>
 <li>
-<p><code>cs/CURRENT_SEMESTER</code>.</p>
+<p><code>cs/CURRENT_SEMESTER</code> : New current semester</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>To edit <code>module</code>, the command <code>edit</code> should be appended with <code>m/module</code>, followed by one or more of the tags:</p>
+<p>To edit <code>module</code>, the command <code>edit</code> should be appended with <code>m/MODULE</code>, followed by one or more of the tags:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>s/SEMESTER</code></p>
+<p><code>s/SEMESTER</code> : New semester where module is taken</p>
 </li>
 <li>
-<p><code>g/GRADE</code>.</p>
+<p><code>g/GRADE</code> : New grade for the module</p>
+</li>
+<li>
+<p><code>t/TASK</code> : Old task description</p>
+</li>
+<li>
+<p><code>nt/NEW_TASK</code> : New task description</p>
+</li>
+<li>
+<p><code>d/DEADLINE</code> : New date and time</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The feature to edit <code>Deadline</code> is coming soon.</p>
+<p>To edit a deadline, append <code>edit m/MODULE</code> with <code>t/TASK</code> that already exists and is to be edited, followed by either <code>nt/NEW_TASK</code> and/or <code>d/DEADLINE</code> which contain the new task or deadline that will replace the existing one.</p>
 </div>
 <div class="paragraph">
 <p>The <code>edit</code> command extends command class and uses inheritance to facilitate implementation. Hence it inherits the following methods:</p>
@@ -651,13 +660,13 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </ul>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>edit</code> command works: <code>edit m/CS2105 g/A</code>:</p>
+<p>The following sequence diagram shows how the <code>edit</code> command works: <code>edit n/John</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
 </div>
-<div class="title">Figure 9. Interactions Inside the Logic Component for the <code>edit n/NAME</code> Command</div>
+<div class="title">Figure 9. Interactions Inside the Logic Component for the <code>edit n/John</code> Command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1265,4 +1274,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-29 07:33:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-30 08:54:32 UTC</div></div></div></body></html>
