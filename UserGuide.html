@@ -28,6 +28,7 @@
 </li>
 <li><a href="#faq">5. FAQ</a></li>
 <li><a href="#command-summary">6. Command Summary</a></li>
+<li><a href="#appendix">7. Appendix</a></li>
 </ul>
 </div>
 </div>
@@ -38,7 +39,7 @@
 <p>Welcome to MODdy!</p>
 </div>
 <div class="paragraph">
-<p>MODdy is an one-stop application for all your academic needs, keeping you organized and well-planned throughout your course of study.
+<p>MODdy is a one-stop application for all your academic needs, keeping you organized and well-planned throughout your course of study.
 It is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI).
 This user guide aims to give you a clearer understanding on how to use MODdy as well as a summary of its features.</p>
 </div>
@@ -149,7 +150,7 @@ This symbol indicates examples or tips provided by us
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>Create your own profile using <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code></p>
+<p>Create your own profile using <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [f/FOCUS_AREA]</code></p>
 </li>
 <li>
 <p>Some example commands you can try:</p>
@@ -221,20 +222,26 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>This command creates a new profile for you as shown in the figure below. You will have to provide your details as parameters.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code></p>
+<p>Format: <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [f/FOCUS_AREA]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
+<p><code>c/COURSE</code> must be a SoC course, e.g. Computer Science, Business Analytics, Information Systems, Information Security, Computer Engineering. It is <strong>case-insensitive</strong>.</p>
+</li>
+<li>
 <p>Fields in brackets [] are optional.</p>
 </li>
 <li>
-<p><code>cs/CURRENT_SEMESTER</code> must be entered as an integer, e.g. if you are currently in Year 2 Semester 1, you will enter <code>cs/3</code></p>
+<p>Only one profile is allowed. Changing profile fields are to be done using the <code>edit</code> command. If you wish to create a new profile, please remove it with the <a href="#Delete"><code>delete</code></a> feature mentioned in <a href="#Delete">Section 4.6</a></p>
 </li>
 <li>
-<p>Only one profile is allowed. Changing profile fields are to be done using the <code>edit</code> command. If you wish to create a new profile, please remove it with the <a href="#Delete"><code>delete</code></a> feature mentioned in <a href="#Delete">Section 4.6.</a></p>
+<p>The course name entered has to be its full name. Please refer to the <a href="#appendix">Appendix</a> for the list of courses supported</p>
+</li>
+<li>
+<p><code>cs/CURRENT_SEMESTER</code> must be entered as an integer, e.g. if you are currently in Year 2 Semester 1, you will enter <code>cs/3</code></p>
 </li>
 </ul>
 </div>
@@ -277,9 +284,6 @@ Creates a new profile with the name "John", currently majoring in "Computer Scie
 <div class="content">
 <div class="ulist">
 <ul>
-<li>
-<p><code>m/MODULE</code> is case-sensitive and must be entered in capital letters</p>
-</li>
 <li>
 <p><code>y/SEMESTER_INDEX</code> must be entered as an integer, e.g. if you took the module in Year 2 Semester 1, you will enter <code>y/3</code></p>
 </li>
@@ -385,7 +389,7 @@ Green: ≥ 11 days
 <div class="sect3">
 <h4 id="edit-your-profile-br"><a class="link" href="#edit-your-profile-br">4.4.1. Edit your profile<br></a></h4>
 <div class="paragraph">
-<p>Format: <code>edit [n/NAME] [c/COURSE] [cs/CURRENT_SEMESTER] [s/SPECIALISATION]</code><br></p>
+<p>Format: <code>edit [n/NAME] [c/COURSE] [cs/CURRENT_SEMESTER] [f/FOCUS_AREA]</code><br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -395,7 +399,7 @@ Green: ≥ 11 days
 <p>Fields in brackets [] are optional, but at least one of these fields should be present to be edited</p>
 </li>
 <li>
-<p>If you did not specify your specialisation when you created your profile, <code>edit s/SPECIALISATION</code> adds the specialisation to your profile</p>
+<p>If you did not specify your focusArea when you created your profile, <code>edit f/FOCUS_AREA</code> adds the focusArea to your profile</p>
 </li>
 </ul>
 </div>
@@ -415,7 +419,7 @@ Green: ≥ 11 days
 </td>
 <td class="content">
 <code>edit n/Brad c/Information Security s/Software Engineering</code><br>
-Edits your profile name to "Brad", your course to "Information Security", and your specialisation to "Software Engineering" from what they were previously
+Edits your profile name to "Brad", your course to "Information Security", and your focusArea to "Software Engineering" from what they were previously
 </td>
 </tr>
 </table>
@@ -789,7 +793,7 @@ Your profile, including all modules, grades and deadlines under your name, will 
 <p><a href="#Help"><strong>Help</strong></a> : <code>help</code></p>
 </li>
 <li>
-<p><a href="#New"><strong>New</strong></a> : <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [s/SPECIALISATION]</code><br>
+<p><a href="#New"><strong>New</strong></a> : <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [f/FOCUS_AREA]</code><br>
 e.g. <code>new n/John c/Computer Science cs/4</code></p>
 </li>
 <li>
@@ -797,7 +801,7 @@ e.g. <code>new n/John c/Computer Science cs/4</code></p>
 e.g. <code>add m/CS2105 y/3 t/Assignment d/2020-03-31 23:59</code></p>
 </li>
 <li>
-<p><a href="#Edit"><strong>Edit</strong></a> : <code>edit [n/NAME] [c/COURSE] [cs/CURRENT_SEMESTER] [s/SPECIALISATION]</code><br>
+<p><a href="#Edit"><strong>Edit</strong></a> : <code>edit [n/NAME] [c/COURSE] [cs/CURRENT_SEMESTER] [f/FOCUS_AREA]</code><br>
 e.g. <code>edit n/Brad c/Information Security s/Software Engineering</code><br>
 or <code>edit m/MODULE [y/SEMESTER_TAKEN] [g/GRADE]</code><br>
 e.g. <code>edit m/CS2103 g/A+</code><br>
@@ -826,4 +830,35 @@ e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</c
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-31 14:06:58 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="appendix"><a class="link" href="#appendix">7. Appendix</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List of courses currently supported by MODdy</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Business Analytics</p>
+</li>
+<li>
+<p>Computer Engineering</p>
+</li>
+<li>
+<p>Computer Science</p>
+</li>
+<li>
+<p>Information Security</p>
+</li>
+<li>
+<p>Information Systems</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-05 06:35:09 UTC</div></div></div></body></html>
