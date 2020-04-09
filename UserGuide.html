@@ -19,16 +19,9 @@
 <li><a href="#Add">4.3. Adding: <code>add</code></a></li>
 <li><a href="#Edit">4.4. Editing: <code>edit</code></a></li>
 <li><a href="#Show">4.5. Showing: <code>show</code></a></li>
-<li><a href="#Delete">4.6. Deleting: <code>delete</code></a></li>
-<li><a href="#Home">4.7. Returning to Homepage : <code>home</code></a></li>
-<li><a href="#Clear">4.8. Resetting <strong>MODdy</strong>: <code>clear</code></a></li>
-<li><a href="#Exit">4.9. Exiting <strong>MODdy</strong>: <code>exit</code></a></li>
-<li><a href="#saving-your-data">4.10. Saving your data</a></li>
+<li><a href="#Delete">4.6. Deleting a task / module / profile: <code>delete</code></a></li>
 </ul>
 </li>
-<li><a href="#faq">5. FAQ</a></li>
-<li><a href="#command-summary">6. Command Summary</a></li>
-<li><a href="#appendix">7. Appendix</a></li>
 </ul>
 </div>
 </div>
@@ -248,7 +241,7 @@ For more detailed help, you can visit the link provided, as shown in the figure 
 <p>Only one profile is allowed. Changing profile fields are to be done using the <code>edit</code> command. If you wish to create a new profile, please remove it with the <a href="#Delete"><code>delete</code></a> feature mentioned in <a href="#Delete">Section 4.6</a></p>
 </li>
 <li>
-<p>The course name entered has to be its full name. Please refer to the <a href="#appendix">Appendix</a> for the list of courses supported</p>
+<p>The course name entered has to be its full name. Please refer to the <a href="#Appendix">Appendix</a> for the list of courses supported</p>
 </li>
 <li>
 <p><code>cs/CURRENT_SEMESTER</code> must be entered as an integer, e.g. if you are currently in Year 2 Semester 1, you will enter <code>cs/3</code></p>
@@ -645,15 +638,18 @@ The module name, prerequisites, modular credits, description and semesters the m
 </div>
 </div>
 <div class="sect2">
-<h3 id="Delete"><a class="link" href="#Delete">4.6. Deleting: <code>delete</code></a></h3>
+<h3 id="Delete"><a class="link" href="#Delete">4.6. Deleting a task / module / profile: <code>delete</code></a></h3>
 <div class="paragraph">
-<p>This command deletes the data in <strong>MODdy</strong> according to your parameters.</p>
+<p>To remove a task, module or profile from <strong>MODdy</strong>, use the <code>delete</code> command.</p>
 </div>
 <div class="paragraph">
 <p>There are <strong>three</strong> ways you can use the <code>delete</code> command:</p>
 </div>
 <div class="sect3">
-<h4 id="delete-a-task-br"><a class="link" href="#delete-a-task-br">4.6.1. Delete a task<br></a></h4>
+<h4 id="deleting-a-task-br"><a class="link" href="#deleting-a-task-br">4.6.1. Deleting a task<br></a></h4>
+<div class="paragraph">
+<p>Once you have completed a task, you can delete it using the command below. The effect of using this command is shown in the figure below.</p>
+</div>
 <div class="paragraph">
 <p>Format: <code>delete m/MODULE_CODE t/TASK</code></p>
 </div>
@@ -690,7 +686,10 @@ Deletes the task "Assignment" from the module CS2103 in your profile
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-module-br"><a class="link" href="#delete-a-module-br">4.6.2. Delete a module<br></a></h4>
+<h4 id="deleting-a-module-br"><a class="link" href="#deleting-a-module-br">4.6.2. Deleting a module<br></a></h4>
+<div class="paragraph">
+<p>If you have decided not to take a module you were planning to take or to drop a module which you are currently taking, you can delete it with the command below. The effect of using this command is shown in the figure below.</p>
+</div>
 <div class="paragraph">
 <p>Format: <code>delete m/MODULE_CODE</code></p>
 </div>
@@ -714,7 +713,10 @@ The specified module, including all tasks and deadlines of that module, will be 
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-your-profile-br"><a class="link" href="#delete-your-profile-br">4.6.3. Delete your profile<br></a></h4>
+<h4 id="deleting-your-profile-br"><a class="link" href="#deleting-your-profile-br">4.6.3. Deleting your profile<br></a></h4>
+<div class="paragraph">
+<p>If you wish to remove your profile, you can do so with the command below. The effect of using this command is shown in the figure below.</p>
+</div>
 <div class="paragraph">
 <p>Format: <code>delete n/NAME</code></p>
 </div>
@@ -724,6 +726,12 @@ The specified module, including all tasks and deadlines of that module, will be 
 </div>
 <div class="title">Figure 16. Entire profile deleted from <strong>MODdy</strong></div>
 </div>
+<div class="paragraph">
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+NOTE: Your profile, including all modules, grades and deadlines under your name, will be deleted from MODdy</p>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -736,10 +744,12 @@ Your profile, including all modules, grades and deadlines under your name, will 
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4cc4eaff6dc58584feee930e39b45043aaf268d5</p>
 </div>
+<div id="Home" class="paragraph">
+<p>=== Returning to Homepage : <code>home</code></p>
 </div>
-<div class="sect2">
-<h3 id="Home"><a class="link" href="#Home">4.7. Returning to Homepage : <code>home</code></a></h3>
 <div class="paragraph">
 <p>If you want to return to <strong>MODdy</strong>'s Homepage, use this command, as shown in the figure below.</p>
 </div>
@@ -752,9 +762,9 @@ Your profile, including all modules, grades and deadlines under your name, will 
 </div>
 <div class="title">Figure 17. Homepage of <strong>MODdy</strong> shown in Main Panel</div>
 </div>
+<div id="Clear" class="paragraph">
+<p>=== Resetting <strong>MODdy</strong>: <code>clear</code></p>
 </div>
-<div class="sect2">
-<h3 id="Clear"><a class="link" href="#Clear">4.8. Resetting <strong>MODdy</strong>: <code>clear</code></a></h3>
 <div class="paragraph">
 <p>This command clears all entries from <strong>MODdy</strong> including your profile and its data, as shown in the figure below.</p>
 </div>
@@ -767,36 +777,31 @@ Your profile, including all modules, grades and deadlines under your name, will 
 </div>
 <div class="title">Figure 18. All entries from <strong>MODdy</strong> cleared</div>
 </div>
+<div id="Exit" class="paragraph">
+<p>=== Exiting <strong>MODdy</strong>: <code>exit</code></p>
 </div>
-<div class="sect2">
-<h3 id="Exit"><a class="link" href="#Exit">4.9. Exiting <strong>MODdy</strong>: <code>exit</code></a></h3>
 <div class="paragraph">
 <p>If you want to close the GUI and exit <strong>MODdy</strong>, use this command.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>exit</code></p>
 </div>
+<div class="paragraph">
+<p>=== Saving your data</p>
 </div>
-<div class="sect2">
-<h3 id="saving-your-data"><a class="link" href="#saving-your-data">4.10. Saving your data</a></h3>
 <div class="paragraph">
 <p>Your <strong>MODdy</strong>'s data are saved in the hard disk automatically after any command that changes the data. There is no need for you to save manually.</p>
 </div>
+<div class="paragraph">
+<p>== FAQ</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous <strong>MODdy</strong> folder.</p>
 </div>
+<div class="paragraph">
+<p>== Command Summary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>This section provides you with a summary of the list of features that <strong>MODdy</strong> provides.</p>
 </div>
@@ -842,11 +847,9 @@ e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</c
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Appendix</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="appendix"><a class="link" href="#appendix">7. Appendix</a></h2>
-<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -874,4 +877,8 @@ e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</c
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 04:09:17 UTC</div></div></div></body></html>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 06:17:19 UTC</div></div></div></body></html>
