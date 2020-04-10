@@ -242,16 +242,16 @@ For more detailed help, you can visit the link provided, as shown in the figure 
 <p><code>c/COURSE</code> must be a SoC course, e.g. Computer Science, Business Analytics, Information Systems, Information Security, Computer Engineering. It is <strong>case-insensitive</strong>.</p>
 </li>
 <li>
-<p>Fields in brackets [] are optional.</p>
+<p>If you have yet to decided on a focus area, you can choose to add it to your profile using the <a href="#Edit">edit</a> command. Other profile fields can be changed similarly.</p>
 </li>
 <li>
-<p>Only one profile is allowed. Changing profile fields are to be done using the <code>edit</code> command. If you wish to create a new profile, please remove it with the <a href="#Delete"><code>delete</code></a> feature mentioned in <a href="#Delete">Section 4.6</a></p>
+<p>Only one profile is allowed. If you wish to create a new profile, please remove it with the <a href="#Delete"><code>delete</code></a> feature mentioned in <a href="#Delete">Section 4.6</a></p>
 </li>
 <li>
-<p>The course name entered has to be its full name. Please refer to the <a href="#appendix">Appendix</a> for the list of courses supported</p>
+<p>The course / focus name entered has to be its full name. Please refer to the <a href="#appendix">Appendix</a> for the list of courses and focus areas supported</p>
 </li>
 <li>
-<p><code>cs/CURRENT_SEMESTER</code> must be entered as an integer, e.g. if you are currently in Year 2 Semester 1, you will enter <code>cs/3</code></p>
+<p><code>cs/CURRENT_SEMESTER</code> must be entered as an integer, e.g. if you are currently in Year 2 Semester 1, you should enter <code>cs/3</code></p>
 </li>
 </ul>
 </div>
@@ -540,7 +540,7 @@ Edits "Assignment" under CS2105 to "Project"
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-All the modules under every semester, grades of completed modules, as well as your current Cumulative Average Point (CAP) will be displayed
+All the modules under every semester, grades of completed modules, as well as your current Cumulative Average Point (CAP) will be displayed.
 </td>
 </tr>
 </table>
@@ -549,13 +549,16 @@ All the modules under every semester, grades of completed modules, as well as yo
 <div class="sect3">
 <h4 id="show-modules-in-the-specified-semester-br"><a class="link" href="#show-modules-in-the-specified-semester-br">4.5.2. Show modules in the specified semester<br></a></h4>
 <div class="paragraph">
-<p>Format: <code>show y/SEMESTER_INDEX</code></p>
+<p>Format: <code>show y/YEAR_SEMESTER</code></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>show y/2.2</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ShowSemester.png" alt="ShowSemester" width="790">
 </div>
-<div class="title">Figure 10. Modules added to 4th semester shown in Main Panel</div>
+<div class="title">Figure 10. Modules added to Year 2 Semester 2 shown in Main Panel</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -564,8 +567,8 @@ All the modules under every semester, grades of completed modules, as well as yo
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-<code>show y/4</code><br>
-Shows all the modules added to the 4th semester (Year 2 Semester 2)
+<code>show y/2.2</code><br>
+Use this function to quickly display the modules in a particular semester without scrolling for it.
 </td>
 </tr>
 </table>
@@ -575,6 +578,9 @@ Shows all the modules added to the 4th semester (Year 2 Semester 2)
 <h4 id="showCourse"><a class="link" href="#showCourse">4.5.3. Show the course&#8217;s requirements<br></a></h4>
 <div class="paragraph">
 <p>Format: <code>show c/COURSE_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>show c/Information Systems</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -589,7 +595,7 @@ Shows all the modules added to the 4th semester (Year 2 Semester 2)
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-All required modules as well as modules under focus areas of the course will be displayed
+All required modules as well as modules under focus areas of the course will be displayed.
 </td>
 </tr>
 </table>
@@ -599,6 +605,9 @@ All required modules as well as modules under focus areas of the course will be 
 <h4 id="show-modules-under-the-specified-focus-area-br"><a class="link" href="#show-modules-under-the-specified-focus-area-br">4.5.4. Show modules under the specified focus area<br></a></h4>
 <div class="paragraph">
 <p>Format: <code>show f/FOCUS_AREA</code></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>show f/Electronic Commerce</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -613,7 +622,7 @@ All required modules as well as modules under focus areas of the course will be 
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-You can retrieve the list of focus areas under a course using the <a href="#showCourse"><code>show c/COURSE</code></a> command
+You can retrieve the list of focus areas under a course using the <a href="#showCourse"><code>show c/COURSE</code></a> command. This list can also be found in the <a href="#appendix">Appendix</a>
 </td>
 </tr>
 </table>
@@ -624,11 +633,14 @@ You can retrieve the list of focus areas under a course using the <a href="#show
 <div class="paragraph">
 <p>Format: <code>show m/MODULE_CODE</code></p>
 </div>
+<div class="paragraph">
+<p>Example: <code>show CS3230</code></p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ShowModule.png" alt="ShowModule" width="790">
 </div>
-<div class="title">Figure 13. Details of CS3230 shown in the Main Panel</div>
+<div class="title">Figure 13. Details of the module CS3230 shown in the Main Panel</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -637,7 +649,20 @@ You can retrieve the list of focus areas under a course using the <a href="#show
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The module name, prerequisites, modular credits, description and semesters the module is offered in will be displayed
+The module name, prerequisites, modular credits, description and semesters the module is offered in will be displayed.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you request for MODdy to show multiple information at one time, such as course information on Computer Science and module information on CS1101S, using the command <code>show c/Computer Science m/1101s</code>, only 1 object will be shown.<br>
+The object that is prioritised to be shown is in this order, beginning with the highest priority: Profile, Semester information, Module information, Focus area information, Course information.
 </td>
 </tr>
 </table>
@@ -859,28 +884,107 @@ e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</c
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>List of courses currently supported by <strong>MODdy</strong></p>
+<p>List of courses and focus areas (if applicable) currently supported by <strong>MODdy</strong></p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Business Analytics</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Financial Analytics</p>
+</li>
+<li>
+<p>Marketing Analytics</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p>Computer Engineering</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Communications and Networking</p>
+</li>
+<li>
+<p>Embedded Computing</p>
+</li>
+<li>
+<p>Intelligent Systems</p>
+</li>
+<li>
+<p>Interactive Digital Media</p>
+</li>
+<li>
+<p>Large-Scale Computing</p>
+</li>
+<li>
+<p>System-On-A-Chip Design</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p>Computer Science</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Algorithms and Theory</p>
+</li>
+<li>
+<p>Artificial Intelligence</p>
+</li>
+<li>
+<p>Computer Graphics and Games</p>
+</li>
+<li>
+<p>Computer Security</p>
+</li>
+<li>
+<p>Database Systems</p>
+</li>
+<li>
+<p>Multimedia Information Retrieval</p>
+</li>
+<li>
+<p>Networking and Distributed Systems</p>
+</li>
+<li>
+<p>Parallel Computing</p>
+</li>
+<li>
+<p>Programming Languages</p>
+</li>
+<li>
+<p>Software Engineering</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p>Information Security</p>
 </li>
 <li>
 <p>Information Systems</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Digital Innovation</p>
+</li>
+<li>
+<p>Electronic Commerce</p>
+</li>
+<li>
+<p>Financial Technology</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 09:47:20 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 15:54:17 UTC</div></div></div></body></html>

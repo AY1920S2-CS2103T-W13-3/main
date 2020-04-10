@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tang Guang Yan - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">MODdy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W13-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tang Guang Yan - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-3"><a class="link" href="#project-addressbook-level-3">PROJECT: AddressBook - Level 3</a></h2>
+<h2 id="project-moddy"><a class="link" href="#project-moddy">PROJECT: MODdy</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
@@ -10,7 +10,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>MODdy is a desktop application used by NUS Computing students to track their course progression, manage modules and manage deadlines. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
 </div>
 </div>
 </div>
@@ -54,6 +54,9 @@
 </li>
 <li>
 <p>Added Cumulative Average Point (CAP) calculator for users to keep track of their grades</p>
+</li>
+<li>
+<p>Ensured features were working as intended for each commit and version release. Raised and also solved multiple issues (<a href="https://github.com/AY1920S2-CS2103T-W13-3/main/issues?q=is%3Aissue+author%3Agyant6">Issues raised</a>)</p>
 </li>
 </ul>
 </div>
@@ -108,7 +111,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/pull/280">#280</a></p>
 </li>
 </ul>
 </div>
@@ -117,9 +120,6 @@
 <p>Community:</p>
 <div class="ulist">
 <ul>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
 <li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/gyant6/ped/issues">1</a>)</p>
 </li>
@@ -147,26 +147,23 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="Delete"><a class="link" href="#Delete">Deleting a task / module / profile: <code>delete</code></a></h3>
+<h3 id="Show"><a class="link" href="#Show">Showing: <code>show</code></a></h3>
 <div class="paragraph">
-<p>To remove a task, module or profile from <strong>MODdy</strong>, use the <code>delete</code> command.</p>
+<p>To see the information you have added previously, use the <code>show</code> command to do so.<br></p>
 </div>
 <div class="paragraph">
-<p>There are <strong>three</strong> ways you can use the <code>delete</code> command:</p>
+<p>There are <strong>five</strong> ways you can use the <code>show</code> command:</p>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-task-br"><a class="link" href="#deleting-a-task-br">Deleting a task<br></a></h4>
+<h4 id="show-your-profile-br"><a class="link" href="#show-your-profile-br">Show your profile<br></a></h4>
 <div class="paragraph">
-<p>Once you have completed a task, you can delete it using the command below. The effect of using this command is shown in the figure below.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete m/MODULE_CODE t/TASK</code></p>
+<p>Format: <code>show n/NAME</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DeleteTask.png" alt="DeleteTask" width="790">
+<img src="../images/ShowProfile.png" alt="ShowProfile" width="790">
 </div>
-<div class="title">Figure 1. "Project Submission" for CS2103 deleted from the Deadline Panel</div>
+<div class="title">Figure 1. Entire profile is shown in the Main Panel</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -175,10 +172,25 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The specified task and its deadline will be deleted from the specified module
+All the modules under every semester, grades of completed modules, as well as your current Cumulative Average Point (CAP) will be displayed.
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="show-modules-in-the-specified-semester-br"><a class="link" href="#show-modules-in-the-specified-semester-br">Show modules in the specified semester<br></a></h4>
+<div class="paragraph">
+<p>Format: <code>show y/YEAR_SEMESTER</code></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>show y/2.2</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ShowSemester.png" alt="ShowSemester" width="790">
+</div>
+<div class="title">Figure 2. Modules added to Year 2 Semester 2 shown in Main Panel</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -187,26 +199,26 @@ The specified task and its deadline will be deleted from the specified module
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-<code>delete m/CS2103 t/Project Submission</code><br>
-Deletes the task "Assignment" from the module CS2103 in your profile
+<code>show y/2.2</code><br>
+Use this function to quickly display the modules in a particular semester without scrolling for it.
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-module-br"><a class="link" href="#deleting-a-module-br">Deleting a module<br></a></h4>
+<h4 id="showCourse"><a class="link" href="#showCourse">Show the course&#8217;s requirements<br></a></h4>
 <div class="paragraph">
-<p>If you have decided not to take a module you were planning to take or to drop a module which you are currently taking, you can delete it with the command below. The effect of using this command is shown in the figure below.</p>
+<p>Format: <code>show c/COURSE_NAME</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete m/MODULE_CODE</code></p>
+<p>Example: <code>show c/Information Systems</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DeleteModule.png" alt="DeleteModule" width="790">
+<img src="../images/ShowCourse.png" alt="ShowCourse" width="790">
 </div>
-<div class="title">Figure 2. CS2107 and its tasks deleted from <strong>MODdy</strong></div>
+<div class="title">Figure 3. Course requirement and focus areas of Information Systems shown in the Main Panel</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -215,25 +227,52 @@ Deletes the task "Assignment" from the module CS2103 in your profile
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The specified module, including all tasks and deadlines of that module, will be deleted from <strong>MODdy</strong>
+All required modules as well as modules under focus areas of the course will be displayed.
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-your-profile-br"><a class="link" href="#deleting-your-profile-br">Deleting your profile<br></a></h4>
+<h4 id="show-modules-under-the-specified-focus-area-br"><a class="link" href="#show-modules-under-the-specified-focus-area-br">Show modules under the specified focus area<br></a></h4>
 <div class="paragraph">
-<p>If you wish to remove your profile, you can do so with the command below. The effect of using this command is shown in the figure below.</p>
+<p>Format: <code>show f/FOCUS_AREA</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete n/NAME</code></p>
+<p>Example: <code>show f/Electronic Commerce</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DeleteProfile.png" alt="DeleteProfile" width="790">
+<img src="../images/ShowFocusArea.png" alt="ShowFocusArea" width="790">
 </div>
-<div class="title">Figure 3. Entire profile deleted from <strong>MODdy</strong></div>
+<div class="title">Figure 4. Modules under Electronic Commerce, which is a focus area of Information Systems, shown in the Main Panel</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can retrieve the list of focus areas under a course using the <a href="#showCourse"><code>show c/COURSE</code></a> command. This list can also be found in the <a href="#appendix">Appendix</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="show-details-of-a-module-br"><a class="link" href="#show-details-of-a-module-br">Show details of a module<br></a></h4>
+<div class="paragraph">
+<p>Format: <code>show m/MODULE_CODE</code></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>show CS3230</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ShowModule.png" alt="ShowModule" width="790">
+</div>
+<div class="title">Figure 5. Details of the module CS3230 shown in the Main Panel</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -242,12 +281,135 @@ The specified module, including all tasks and deadlines of that module, will be 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Your profile, including all modules, grades and deadlines under your name, will be deleted from <strong>MODdy</strong>
+The module name, prerequisites, modular credits, description and semesters the module is offered in will be displayed.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you request for MODdy to show multiple information at one time, such as course information on Computer Science and module information on CS1101S, using the command <code>show c/Computer Science m/1101s</code>, only 1 object will be shown.<br>
+The object that is prioritised to be shown is in this order, beginning with the highest priority: Profile, Semester information, Module information, Focus area information, Course information.
 </td>
 </tr>
 </table>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appendix"><a class="link" href="#appendix">Appendix</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List of courses and focus areas (if applicable) currently supported by <strong>MODdy</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Business Analytics</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Financial Analytics</p>
+</li>
+<li>
+<p>Marketing Analytics</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Computer Engineering</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Communications and Networking</p>
+</li>
+<li>
+<p>Embedded Computing</p>
+</li>
+<li>
+<p>Intelligent Systems</p>
+</li>
+<li>
+<p>Interactive Digital Media</p>
+</li>
+<li>
+<p>Large-Scale Computing</p>
+</li>
+<li>
+<p>System-On-A-Chip Design</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Computer Science</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Algorithms and Theory</p>
+</li>
+<li>
+<p>Artificial Intelligence</p>
+</li>
+<li>
+<p>Computer Graphics and Games</p>
+</li>
+<li>
+<p>Computer Security</p>
+</li>
+<li>
+<p>Database Systems</p>
+</li>
+<li>
+<p>Multimedia Information Retrieval</p>
+</li>
+<li>
+<p>Networking and Distributed Systems</p>
+</li>
+<li>
+<p>Parallel Computing</p>
+</li>
+<li>
+<p>Programming Languages</p>
+</li>
+<li>
+<p>Software Engineering</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Information Security</p>
+</li>
+<li>
+<p>Information Systems</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Digital Innovation</p>
+</li>
+<li>
+<p>Electronic Commerce</p>
+</li>
+<li>
+<p>Financial Technology</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -264,153 +426,6 @@ Your profile, including all modules, grades and deadlines under your name, will 
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="dependency-between-personals-and-modules"><a class="link" href="#dependency-between-personals-and-modules">Dependency between Personals and Modules</a></h3>
-<div class="paragraph">
-<p>(Insert class diagrams showing dependencies)</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="new-profile-feature"><a class="link" href="#new-profile-feature">New Profile Feature</a></h3>
-<div class="paragraph">
-<p>The <code>new</code> feature allows the user to create a profile with the command <code>new</code>, appended with the tags.</p>
-</div>
-<div class="paragraph">
-<p>The tags are:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>n/name</code> for <code>Name</code></p>
-</li>
-<li>
-<p><code>c/course</code> for <code>Course</code></p>
-</li>
-<li>
-<p><code>cs/current_semester</code> for <code>Current Semester</code></p>
-</li>
-<li>
-<p><code>s/focusArea</code> for <code>Specialisation</code></p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="current-implementations"><a class="link" href="#current-implementations">Current Implementations</a></h4>
-<div class="paragraph">
-<p><code>NewCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>NewCommand</code> is parsed using <code>NewCommandParser</code> to split the user input into relevant fields.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the <code>new</code> operation works with the input: <code>new n/John c/Computer Science cs/4</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/NewCommandSequenceDiagram.png" alt="NewCommandSequenceDiagram">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-pending"><a class="link" href="#design-considerations-pending">Design Considerations (pending)</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros:</p>
-</li>
-<li>
-<p>Cons:</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros:</p>
-</li>
-<li>
-<p>Cons:</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-feature"><a class="link" href="#add-feature">Add Feature</a></h3>
-<div class="paragraph">
-<p>The <code>add</code> feature allows the user to add a module and a task with a deadline for an existing module with the command <code>add</code>, appended with the tags.</p>
-</div>
-<div class="paragraph">
-<p>The tags are:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>m/module_code y/semester_index</code> for adding a module</p>
-</li>
-<li>
-<p><code>m/module_code y/semester_index t/task d/deadline</code> for adding a task to an existing module</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="current-implementations-2"><a class="link" href="#current-implementations-2">Current Implementations</a></h4>
-<div class="paragraph">
-<p><code>AddCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>AddCommand</code> is parsed using <code>AddCommandParser</code> to split the user input into relevant fields.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the <code>add</code> operation works with input: <code>add m/CS2105 y/4</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/AddSequenceDiagram.png" alt="AddSequenceDiagram">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Both <code>date</code> and <code>time</code> is compulsory for a <code>deadline</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to implement since both date and time will be parsed</p>
-</li>
-<li>
-<p>Cons: Some tasks do not have a timing that it must be completed by, making it user-unfriendly</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> The <code>date</code> is compulsory while <code>time</code> is optional for a <code>deadline</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Gives user the flexibility to input different types of tasks</p>
-</li>
-<li>
-<p>Cons: More bugs in <code>deadline</code> related method calls</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Eventually, we decided on alternative 1 due to the benefits of consistency in types of tasks allowed in MODdy as well as to reduce the bugs faced.</p>
-</div>
-</div>
-</div>
 <div class="sect2">
 <h3 id="show-feature"><a class="link" href="#show-feature">Show Feature</a></h3>
 <div class="paragraph">
@@ -436,21 +451,36 @@ Your profile, including all modules, grades and deadlines under your name, will 
 </ul>
 </div>
 <div class="sect3">
-<h4 id="current-implementations-3"><a class="link" href="#current-implementations-3">Current Implementations</a></h4>
+<h4 id="current-implementations"><a class="link" href="#current-implementations">Current Implementations</a></h4>
 <div class="paragraph">
 <p><code>ShowCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>ShowCommand</code> is parsed using <code>ShowCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>show</code> operation works with input: <code>show c/Computer Science</code></p>
+<p>The following sequence diagram shows how the <code>show</code> operation works with input: <code>show c/Computer Science m/CS1101S</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ShowCommandSequenceDiagram.png" alt="ShowCommandSequenceDiagram">
+<img src="../images/ShowCommandActivityDiagram.png" alt="ShowCommandActivityDiagram">
 </div>
+<div class="title">Figure 6. Activity Diagram for a Show Command input</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The example input requested two different information to be displayed (Course information and Module information). However, only one object can be displayed.<br>
+The priority of an object displayed is in this order, beginning with the highest priority: Profile, Semester information, Module information, Focus area information, Course information.<br>
+This only occurs when more than 1 parameter is provided.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -486,794 +516,6 @@ Your profile, including all modules, grades and deadlines under your name, will 
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="edit-profile-module-feature"><a class="link" href="#edit-profile-module-feature">Edit Profile / Module Feature</a></h3>
-<div class="paragraph">
-<p>The <code>edit</code> feature supports the editing of both <code>Profile</code> and <code>Module</code>, with the command <code>edit</code> and  <code>edit</code> appended with <code>m/module_code</code> respectively.</p>
-</div>
-<div class="sect3">
-<h4 id="current-implementations-4"><a class="link" href="#current-implementations-4">Current Implementations</a></h4>
-<div class="paragraph">
-<p>The <code>edit</code> command is parsed using <code>EditCommandParser</code> to split the user input into relevant fields.</p>
-</div>
-<div class="paragraph">
-<p>To edit <code>profile</code>, the command <code>edit</code> should be appended with one or more of the tags:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>n/NAME</code> : New name</p>
-</li>
-<li>
-<p><code>c/COURSE</code> : New course</p>
-</li>
-<li>
-<p><code>cs/CURRENT_SEMESTER</code> : New current semester</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>To edit <code>module</code>, the command <code>edit</code> should be appended with <code>m/MODULE</code>, followed by one or more of the tags:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>s/SEMESTER</code> : New semester where module is taken</p>
-</li>
-<li>
-<p><code>g/GRADE</code> : New grade for the module</p>
-</li>
-<li>
-<p><code>t/TASK</code> : Old task description</p>
-</li>
-<li>
-<p><code>nt/NEW_TASK</code> : New task description</p>
-</li>
-<li>
-<p><code>d/DEADLINE</code> : New date and time</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>To edit a deadline, append <code>edit m/MODULE</code> with <code>t/TASK</code> that already exists and is to be edited, followed by either <code>nt/NEW_TASK</code> and/or <code>d/DEADLINE</code> which contain the new task or deadline that will replace the existing one.</p>
-</div>
-<div class="paragraph">
-<p>The <code>edit</code> command extends command class and uses inheritance to facilitate implementation. Hence it inherits the following methods:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Command#execute(Model model)</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the <code>edit</code> command works: <code>edit n/John</code>:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
-</div>
-<div class="title">Figure 4. Interactions Inside the Logic Component for the <code>edit n/John</code> Command</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>By requiring a <code>m/MODULE</code> field for the user to edit <code>Module</code>, it clearly shows the intent of the user, and whether the <code>Profile</code> or a <code>Module</code> should be edited.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="delete-profile-module-deadline-feature"><a class="link" href="#delete-profile-module-deadline-feature">Delete Profile / Module / Deadline Feature</a></h3>
-<div class="paragraph">
-<p>The delete profile feature is a complementary feature to the new profile feature. It enables the removal of a profile from a <code>ProfileList</code>. This also deletes all modules and their deadlines under the <code>Profile</code>. This <code>delete</code> feature can be used by appending the command with the tag <code>n/name</code></p>
-</div>
-<div class="paragraph">
-<p>In addition, the delete module feature is a complementary feature to the add module feature. It enables the removal of a <code>Module</code> from the list of modules the user is taking in his <code>Profile</code>. As a consequence, all deadlines stored under the module will be deleted. This <code>delete</code> feature can be used by appending the command with the tag <code>m/module_code</code>.</p>
-</div>
-<div class="paragraph">
-<p>Lastly, the delete deadline feature is a complementary feature to the add deadline feature. It enables the removal of a <code>Deadline</code> of a particular <code>Module</code>. This <code>delete</code> feature can be used by appending the command with the tags <code>m/module_code</code> and <code>t/deadline</code>.</p>
-</div>
-<div class="sect3">
-<h4 id="current-implementations-5"><a class="link" href="#current-implementations-5">Current Implementations</a></h4>
-<div class="paragraph">
-<p><code>DeleteCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>DeleteCommand</code> is parsed using <code>DeleteCommandParser</code> to split the user input into relevant fields.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows the interactions between <code>Ui</code>, <code>Logic</code> and <code>Model</code> components when a module is deleted.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/DeleteDeadlineSequenceDiagram.png" alt="DeleteDeadlineSequenceDiagram">
-</div>
-<div class="title">Figure 5. Interactions between <code>Ui</code>, <code>Logic</code> and <code>Model</code> components for the <code>delete m/CS2101 t/work</code> command.</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Delete only one <code>Profile</code>, <code>Module</code> or <code>Deadline</code> object with one delete command</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to implement and consistent across all inputs</p>
-</li>
-<li>
-<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects or <code>Deadline</code> objects</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Delete multiple <code>Module</code> or <code>Deadline</code> objects with one delete command</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: More convenient for the user</p>
-</li>
-<li>
-<p>Cons: Inconsistent with deleting a profile, which can only take in at most one profile</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Eventually, we decided on alternative 1 due to the benefits of consistency in the number of items to be deleted, as well as to reduce the number of bugs faced.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">Logging</a></h3>
-<div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Configuration</a>)</p>
-</li>
-<li>
-<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
-</li>
-<li>
-<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Logging Levels</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
-</li>
-<li>
-<p><code>WARNING</code> : Can continue, but with caution</p>
-</li>
-<li>
-<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
-</li>
-<li>
-<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">Configuration</a></h3>
-<div class="paragraph">
-<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">Documentation</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Refer to the guide <a href="Documentation.html">here</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">Testing</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Refer to the guide <a href="Testing.html">here</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">Dev Ops</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Refer to the guide <a href="DevOps.html">here</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Target user profile</strong>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>is intending to enrol or currently enrolled in NUS as a Computing student</p>
-</li>
-<li>
-<p>has a need to plan or keep track of degree progression, modules and/or module tasks</p>
-</li>
-<li>
-<p>prefer desktop apps over other types</p>
-</li>
-<li>
-<p>can type fast</p>
-</li>
-<li>
-<p>prefers typing over mouse input</p>
-</li>
-<li>
-<p>is reasonably comfortable using CLI apps</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Value proposition</strong>: more convenient to manage degree progression and tasks than a typical mouse/GUI driven app</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
-<colgroup>
-<col style="width: 22%;">
-<col style="width: 23%;">
-<col style="width: 25%;">
-<col style="width: 30%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Priority</th>
-<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Computing student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">plan for specialisations</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">complete the requirements for my focusArea</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see the overview of my degree progression</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">choose modules to be taken</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">plan for future academic semesters</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">store my past grades</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">calculate my overall <a href="#CAP">CAP</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view <a href="#prerequisite">prerequisites</a> of every module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know what modules I should complete early</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view <a href="#preclusion">preclusions</a> of every module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know what modules I cannot take</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">maintain a list of unfinished homework and their deadlines</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">submit my assignments on time</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edit my list of tasks</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">make relevant changes if required</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>**</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Double degree student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have a single platform to see both degrees' modules</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">track my degree progression</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pool notes for my modules together</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">organise my notes according to my modules</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is <code>MODdy</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
-</div>
-<h3 id="use-case-uc01-add-module" class="discrete">Use case: UC01 - Add module</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to add a module for a particular semester</p>
-</li>
-<li>
-<p>User provides the module code for that module</p>
-</li>
-<li>
-<p>MODdy adds the module to that semester</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>2a. The module code does not exist</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. MODdy shows an error message</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>3a. The user has not started his first semester in NUS</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. MODdy adds the module to that semester, noting that it is under planning</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>3b. The user has not fulfilled the prerequisites of the module before the specified semester</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3b1. MODdy shows a warning that the module prerequisites have not been fulfilled prior to that semester</p>
-</li>
-<li>
-<p>3b2. MODdy adds the module to that semester</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-uc02-view-module" class="discrete">Use case: UC02 - View module</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view a module</p>
-</li>
-<li>
-<p>User provides the module code for that module</p>
-</li>
-<li>
-<p>MODdy shows all information related to the module</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>2a. The module code does not exist</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. MODdy shows an error message</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-uc03-add-grades" class="discrete">Use case: UC03 - Add grades</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to update his results at the end of a semester</p>
-</li>
-<li>
-<p>User provides the alphabet grade for a module that was taken</p>
-</li>
-<li>
-<p>MODdy adds the alphabet grade to the module and updates overall CAP</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>2a. The grade entered is invalid</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. MODdy shows an error message</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-uc04-view-academic-overview" class="discrete">Use case: UC04 - View academic overview</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view his academic overview</p>
-</li>
-<li>
-<p>MODdy shows a list of the modules he has taken, his grades and overall CAP</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>1a. The user has not created a user profile</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. MODdy shows an error message</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-uc05-add-task" class="discrete">Use case: UC05 - Add task</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to add a task with a deadline to a particular module</p>
-</li>
-<li>
-<p>User provides the task description and deadline</p>
-</li>
-<li>
-<p>MODdy displays the newly added task in the deadline pane</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>1a. The user is not taking the specified module in the current semester</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. MODdy shows an error message</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>2a. The format of the deadline provided is wrong</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. MODdy shows an error message</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-uc05-edit-task" class="discrete">Use case: UC05 - Edit task</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to edit the task description (shown in deadline pane) of a particular module</p>
-</li>
-<li>
-<p>User provides the new task description</p>
-</li>
-<li>
-<p>MODdy displays the updated task in the deadline pane</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>1a. The user is not taking the specified module</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. MODdy shows an error message</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>2a. The task description provided does not exist</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. MODdy shows an error message</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
-</li>
-<li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
-</li>
-<li>
-<p>Should be able to accommodate any user from the School of Computing in NUS.</p>
-</li>
-<li>
-<p>Should work with or without Internet connection.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
-<div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a id="CAP"></a> CAP</dt>
-<dd>
-<p><a href="http://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/modular-system">Cumulative Average Point</a></p>
-</dd>
-<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
-<dd>
-<p>Windows, Linux, Unix, OS-X</p>
-</dd>
-<dt class="hdlist1"><a id="prerequisite"></a> Prerequisite (of module X)</dt>
-<dd>
-<p>A module that must be taken before module X as a requirement</p>
-</dd>
-<dt class="hdlist1"><a id="preclusion"></a> Preclusion (of module X)</dt>
-<dd>
-<p>A module that cannot be taken together with module X</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Given below are instructions to test the app manually.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">Launch and Shutdown</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Initial launch</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Download the jar file and copy into an empty folder with both read and write permissions granted</p>
-</li>
-<li>
-<p>Double-click the jar file<br>
-Expected: Shows the GUI with a Quick Start page. The window size may not be optimum.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Saving window preferences</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
-</li>
-<li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-profile"><a class="link" href="#deleting-a-profile">Deleting a profile</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a profile while all profiles are listed</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: List all profiles using the <code>list</code> command. Multiple profiles in the list.</p>
-</li>
-<li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No profile is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1284,4 +526,4 @@ Expected: Similar to previous.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 09:47:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 15:54:17 UTC</div></div></div></body></html>

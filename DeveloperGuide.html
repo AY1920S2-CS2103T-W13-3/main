@@ -531,12 +531,27 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p><code>ShowCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>ShowCommand</code> is parsed using <code>ShowCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>show</code> operation works with input: <code>show c/Computer Science</code></p>
+<p>The following sequence diagram shows how the <code>show</code> operation works with input: <code>show c/Computer Science m/CS1101S</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ShowCommandSequenceDiagram.png" alt="ShowCommandSequenceDiagram">
+<img src="images/ShowCommandActivityDiagram.png" alt="ShowCommandActivityDiagram">
 </div>
+<div class="title">Figure 9. Activity Diagram for a Show Command input</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The example input requested two different information to be displayed (Course information and Module information). However, only one object can be displayed.<br>
+The priority of an object displayed is in this order, beginning with the highest priority: Profile, Semester information, Module information, Focus area information, Course information.<br>
+This only occurs when more than 1 parameter is provided.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -644,7 +659,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
 </div>
-<div class="title">Figure 9. Interactions Inside the Logic Component for the <code>edit n/John</code> Command</div>
+<div class="title">Figure 10. Interactions Inside the Logic Component for the <code>edit n/John</code> Command</div>
 </div>
 </div>
 <div class="sect3">
@@ -681,7 +696,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/DeleteDeadlineSequenceDiagram.png" alt="DeleteDeadlineSequenceDiagram">
 </div>
-<div class="title">Figure 10. Interactions between <code>Ui</code>, <code>Logic</code> and <code>Model</code> components for the <code>delete m/CS2101 t/work</code> command.</div>
+<div class="title">Figure 11. Interactions between <code>Ui</code>, <code>Logic</code> and <code>Model</code> components for the <code>delete m/CS2101 t/work</code> command.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1365,4 +1380,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 09:47:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 15:54:17 UTC</div></div></div></body></html>
