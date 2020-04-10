@@ -549,7 +549,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p><code>ShowCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>ShowCommand</code> is parsed using <code>ShowCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>show</code> operation works with input: <code>show c/Computer Science m/CS1101S</code></p>
+<p>The following sequence diagram shows how the <code>show</code> operation works with input: <code>show c/Computer Science</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -564,9 +564,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The example input requested two different information to be displayed (Course information and Module information). However, only one object can be displayed.<br>
-The priority of an object displayed is in this order, beginning with the highest priority: Profile, Semester information, Module information, Focus area information, Course information.<br>
-This only occurs when more than 1 parameter is provided.
+If more than accepted tag is given, such as <code>show c/Computer Science m/CS1101s</code>, MODdy will not display anything and will show the user a message that only one tag should be provided.
 </td>
 </tr>
 </table>
@@ -1867,4 +1865,4 @@ Expected: Shows the GUI with a Quick Start page.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 16:45:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 17:06:28 UTC</div></div></div></body></html>
