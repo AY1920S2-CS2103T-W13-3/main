@@ -610,12 +610,21 @@ If more than accepted tag is given, such as <code>show c/Computer Science m/CS11
 <div class="sect2">
 <h3 id="edit-profile-module-feature"><a class="link" href="#edit-profile-module-feature">3.5. Edit Profile / Module Feature</a></h3>
 <div class="paragraph">
-<p>The <code>edit</code> feature supports the editing of both <code>Profile</code> and <code>Module</code>, with the command <code>edit</code> and  <code>edit</code> appended with <code>m/module_code</code> respectively.</p>
+<p>The <code>edit</code> feature supports the editing of both <code>Profile</code> and <code>Module</code>. <code>Profile</code> is edited with the command <code>edit</code> and <code>Module</code> is edited with the command <code>edit</code> appended with <code>m/module_code</code>.<br></p>
+</div>
+<div class="paragraph">
+<p>The edit profile feature is a complementary feature to the new profile feature. It allows the user to edit their profile that was created at the start. Profile features such as name, course, current semester and focus area can be edited using this command.<br></p>
+</div>
+<div class="paragraph">
+<p>In addition, the edit module feature is a complementary feature to the add module feature. It allows the user to edit a module that has previously been added. The user can edit module information such as the semester it is taken and grade.<br></p>
+</div>
+<div class="paragraph">
+<p>Lastly, the edit deadline feature is a complementary feature to the add deadline feature. It allows the user to edit a deadline that has previously been added to a module. The user can edit deadline information such as it&#8217;s description, date and time.<br></p>
 </div>
 <div class="sect3">
 <h4 id="current-implementations-4"><a class="link" href="#current-implementations-4">3.5.1. Current Implementations</a></h4>
 <div class="paragraph">
-<p>The <code>edit</code> command is parsed using <code>EditCommandParser</code> to split the user input into relevant fields.</p>
+<p><code>EditCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>EditCommannd</code> is parsed using <code>EditCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
 <p>To edit <code>profile</code>, the command <code>edit</code> should be appended with one or more of the tags:</p>
@@ -629,7 +638,10 @@ If more than accepted tag is given, such as <code>show c/Computer Science m/CS11
 <p><code>c/COURSE</code> : New course</p>
 </li>
 <li>
-<p><code>cs/CURRENT_SEMESTER</code> : New current semester</p>
+<p><code>y/CURRENT_SEMESTER</code> : New current semester</p>
+</li>
+<li>
+<p><code>f/FOCUS_AREA</code> : New focus area</p>
 </li>
 </ul>
 </div>
@@ -657,16 +669,6 @@ If more than accepted tag is given, such as <code>show c/Computer Science m/CS11
 </div>
 <div class="paragraph">
 <p>To edit a deadline, append <code>edit m/MODULE</code> with <code>t/TASK</code> that already exists and is to be edited, followed by either <code>nt/NEW_TASK</code> and/or <code>d/DEADLINE</code> which contain the new task or deadline that will replace the existing one.</p>
-</div>
-<div class="paragraph">
-<p>The <code>edit</code> command extends command class and uses inheritance to facilitate implementation. Hence it inherits the following methods:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Command#execute(Model model)</code></p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>edit</code> command works: <code>edit n/John</code>:</p>
@@ -1865,4 +1867,4 @@ Expected: Shows the GUI with a Quick Start page.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 17:06:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 17:25:36 UTC</div></div></div></body></html>
