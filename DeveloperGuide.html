@@ -27,7 +27,7 @@
 <li><a href="#add-feature">3.3. Add Feature</a></li>
 <li><a href="#show-feature">3.4. Show Feature</a></li>
 <li><a href="#edit-profile-module-feature">3.5. Edit Profile / Module Feature</a></li>
-<li><a href="#delete-profile-module-deadline-feature">3.6. Delete Profile / Module / Deadline Feature</a></li>
+<li><a href="#delete-profile-module-deadline-grade-feature">3.6. Delete Profile / Module / Deadline / Grade Feature</a></li>
 <li><a href="#logging">3.7. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
@@ -43,8 +43,26 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-profile">F.2. Deleting a profile</a></li>
-<li><a href="#saving-data">F.3. Saving data</a></li>
+<li><a href="#adding-a-profile">F.2. Adding a profile</a></li>
+<li><a href="#deleting-a-profile">F.3. Deleting a profile</a></li>
+<li><a href="#adding-a-module">F.4. Adding a module</a></li>
+<li><a href="#deleting-a-module">F.5. Deleting a module</a></li>
+<li><a href="#adding-a-deadline">F.6. Adding a deadline</a></li>
+<li><a href="#deleting-a-deadline">F.7. Deleting a deadline</a></li>
+<li><a href="#setting-the-grade-of-a-module">F.8. Setting the grade of a module</a></li>
+<li><a href="#deleting-the-grade-of-a-module">F.9. Deleting the grade of a module</a></li>
+<li><a href="#editing-the-name-of-a-profile">F.10. Editing the name of a profile</a></li>
+<li><a href="#editing-the-course-of-a-profile">F.11. Editing the course of a profile</a></li>
+<li><a href="#editing-the-focus-area-of-a-profile">F.12. Editing the focus area of a profile</a></li>
+<li><a href="#editing-the-semester-of-a-module">F.13. Editing the semester of a module</a></li>
+<li><a href="#editing-a-task-of-a-module">F.14. Editing a task of a module</a></li>
+<li><a href="#viewing-module-overview">F.15. Viewing module overview</a></li>
+<li><a href="#viewing-semester-overview">F.16. Viewing semester overview</a></li>
+<li><a href="#viewing-module-information">F.17. Viewing module information</a></li>
+<li><a href="#viewing-course-information">F.18. Viewing course information</a></li>
+<li><a href="#viewing-focus-area-information">F.19. Viewing focus area information</a></li>
+<li><a href="#returning-to-home-screen">F.20. Returning to home screen</a></li>
+<li><a href="#saving-data">F.21. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -674,7 +692,7 @@ This only occurs when more than 1 parameter is provided.
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-profile-module-deadline-feature"><a class="link" href="#delete-profile-module-deadline-feature">3.6. Delete Profile / Module / Deadline Feature</a></h3>
+<h3 id="delete-profile-module-deadline-grade-feature"><a class="link" href="#delete-profile-module-deadline-grade-feature">3.6. Delete Profile / Module / Deadline / Grade Feature</a></h3>
 <div class="paragraph">
 <p>The delete profile feature is a complementary feature to the new profile feature. It enables the removal of a profile from a <code>ProfileList</code>. This also deletes all modules and their deadlines under the <code>Profile</code>. This <code>delete</code> feature can be used by appending the command with the tag <code>n/name</code></p>
 </div>
@@ -682,7 +700,10 @@ This only occurs when more than 1 parameter is provided.
 <p>In addition, the delete module feature is a complementary feature to the add module feature. It enables the removal of a <code>Module</code> from the list of modules the user is taking in his <code>Profile</code>. As a consequence, all deadlines stored under the module will be deleted. This <code>delete</code> feature can be used by appending the command with the tag <code>m/module_code</code>.</p>
 </div>
 <div class="paragraph">
-<p>Lastly, the delete deadline feature is a complementary feature to the add deadline feature. It enables the removal of a <code>Deadline</code> of a particular <code>Module</code>. This <code>delete</code> feature can be used by appending the command with the tags <code>m/module_code</code> and <code>t/deadline</code>.</p>
+<p>Next, the delete deadline feature is a complementary feature to the add deadline feature. It enables the removal of a <code>Deadline</code> of a particular <code>Module</code>. This <code>delete</code> feature can be used by appending the command with the tags <code>m/module_code</code> and <code>t/deadline</code>.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, the delete grade feature enables the removal of a <code>Grade</code> from a particular <code>Module</code>. This <code>delete</code> feature can be used by appending the command with the tags <code>m/module_code</code> and <code>g/</code> without any grade.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementations-5"><a class="link" href="#current-implementations-5">3.6.1. Current Implementations</a></h4>
@@ -690,7 +711,7 @@ This only occurs when more than 1 parameter is provided.
 <p><code>DeleteCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>DeleteCommand</code> is parsed using <code>DeleteCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows the interactions between <code>Ui</code>, <code>Logic</code> and <code>Model</code> components when a module is deleted.</p>
+<p>The following sequence diagram shows the interactions between <code>Ui</code>, <code>Logic</code> and <code>Model</code> components when a task is deleted.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -704,7 +725,7 @@ This only occurs when more than 1 parameter is provided.
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Delete only one <code>Profile</code>, <code>Module</code> or <code>Deadline</code> object with one delete command</p>
+<p><strong>Alternative 1 (current choice):</strong> Delete only one <code>Module</code> or <code>Deadline</code> object with one delete command</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1323,31 +1344,32 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-profile"><a class="link" href="#deleting-a-profile">F.2. Deleting a profile</a></h3>
+<h3 id="adding-a-profile"><a class="link" href="#adding-a-profile">F.2. Adding a profile</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a profile while all profiles are listed</p>
+<p>Adding a new profile while at Quick Start page</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all profiles using the <code>list</code> command. Multiple profiles in the list.</p>
+<p>Prerequisites: Currently at the Quick Start page. No profiles added.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>new n/john y/2.2 c/computer science f/computer security</code><br>
+Expected: Details of the new profile are shown in the profile panel. Name of the new profile shown in the status message.</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No profile is deleted. Error details shown in the status message. Status bar remains the same.</p>
+<p>Test case: <code>new n/john y/2.2 c/computer science</code><br>
+Expected: Details of the new profile are shown in the profile panel. Focus area is shown as <code>UNDECIDED</code>. Name of the new profile shown in the status message.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Test case: <code>new n/john y/2.2</code><br>
+Expected: No profile is added. Error details shown in the status message. All panels remain the same.</p>
+</li>
+<li>
+<p>Other incorrect new commands to try: <code>new n/john y/2.2 c/abc</code>, <code>new n/john y/2.x c/computer science</code> (where x is larger than 2), <code>new n/john&amp; y/2.1 c/computer science</code><br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -1355,12 +1377,475 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-profile"><a class="link" href="#deleting-a-profile">F.3. Deleting a profile</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a profile while all modules are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile with name <code>john</code> has been created. Multiple modules in multiple semesters shown in the overview. View all modules using the <code>show n/john</code> command.</p>
+</li>
+<li>
+<p>Test case: <code>delete n/john</code><br>
+Expected: Main window changes from the overview panel to the Quick Start page shown at start up. Profile panel becomes empty. Status message mentions that the profile list has been cleared.</p>
+</li>
+<li>
+<p>Test case: <code>delete n/tom</code><br>
+Expected: No profile is deleted. Error details shown in the status message. All panels remain the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is a number), <code>delete n/john y/1.1</code>, <code>delete n/john c/computer science</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.3. Saving data</a></h3>
+<h3 id="adding-a-module"><a class="link" href="#adding-a-module">F.4. Adding a module</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a module while all modules are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile with name <code>john</code> has been created. View all modules using the <code>show n/john</code> command.</p>
+</li>
+<li>
+<p>Test case: <code>add m/CS1010 y/1.1</code><br>
+Expected: Module <code>CS1010</code> appears in overview panel under <code>YEAR 1 SEMESTER 1</code>. Grade of module is shown as <code>-</code>. Module code of added module shown in status message. Profile panel remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>add m/CS1010 y/1.1 g/A</code><br>
+Expected: Similar to previous, except that grade of <code>CS1010</code> is shown as <code>A</code>.</p>
+</li>
+<li>
+<p>Test case: <code>add m/CS1010</code><br>
+Expected: No module is added. Error details shown in the status message. All panels remain the same.</p>
+</li>
+<li>
+<p>Other incorrect add commands to try: <code>add</code>, <code>add y/1.1</code>, <code>add m/CS1010 y/</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-module"><a class="link" href="#deleting-a-module">F.5. Deleting a module</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a module while all modules are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile with name <code>john</code> has been created. The module <code>CS1010</code> has been added and the module <code>CS1231</code> has NOT been added. View all modules using the <code>show n/john</code> command.</p>
+</li>
+<li>
+<p>Test case: <code>delete m/CS1010</code><br>
+Expected: Module <code>CS1010</code> is deleted from the overview panel. Module code of deleted module shown in status message. Profile panel remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>delete m/CS1231</code><br>
+Expected: No module is deleted. Error details shown in the status message. All panels remain the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete m/CS1111</code>, <code>delete m/CS101</code>, <code>delete m/</code><br>
+Expected: Similar to previous</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-deadline"><a class="link" href="#adding-a-deadline">F.6. Adding a deadline</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a deadline</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile has been created. For the current semester, the module <code>CS1010</code> has been added and the module <code>CS1231</code> has NOT been added.</p>
+</li>
+<li>
+<p>Test case: <code>add m/CS1010 t/work d/2020-10-10 22:00</code><br>
+Expected: Deadline with module code <code>CS1010</code>, task <code>work</code>, date <code>10 October 2020</code> and time <code>22:00</code> is added to the deadline panel. Module code <code>CS1010</code> appears in status message. Profile panel and overview panel remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>add m/CS1010 t/work</code><br>
+Expected: Similar to previous, except that date and time fields of the deadline are shown as <code>-</code>.</p>
+</li>
+<li>
+<p>Test case: <code>add m/CS1010 t/work d/2020-10-40 22:00</code><br>
+Expected: No deadline is added. Error details shown in the status message. All panels remain the same.</p>
+</li>
+<li>
+<p>Other incorrect add commands to try: <code>add m/CS1010 d/2020-10-10 22:00</code>, <code>add m/CS1231 t/work d/2020-10-10 22:00</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-deadline"><a class="link" href="#deleting-a-deadline">F.7. Deleting a deadline</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a deadline</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile has been created. The module <code>CS1010</code> has been added to the current semester. For this module, a deadline with task <code>work</code> has been added and a deadline with task <code>test</code> has NOT been added.</p>
+</li>
+<li>
+<p>Test case: <code>delete m/CS1010 t/work</code><br>
+Expected: Deadline <code>work</code> is deleted from the deadline panel. Module code <code>CS1010</code> and task <code>work</code> appears in status message. Profile panel and overview panel remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>delete m/CS1010 t/test</code><br>
+Expected: No deadline is deleted. Error details shown in the status message. All panels remain the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete m/CS1010 t/work d/2020-10-10 22:00</code>, <code>delete m/CS1010 t/test</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-the-grade-of-a-module"><a class="link" href="#setting-the-grade-of-a-module">F.8. Setting the grade of a module</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Setting the grade of an existing module while all modules are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile with name <code>john</code> has been created. The module <code>CS1010</code> has been added and the module <code>CS1231</code> has NOT been added. View all modules using the <code>show n/john</code> command.</p>
+</li>
+<li>
+<p>Test case: <code>edit m/CS1010 g/A</code><br>
+Expected: In the overview panel, the grade field of <code>CS1010</code> is shown as <code>A</code>. The current CAP is updated to reflect the latest CAP. Module code <code>CS1010</code> appears in the status message. The other panels remain the same.</p>
+</li>
+<li>
+<p>Test case: <code>edit m/CS1010 g/X</code><br>
+Expected: No grade is edited. Error details shown in the status message. All panels remain the same.</p>
+</li>
+<li>
+<p>Other incorrect edit commands to try: <code>edit m/CS1010 g/1</code>, <code>edit m/CS1231 g/A</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-the-grade-of-a-module"><a class="link" href="#deleting-the-grade-of-a-module">F.9. Deleting the grade of a module</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting the grade of an existing module while all modules are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile with name <code>john</code> has been created. The module <code>CS1010</code> has been added with grade <code>A</code> and the module <code>CS1231</code> has NOT been added. View all modules using the <code>show n/john</code> command.</p>
+</li>
+<li>
+<p>Test case: <code>delete m/CS1010 g/</code><br>
+Expected: In the overview panel, the grade field of <code>CS1010</code> is shown as <code>-</code>. The current CAP is updated to reflect the latest CAP. Module code <code>CS1010</code> appears in the status message. The other panels remain the same.</p>
+</li>
+<li>
+<p>Test case: <code>delete m/CS1231 g/</code><br>
+Expected: No grade is deleted. Error details shown in the status message. All panels remain the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-the-name-of-a-profile"><a class="link" href="#editing-the-name-of-a-profile">F.10. Editing the name of a profile</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the name of an existing profile.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile with name <code>john</code> has been created.</p>
+</li>
+<li>
+<p>Test case: <code>edit n/tom</code><br>
+Expected: In the profile panel, the name has been changed from <code>JOHN</code> to <code>TOM</code>. All other fields in the existing profile remain the same.</p>
+</li>
+<li>
+<p>Test case: <code>edit n/tom&amp;</code><br>
+Expected: Name of profile is not modified. Error details shown in the status message. All panels and fields of profile remain the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-the-course-of-a-profile"><a class="link" href="#editing-the-course-of-a-profile">F.11. Editing the course of a profile</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the course of an existing profile.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile with name <code>john</code> has been created with course <code>computer science</code>.</p>
+</li>
+<li>
+<p>Test case: <code>edit n/john c/business analytics</code><br>
+Expected: In the profile panel, the course has been changed from <code>COMPUTER SCIENCE</code> to <code>BUSINESS ANALYTICS</code>. All other fields in the existing profile remain the same.</p>
+</li>
+<li>
+<p>Test case: <code>edit n/john c/course</code><br>
+Expected: Course of profile is not modified. Error details shown in the status message. All panels and fields of profile remain the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-the-focus-area-of-a-profile"><a class="link" href="#editing-the-focus-area-of-a-profile">F.12. Editing the focus area of a profile</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the focus area of an existing profile.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile with name <code>john</code> has been created with focus area <code>computer security</code>.</p>
+</li>
+<li>
+<p>Test case: <code>edit n/john f/artificial intelligence</code><br>
+Expected: In the profile panel, the focus area has been changed from <code>COMPUTER SECURITY</code> to <code>ARTIFICIAL INTELLIGENCE</code>. All other fields in the existing profile remain the same.</p>
+</li>
+<li>
+<p>Test case: <code>edit n/john c/course</code><br>
+Expected: Focus area of profile is not modified. Error details shown in the status message. All panels and fields of profile remain the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-the-semester-of-a-module"><a class="link" href="#editing-the-semester-of-a-module">F.13. Editing the semester of a module</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the semester of an existing module.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile with name <code>john</code> has been created. The module <code>CS1010</code> has been added to year 1 semester 1 but the module <code>CS1231</code> has NOT been added to any semester. View all modules using the <code>show n/john</code> command.</p>
+</li>
+<li>
+<p>Test case: <code>edit m/CS1010 y/1.2</code><br>
+Expected: In the overview panel, the module <code>CS1010</code> moves from year 1 semester 1 to year 1 semester 2.</p>
+</li>
+<li>
+<p>Test case: <code>edit m/CS1231 y/1.2</code><br>
+Expected: Semester of the module is not modified. Error details shown in the status message. All panels remain the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-task-of-a-module"><a class="link" href="#editing-a-task-of-a-module">F.14. Editing a task of a module</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing the name of a task of a module.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile has been created. The module <code>CS1010</code> has been added with one deadline named <code>work</code>.</p>
+</li>
+<li>
+<p>Test case: <code>edit m/CS1010 t/work nt/exam</code><br>
+Expected: In the deadline panel, the name of the task <code>work</code> under module <code>CS1010</code> is changed to <code>exam</code>.</p>
+</li>
+<li>
+<p>Test case: <code>edit m/CS1010 t/midterm nt/exam</code><br>
+Expected: Name of the task is not modified. Error details shown in the status message. All panels remain the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-module-overview"><a class="link" href="#viewing-module-overview">F.15. Viewing module overview</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing the module overview throughout all semesters.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile with name <code>john</code> has been created.</p>
+</li>
+<li>
+<p>Test case: <code>view n/john</code><br>
+Expected: The overview panel is shown with all the added modules.</p>
+</li>
+<li>
+<p>Test case: <code>view n/tom</code><br>
+Expected: User interface does not change. Error details shown in the status message. All panels remain the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-semester-overview"><a class="link" href="#viewing-semester-overview">F.16. Viewing semester overview</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing the module overview for a particular semester.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile has been created. The module <code>CS1010</code> has been added to year 1 semester 1. No modules have been added to year 1 semester 2.</p>
+</li>
+<li>
+<p>Test case: <code>view y/1.1</code><br>
+Expected: Module <code>CS1010</code> and its title appears in the overview panel.</p>
+</li>
+<li>
+<p>Test case: <code>view y/1.2</code><br>
+Expected: User interface does not change. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-module-information"><a class="link" href="#viewing-module-information">F.17. Viewing module information</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing the information (description, prerequisites, preclusions, etc) of a module</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>show m/CS1010</code><br>
+Expected: The module information is shown in the overview panel.</p>
+</li>
+<li>
+<p>Test case: <code>show m/CS1111</code><br>
+Expected: User interface does not change. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-course-information"><a class="link" href="#viewing-course-information">F.18. Viewing course information</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing the information (course requirements, focus areas) of a course</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>show c/computer science</code><br>
+Expected: The course requirements and focus areas of Computer Science are shown in the overview panel.</p>
+</li>
+<li>
+<p>Test case: <code>show c/course</code><br>
+Expected: User interface does not change. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-focus-area-information"><a class="link" href="#viewing-focus-area-information">F.19. Viewing focus area information</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing the information (modules in primaries and electives) of a focus area</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>show f/computer security</code><br>
+Expected: The modules in Area Primaries and Electives of Computer Security are shown in the overview panel.</p>
+</li>
+<li>
+<p>Test case: <code>show f/focus area</code><br>
+Expected: User interface does not change. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="returning-to-home-screen"><a class="link" href="#returning-to-home-screen">F.20. Returning to home screen</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Returning to the home screen</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>home</code><br>
+Expected: The Quick Start page is shown in the overview panel.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">F.21. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1368,16 +1853,18 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Test case: Delete the file named <code>userProfiles.json</code> in the <code>data</code> folder, relative to the path of the jar file. Launch the app by double-clicking the jar file.
+Expected: Shows the GUI with a Quick Start page.</p>
+</li>
+<li>
+<p>Test case: Edit the file named <code>userProfiles.json</code> in the <code>data</code> folder such that it does not contain valid JSON. This can be done by removing the curly bracket on the first line of the file. Launch the app by double-clicking the jar file.
+Expected: Shows the GUI with a Quick Start page.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 15:54:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 16:45:37 UTC</div></div></div></body></html>
