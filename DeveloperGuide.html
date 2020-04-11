@@ -23,7 +23,7 @@
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#dependency-between-personals-and-modules">4.1. Dependency between Personals and Modules</a></li>
+<li><a href="#dependency-between-module-and-personal">4.1. Dependency between Module and Personal</a></li>
 <li><a href="#new-profile-feature">4.2. New Profile Feature</a></li>
 <li><a href="#add-module-task-feature">4.3. Add Module / Task Feature</a></li>
 <li><a href="#show-feature">4.4. Show Feature</a></li>
@@ -262,13 +262,13 @@ The following class plays an important role at the architecture level:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p><code>Logic</code> uses the <code>ModdyParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a profile).</p>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a module).</p>
 </li>
 <li>
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
@@ -279,13 +279,13 @@ The following class plays an important role at the architecture level:</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete m/CS2101 t/work")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteDeadlineSequenceDiagram.png" alt="DeleteDeadlineSequenceDiagram">
+<img src="images/DeleteDeadlineLogicDiagram.png" alt="DeleteDeadlineLogicDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete m/CS2101 t/work</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -393,9 +393,31 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="dependency-between-personals-and-modules"><a class="link" href="#dependency-between-personals-and-modules">4.1. Dependency between Personals and Modules</a></h3>
+<h3 id="dependency-between-module-and-personal"><a class="link" href="#dependency-between-module-and-personal">4.1. Dependency between Module and Personal</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/ModuleClassDiagram.png" alt="ModuleClassDiagram">
+</div>
+<div class="title">Figure 9. Structure of the Module Component</div>
+</div>
 <div class="paragraph">
-<p>(Insert class diagrams showing dependencies)</p>
+<p>Each Module class consists of a Personal class, alongside other module attributes from NUSMODS. In each Personal class, there are 3 attributes that are for the user to store their date:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Grade</code> : the user&#8217;s grade for te particular module</p>
+</li>
+<li>
+<p><code>Status</code> : the status of the module (<code>IN_PROGRESS</code>, <code>TAKING</code> or <code>TAKEN</code>)</p>
+</li>
+<li>
+<p><code>DeadlineList</code> : a list of deadline tasks added by the user</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These attributes were included in <code>Personal</code> as they are the attributes that are personal to the user, and which the user can edit at any time.</p>
 </div>
 </div>
 <div class="sect2">
@@ -629,7 +651,7 @@ You can add multiple modules at once but only to the same year and semester, e.g
 <div class="content">
 <img src="images/ShowCommandActivityDiagram.png" alt="ShowCommandActivityDiagram">
 </div>
-<div class="title">Figure 9. Activity Diagram for a Show Command input</div>
+<div class="title">Figure 10. Activity Diagram for a Show Command input</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -701,7 +723,7 @@ If more than accepted tag is given, such as <code>show c/Computer Science m/CS11
 <p><code>EditCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>EditCommannd</code> is parsed using <code>EditCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
-<p>To edit <code>profile</code>, the command <code>edit</code> should be appended with one or more of the tags:</p>
+<p>To edit the profile, the command <code>edit</code> should be appended with one or more of the tags:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -720,29 +742,33 @@ If more than accepted tag is given, such as <code>show c/Computer Science m/CS11
 </ul>
 </div>
 <div class="paragraph">
-<p>To edit <code>module</code>, the command <code>edit</code> should be appended with <code>m/MODULE</code>, followed by one or more of the tags:</p>
+<p>To edit a module, the command <code>edit</code> should be appended with <code>m/moduleCode</code>, followed by one or more of the tags:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>s/SEMESTER</code> : New semester where module is taken</p>
+<p><code>y/SEMESTER</code> : New semester where module is taken</p>
 </li>
 <li>
 <p><code>g/GRADE</code> : New grade for the module</p>
 </li>
 <li>
 <p><code>t/TASK</code> : Old task description</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
-<p><code>nt/NEW_TASK</code> : New task description</p>
+<p><code>nt/newTask</code> : New task description</p>
 </li>
 <li>
 <p><code>d/DEADLINE</code> : New date and time</p>
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>To edit a deadline, append <code>edit m/MODULE</code> with <code>t/TASK</code> that already exists and is to be edited, followed by either <code>nt/NEW_TASK</code> and/or <code>d/DEADLINE</code> which contain the new task or deadline that will replace the existing one.</p>
+<p>To edit a deadline, append <code>edit m/moduleCode</code> with <code>t/TASK</code> that already exists and is to be edited, followed by either <code>nt/NEW_TASK</code> and/or <code>d/DEADLINE</code> which contain the new task or deadline that will replace the existing one.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>edit</code> command works: <code>edit n/John</code>:</p>
@@ -751,7 +777,7 @@ If more than accepted tag is given, such as <code>show c/Computer Science m/CS11
 <div class="content">
 <img src="images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
 </div>
-<div class="title">Figure 10. Interactions Inside the Logic Component for the <code>edit n/John</code> Command</div>
+<div class="title">Figure 11. Interactions Inside the Logic Component for the <code>edit n/John</code> Command</div>
 </div>
 </div>
 <div class="sect3">
@@ -759,9 +785,47 @@ If more than accepted tag is given, such as <code>show c/Computer Science m/CS11
 <div class="ulist">
 <ul>
 <li>
-<p>By requiring a <code>m/MODULE</code> field for the user to edit <code>Module</code>, it clearly shows the intent of the user, and whether the <code>Profile</code> or a <code>Module</code> should be edited.</p>
+<p><strong>Alternative 1 (current choice):</strong> Edit <code>Profile</code>, <code>Module</code> or <code>Deadline</code>  with one <code>EditCommand</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier for the user as they will not have to remember different edit commands for different purposes.</p>
+</li>
+<li>
+<p>Cons: More considerations to differentiate the intent of the user and there is more room for error.</p>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Have separate commands to edit <code>Profile</code>, <code>Module</code> and <code>Deadline</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Makes it clearer what the user intent is and is easier to parse.</p>
+</li>
+<li>
+<p>Cons: Harder for the user to remember the commands and the user will not be allowed to edit both module details and deadline tasks within the module at the same time.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Eventually, we decided on alternative 1 due to the benefits of consistency. Additionally, by requiring a <code>m/MODULE</code> field for the user to edit <code>Module</code>, it clearly shows the intent of the user, and whether the <code>Profile</code> or a <code>Module</code> should be edited.</p>
+</div>
+<div class="paragraph">
+<p>We also considered whether to allow users to edit the grade of a module that has yet to be taken. We eventually decided to allow that as many students may want to predict their CAP, which our CAP calculator will allow them to do.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows how the <code>edit</code> command decides what to edit (profile, module details or deadline task):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditCommandActivityDiagram.png" alt="EditCommandActivityDiagram">
+</div>
+<div class="title">Figure 12. Activity Diagram for an Edit Command input</div>
 </div>
 </div>
 </div>
@@ -791,7 +855,7 @@ If more than accepted tag is given, such as <code>show c/Computer Science m/CS11
 <div class="content">
 <img src="images/DeleteDeadlineSequenceDiagram.png" alt="DeleteDeadlineSequenceDiagram">
 </div>
-<div class="title">Figure 11. Interactions between <code>Ui</code>, <code>Logic</code> and <code>Model</code> components for the <code>delete m/CS2101 t/work</code> command.</div>
+<div class="title">Figure 13. Interactions between <code>Ui</code>, <code>Logic</code> and <code>Model</code> components for the <code>delete m/CS2101 t/work</code> command.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1988,4 +2052,4 @@ Expected: Shows the GUI with a Quick Start page.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 16:54:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 17:26:12 UTC</div></div></div></body></html>
