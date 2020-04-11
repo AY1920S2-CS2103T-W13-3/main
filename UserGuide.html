@@ -15,8 +15,8 @@
 <li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
 <li><a href="#Help">4.1. Viewing help : <code>help</code></a></li>
-<li><a href="#New">4.2. New user profile : <code>new</code></a></li>
-<li><a href="#Add">4.3. Adding: <code>add</code></a></li>
+<li><a href="#New">4.2. Creating a new user profile : <code>new</code></a></li>
+<li><a href="#Add">4.3. Adding a module / task: <code>add</code></a></li>
 <li><a href="#Edit">4.4. Editing: <code>edit</code></a></li>
 <li><a href="#Show">4.5. Showing: <code>show</code></a></li>
 <li><a href="#Delete">4.6. Deleting a grade / task / module / profile: <code>delete</code></a></li>
@@ -62,31 +62,31 @@ Jump to <a href="#quick-start">Quick Start</a> to get started. Hope you enjoy th
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>View help</p>
+<p>Viewing help</p>
 </li>
 <li>
-<p>New user profile</p>
+<p>Creating new user profile</p>
 </li>
 <li>
-<p>Add module &amp; task</p>
+<p>Adding module &amp; task</p>
 </li>
 <li>
-<p>Edit profile, module &amp; task</p>
+<p>Editing profile, module &amp; task</p>
 </li>
 <li>
-<p>Show profile, semester, course, focus area &amp; module</p>
+<p>Showing profile, semester, course, focus area &amp; module</p>
 </li>
 <li>
-<p>Delete task, module &amp; profile</p>
+<p>Deleting profile, module, task &amp; grade</p>
 </li>
 <li>
-<p>Return to homepage</p>
+<p>Returning to homepage</p>
 </li>
 <li>
-<p>Reset <strong>MODdy</strong></p>
+<p>Reseting <strong>MODdy</strong></p>
 </li>
 <li>
-<p>Exit <strong>MODdy</strong></p>
+<p>Exiting <strong>MODdy</strong></p>
 </li>
 </ol>
 </div>
@@ -227,31 +227,28 @@ For more detailed help, you can visit the link provided, as shown in the figure 
 </div>
 </div>
 <div class="sect2">
-<h3 id="New"><a class="link" href="#New">4.2. New user profile : <code>new</code></a></h3>
+<h3 id="New"><a class="link" href="#New">4.2. Creating a new user profile : <code>new</code></a></h3>
 <div class="paragraph">
-<p>This command creates a new profile for you as shown in the figure below. You will have to provide your details as parameters.</p>
+<p>If you want to get started on using MODdy, you will have to create a new profile. By using this command, it creates a profile for you as shown in the figure below. You will have to provide your details as parameters.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>new n/NAME c/COURSE cs/CURRENT_SEMESTER [f/FOCUS_AREA]</code></p>
+<p>Format: <code>new n/NAME c/COURSE y/YEAR.SEMESTER [f/FOCUS_AREA]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>c/COURSE</code> must be a SoC course, e.g. Computer Science, Business Analytics, Information Systems, Information Security, Computer Engineering. It is <strong>case-insensitive</strong>.</p>
+<p><code>c/COURSE</code> and <code>f/FOCUS_AREA</code> is case-insensitive but has to be its <strong>full name</strong>. If you are unsure of what is allowed, you can refer to the <a href="#appendix">Appendix</a> for the list of courses and focus areas supported by MODdy.</p>
 </li>
 <li>
-<p>If you have yet to decided on a focus area, you can choose to add it to your profile using the <a href="#Edit">edit</a> command. Other profile fields can be changed similarly.</p>
+<p>If you have yet to decided on a focus area, you can choose to add it to your profile later using the <a href="#Edit">edit</a> feature mentioned in <a href="#Edit">Section 4.4</a>. Other profile fields can be changed using the <a href="#Edit">edit</a> feature as well.</p>
 </li>
 <li>
-<p>Only one profile is allowed. If you wish to create a new profile, please remove it with the <a href="#Delete"><code>delete</code></a> feature mentioned in <a href="#Delete">Section 4.6</a></p>
+<p><code>y/YEAR.SEMESTER</code> must be entered as an integer. You should only enter the year and semester that you are currently in. If you are now a Year 2 Semester 1 student, enter <code>y/2.1</code>.</p>
 </li>
 <li>
-<p>The course / focus name entered has to be its full name. Please refer to the <a href="#appendix">Appendix</a> for the list of courses and focus areas supported</p>
-</li>
-<li>
-<p><code>cs/CURRENT_SEMESTER</code> must be entered as an integer, e.g. if you are currently in Year 2 Semester 1, you should enter <code>cs/3</code></p>
+<p>You can only have one profile! If you wish to create a new profile, you can remove it with the <a href="#Delete"><code>delete</code></a> feature mentioned in <a href="#Delete">Section 4.6</a>.</p>
 </li>
 </ul>
 </div>
@@ -270,38 +267,41 @@ For more detailed help, you can visit the link provided, as shown in the figure 
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-<code>new n/John c/Computer Science cs/4</code><br>
-Creates a new profile with the name "John", currently majoring in "Computer Science" and is in his 4th semester of study.
+<code>new n/John c/Computer Science y/2.2</code><br>
+Creates a new profile with the name "John", currently majoring in "Computer Science" and is a year 2 semester 2 student.
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Add"><a class="link" href="#Add">4.3. Adding: <code>add</code></a></h3>
+<h3 id="Add"><a class="link" href="#Add">4.3. Adding a module / task: <code>add</code></a></h3>
 <div class="paragraph">
-<p>This command adds a module or a task to an existing module in <strong>MODdy</strong>.</p>
+<p>If you want to add modules to each of your semesters or add tasks to each of your existing modules in the current semester, this command is the right one for you!</p>
 </div>
 <div class="paragraph">
 <p>There are <strong>two</strong> ways you can use the <code>add</code> command:<br></p>
 </div>
 <div class="sect3">
-<h4 id="add-a-current-completed-module-to-strong-moddy-strong-br"><a class="link" href="#add-a-current-completed-module-to-strong-moddy-strong-br">4.3.1. Add a current/completed module to <strong>MODdy</strong><br></a></h4>
+<h4 id="adding-a-module-to-strong-moddy-strong-br"><a class="link" href="#adding-a-module-to-strong-moddy-strong-br">4.3.1. Adding a module to <strong>MODdy</strong><br></a></h4>
 <div class="paragraph">
-<p>Format: <code>add m/MODULE y/SEMESTER_INDEX [g/GRADE]</code><br></p>
+<p>Format: <code>add m/MODULE y/YEAR.SEMESTER [g/GRADE]</code><br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>y/SEMESTER_INDEX</code> must be entered as an integer, e.g. if you took the module in Year 2 Semester 1, you will enter <code>y/3</code></p>
+<p>You can add multiple modules at the same time but only to the <strong>same</strong> year and semester. To add multiple modules, just append the <code>m/MODULE</code> tags right after another, e.g. <code>add m/CS1231 m/IS1130 m/MA1521 y/1.1</code>.</p>
 </li>
 <li>
-<p>As you have already specified the current semester you are currently in when creating your profile, <strong>MODdy</strong> will indicate modules added to prior semesters as <strong>"completed"</strong>, and modules that are added to the current semester or to future semesters are indicated as <strong>"currently taking"</strong> or <strong>"planning to take"</strong> respectively</p>
+<p><code>y/YEAR.SEMESTER</code> must be entered as an integer. You should enter the year and semester that you took the module in. If you took the module in year 2 semester 1, enter <code>y/2.1</code>.</p>
 </li>
 <li>
-<p><code>g/GRADE</code> is optional</p>
+<p>As you have already specified the current semester you are currently in when creating your profile, <strong>MODdy</strong> will indicate modules added to prior semesters, current semester and future semesters as <strong>"completed"</strong>, <strong>"currently taking"</strong> and <strong>"planning to take"</strong> respectively.</p>
+</li>
+<li>
+<p><code>g/GRADE</code> is optional. If you have yet to obtain a grade for the module, don&#8217;t worry, you can always add it to the module later using the <a href="#Edit">edit</a> feature mentioned in <a href="#Edit">Section 4.4</a>.</p>
 </li>
 </ul>
 </div>
@@ -311,7 +311,7 @@ Creates a new profile with the name "John", currently majoring in "Computer Scie
 <div class="content">
 <img src="images/AddModule.png" alt="AddModule" width="790">
 </div>
-<div class="title">Figure 4. CS2105 is added as a module under the 3rd semester</div>
+<div class="title">Figure 4. CS2105 is added as a module under the Year 2 Semester 1</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -321,14 +321,14 @@ Creates a new profile with the name "John", currently majoring in "Computer Scie
 </td>
 <td class="content">
 <code>add m/CS2105 y/3 g/A+</code><br>
-Adds CS2105 to the list of modules under the 3rd semester (Year 2 Semester 1) with the resulting grade, A+
+Adds CS2105 to the list of modules under Year 2 Semester 1 with the resulting grade, A+
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-task-with-a-deadline-to-an-existing-module-in-strong-moddy-strong-br"><a class="link" href="#add-a-task-with-a-deadline-to-an-existing-module-in-strong-moddy-strong-br">4.3.2. Add a task with a deadline to an existing module in <strong>MODdy</strong><br></a></h4>
+<h4 id="adding-a-task-with-a-deadline-to-an-existing-module-in-strong-moddy-strong-br"><a class="link" href="#adding-a-task-with-a-deadline-to-an-existing-module-in-strong-moddy-strong-br">4.3.2. Adding a task with a deadline to an existing module in <strong>MODdy</strong><br></a></h4>
 <div class="paragraph">
 <p>Format: <code>add m/MODULE t/TASK [d/DEADLINE]</code><br></p>
 </div>
@@ -337,16 +337,16 @@ Adds CS2105 to the list of modules under the 3rd semester (Year 2 Semester 1) wi
 <div class="ulist">
 <ul>
 <li>
-<p>The module must already exist in <strong>MODdy</strong> before a task can be added</p>
+<p>You can only add a task to the module if the module has been added to <strong>MODdy</strong> previously.</p>
 </li>
 <li>
-<p><code>d/DEADLINE</code> is optional</p>
+<p><code>d/DEADLINE</code> must be entered in the format <code>d/YYYY-MM-DD HH:mm</code>, e.g. <code>d/2020-03-31 23:59</code>.</p>
 </li>
 <li>
-<p><code>d/DEADLINE</code> must be entered in the format <code>YYYY-MM-DD HH:mm</code> (e.g. 2020-03-31 23:59)</p>
+<p><code>d/DEADLINE</code> is kept optional for your tasks with no deadlines. If your task has a <code>Date</code> due but no <code>Time</code> due, just enter <code>d/YYYY-MM-DD</code> and we will set the <code>Time</code> to default (23:59).</p>
 </li>
 <li>
-<p>Completed <code>t/TASK</code> should be deleted by you using the <a href="#Delete"><code>delete</code></a> feature</p>
+<p>You can delete completed <code>t/TASK</code> using the <a href="#Delete"><code>delete</code></a> feature mentioned in <a href="#Delete">Section 4.6</a>.</p>
 </li>
 </ul>
 </div>
@@ -861,22 +861,36 @@ e.g. <code>add m/CS2105 y/3 t/Assignment d/2020-03-31 23:59</code></p>
 </li>
 <li>
 <p><a href="#Edit"><strong>Edit</strong></a> : <code>edit [n/NAME] [c/COURSE] [cs/CURRENT_SEMESTER] [f/FOCUS_AREA]</code><br>
-e.g. <code>edit n/Brad c/Information Security s/Software Engineering</code><br>
-or <code>edit m/MODULE [y/SEMESTER_TAKEN] [g/GRADE]</code><br>
-e.g. <code>edit m/CS2103 g/A+</code><br>
-or <code>edit m/MODULE t/TASK [nt/NEW_TASK] [d/DEADLINE]</code><br>
-e.g. <code>edit m/CS2105 t/Assignment nt/Project</code></p>
+e.g. <code>edit n/Brad c/Information Security s/Software Engineering</code><br></p>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p>or <code>edit m/MODULE [y/SEMESTER_TAKEN] [g/GRADE]</code><br>
+e.g. <code>edit m/CS2103 g/A+</code><br></p>
+</div>
+<div class="paragraph">
+<p>or <code>edit m/MODULE t/TASK [nt/NEW_TASK] [d/DEADLINE]</code><br>
+e.g. <code>edit m/CS2105 t/Assignment nt/Project</code></p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><a href="#Show"><strong>Show</strong></a> : <code>show [y/SEMESTER_INDEX] [c/COURSE_NAME] [f/FOCUS_AREA] [m/MODULE_CODE]</code><br>
 e.g. <code>show y/4</code>, <code>show c/information systems</code>, <code>show f/electronic commerce</code>, <code>show m/CS3230</code></p>
 </li>
 <li>
 <p><a href="#Delete"><strong>Delete</strong></a> : <code>delete n/NAME</code><br>
-e.g. <code>delete n/Brad</code><br>
-or <code>delete m/MODULE_CODE [t/TASK] [g/]</code><br>
-e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</code>, <code>delete m/CS2105 g/</code><br></p>
+e.g. <code>delete n/Brad</code><br></p>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p>or <code>delete m/MODULE_CODE [t/TASK] [g/]</code><br>
+e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</code>, <code>delete m/CS2105 g/</code><br></p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><a href="#Home"><strong>Home</strong></a> : <code>home</code></p>
 </li>
@@ -999,4 +1013,4 @@ e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</c
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 12:27:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 13:31:31 UTC</div></div></div></body></html>
