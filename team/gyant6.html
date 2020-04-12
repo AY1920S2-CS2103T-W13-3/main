@@ -288,10 +288,380 @@ You can retrieve the list of focus areas under a course using the <a href="#show
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="Delete"><a class="link" href="#Delete">Deleting profile, module, task or grade: <code>delete</code></a></h3>
+<div class="paragraph">
+<p>To remove a profile, module, task or grade from <strong>MODdy</strong>, use the <code>delete</code> command.</p>
+</div>
+<div class="paragraph">
+<p>There are <strong>four</strong> ways you can use the <code>delete</code> command:</p>
+</div>
+<div class="sect3">
+<h4 id="deleting-your-profile-br"><a class="link" href="#deleting-your-profile-br">Deleting your profile<br></a></h4>
+<div class="paragraph">
+<p>If you wish to remove your profile, you can do so with the command below. The effect of using this command is shown in the figure below.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete n/name</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteProfile.png" alt="DeleteProfile" width="790">
+</div>
+<div class="title">Figure 6. Entire profile deleted from <strong>MODdy</strong></div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Your profile, including all modules, grades and deadlines under your name, will be deleted from <strong>MODdy</strong>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-module-br"><a class="link" href="#deleting-a-module-br">Deleting a module<br></a></h4>
+<div class="paragraph">
+<p>If you have decided not to take a module you were planning to take or to drop a module which you are currently taking, you can delete it with the command below. The effect of using this command is shown in the figure below.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete m/moduleCode</code></p>
+</div>
+<div class="paragraph">
+<p>You can delete multiple modules at the same time. To delete multiple modules, just append the <code>m/moduleCode</code> tags one after another, e.g. <code>delete m/CS1231 m/IS1130 m/MA1521</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteModule.png" alt="DeleteModule" width="790">
+</div>
+<div class="title">Figure 7. CS2107 and its tasks deleted from <strong>MODdy</strong></div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The specified module, including all tasks and deadlines of that module, will be deleted from <strong>MODdy</strong>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-task-br"><a class="link" href="#deleting-a-task-br">Deleting a task<br></a></h4>
+<div class="paragraph">
+<p>Once you have completed a task, you can delete it using the command below. The effect of using this command is shown in the figure below.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete m/moduleCode t/task</code></p>
+</div>
+<div class="paragraph">
+<p>You can delete multiple tasks at the same time but only from the <strong>same</strong> module. To delete multiple tasks, just append the <code>t/task</code> tags one after another, e.g. <code>delete m/CS1231 t/quiz t/exam</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteTask.png" alt="DeleteTask" width="790">
+</div>
+<div class="title">Figure 8. "Project Submission" for CS2103 deleted from the Deadline Panel</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The specified task and its deadline will be deleted from the specified module
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>delete m/CS2103 t/Project Submission</code><br>
+Deletes the task "Assignment" from the module CS2103 in your profile
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-grade-br"><a class="link" href="#deleting-a-grade-br">Deleting a grade<br></a></h4>
+<div class="paragraph">
+<p>If you have been using <strong>MODdy</strong> to simulate your grades or you have entered a grade for the wrong module, you can delete the grade using the command below. The effect of using this command is shown in the figure below.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete m/moduleCode g/</code></p>
+</div>
+<div class="paragraph">
+<p>(to include screenshot of MODdy on Mac and the caption)</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Home"><a class="link" href="#Home">Returning to Homepage : <code>home</code></a></h3>
+<div class="paragraph">
+<p>If you want to return to <strong>MODdy</strong>'s Homepage, use this command, as shown in the figure below.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>home</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Home.png" alt="Home" width="790">
+</div>
+<div class="title">Figure 9. Homepage of <strong>MODdy</strong> shown in Main Panel</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Clear"><a class="link" href="#Clear">Resetting <strong>MODdy</strong>: <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Want a new profile? If you want to clear your profile and data from <strong>MODdy</strong>, use this command. It clears all entries from <strong>MODdy</strong>, as shown in the figure below.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clear</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Clear.png" alt="Clear" width="790">
+</div>
+<div class="title">Figure 10. All entries from <strong>MODdy</strong> cleared</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Exit"><a class="link" href="#Exit">Exiting <strong>MODdy</strong>: <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Done with managing your modules and tasks for the day? If you want to close the GUI and exit <strong>MODdy</strong>, use this command.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-your-data"><a class="link" href="#saving-your-data">Saving your data</a></h3>
+<div class="paragraph">
+<p>If your <strong>MODdy</strong> application closes unexpectedly or if your computer suddenly shuts down by itself, do not worry!<br>
+Your <strong>MODdy</strong>'s data is saved in the hard disk automatically after any command that changes the data. There is no need for you to save manually and worry that you will lose any unsaved data.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides you with some commonly asked questions you might have when using <strong>MODdy</strong>.<br>
+Here are our answers to those questions!</p>
+</div>
+<div class="paragraph">
+<p><strong>Q1</strong>: How do I transfer my data to another Computer?<br>
+<strong>A1</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous <strong>MODdy</strong> folder.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q2</strong>: Can I have two profiles?<br>
+<strong>A2</strong>: Download and install <strong>MODdy</strong> in two different folders on your computer so that you will have two different data files in separate locations. You can have as many profiles as you want using this method!</p>
+</div>
+<div class="paragraph">
+<p><strong>Q3</strong>: How do I prevent others from seeing my grades when using my computer?
+<strong>A4</strong>: We are currently working on an improved version of <strong>MODdy</strong> where there will be log in features to encrypt your data. Do keep a look out for future updates!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides you with a summary of the basic commands you can perform in <strong>MODdy</strong>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Help"><strong>Help</strong></a> : <code>help</code></p>
+</li>
+<li>
+<p><a href="#New"><strong>New</strong></a> : <code>new n/name c/course y/year.semester [f/focusArea]</code><br>
+e.g. <code>new n/John c/Computer Science y/2.2</code></p>
+</li>
+<li>
+<p><a href="#Add"><strong>Add</strong></a> : <code>add m/moduleCode y/year.semester [g/grade]</code><br>
+e.g. <code>add m/CS2105 y/2.1 g/A+</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>or <code>add m/moduleCode t/task [d/deadline]</code><br>
+e.g. <code>add m/CS2105 t/Assignment d/2020-03-31 23:59</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Edit"><strong>Edit</strong></a> : <code>edit [n/name] [c/course] [y/year.semester] [f/focusArea]</code><br>
+e.g. <code>edit n/Brad c/Computer Science s/Software Engineering</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>or <code>edit m/moduleCode [y/year.semester] [g/grade]</code><br>
+e.g. <code>edit m/CS2103 g/A+</code><br></p>
+</div>
+<div class="paragraph">
+<p>or <code>edit m/moduleCode t/task [nt/newTask] [d/deadline]</code><br>
+e.g. <code>edit m/CS2105 t/Assignment nt/Project</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Show"><strong>Show</strong></a> : <code>show [y/year.semester] [c/course] [f/focusArea] [m/moduleCode]</code><br>
+e.g. <code>show y/4</code>, <code>show c/information systems</code>, <code>show f/electronic commerce</code>, <code>show m/CS3230</code></p>
+</li>
+<li>
+<p><a href="#Delete"><strong>Delete</strong></a> : <code>delete n/name</code><br>
+e.g. <code>delete n/Brad</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>or <code>delete m/moduleCode [t/task] [g/]</code><br>
+e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</code>, <code>delete m/CS2105 g/</code><br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Home"><strong>Home</strong></a> : <code>home</code></p>
+</li>
+<li>
+<p><a href="#Clear"><strong>Clear</strong></a> : <code>clear</code></p>
+</li>
+<li>
+<p><a href="#Exit"><strong>Exit</strong></a> : <code>exit</code></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="appendix"><a class="link" href="#appendix">Appendix</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List of courses and focus areas (if applicable) currently supported by <strong>MODdy</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Business Analytics</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Financial Analytics</p>
+</li>
+<li>
+<p>Marketing Analytics</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Computer Engineering</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Communications and Networking</p>
+</li>
+<li>
+<p>Embedded Computing</p>
+</li>
+<li>
+<p>Intelligent Systems</p>
+</li>
+<li>
+<p>Interactive Digital Media</p>
+</li>
+<li>
+<p>Large-Scale Computing</p>
+</li>
+<li>
+<p>System-On-A-Chip Design</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Computer Science</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Algorithms and Theory</p>
+</li>
+<li>
+<p>Artificial Intelligence</p>
+</li>
+<li>
+<p>Computer Graphics and Games</p>
+</li>
+<li>
+<p>Computer Security</p>
+</li>
+<li>
+<p>Database Systems</p>
+</li>
+<li>
+<p>Multimedia Information Retrieval</p>
+</li>
+<li>
+<p>Networking and Distributed Systems</p>
+</li>
+<li>
+<p>Parallel Computing</p>
+</li>
+<li>
+<p>Programming Languages</p>
+</li>
+<li>
+<p>Software Engineering</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Information Security</p>
+</li>
+<li>
+<p>Information Systems</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Digital Innovation</p>
+</li>
+<li>
+<p>Electronic Commerce</p>
+</li>
+<li>
+<p>Financial Technology</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appendix-2"><a class="link" href="#appendix-2">Appendix</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -470,4 +840,4 @@ You can retrieve the list of focus areas under a course using the <a href="#show
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:51:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 13:56:04 UTC</div></div></div></body></html>

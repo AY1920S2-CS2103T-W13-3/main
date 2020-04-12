@@ -24,14 +24,15 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#dependency-between-module-and-personal">4.1. Dependency between Module and Personal</a></li>
-<li><a href="#new-profile-feature">4.2. New Profile Feature</a></li>
-<li><a href="#add-module-task-feature">4.3. Add Module / Task Feature</a></li>
-<li><a href="#show-feature">4.4. Show Feature</a></li>
-<li><a href="#edit-profile-module-feature">4.5. Edit Profile / Module Feature</a></li>
-<li><a href="#delete-profile-module-deadline-grade-feature">4.6. Delete Profile / Module / Deadline / Grade Feature</a></li>
-<li><a href="#help-feature">4.7. Help Feature</a></li>
-<li><a href="#logging">4.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
+<li><a href="#structure-of-command-features">4.2. Structure of Command Features</a></li>
+<li><a href="#new-profile-feature">4.3. New Profile Feature</a></li>
+<li><a href="#add-module-task-feature">4.4. Add Module / Task Feature</a></li>
+<li><a href="#show-feature">4.5. Show Feature</a></li>
+<li><a href="#edit-profile-module-feature">4.6. Edit Profile / Module Feature</a></li>
+<li><a href="#delete-profile-module-deadline-grade-feature">4.7. Delete Profile / Module / Deadline / Grade Feature</a></li>
+<li><a href="#help-feature">4.8. Help Feature</a></li>
+<li><a href="#logging">4.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -451,9 +452,27 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="new-profile-feature"><a class="link" href="#new-profile-feature">4.2. New Profile Feature</a></h3>
+<h3 id="structure-of-command-features"><a class="link" href="#structure-of-command-features">4.2. Structure of Command Features</a></h3>
 <div class="paragraph">
-<p>The <code>new</code> feature allows the user to create a profile with the command <code>new</code>, appended with the tags.</p>
+<p>The <code>Command</code> features in MODdy all extends from a single abstract class <code>Command</code>. A specific <code>Command</code> object created is executed by the <code>LogicManger</code> using the respective <code>Parser</code>, which then returns a <code>CommandResult</code> object and provides the result of that <code>Command</code> feature.<br></p>
+</div>
+<div class="paragraph">
+<p>The following class diagram shows the implementation of MODdy&#8217;s <code>Command</code> features:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandClassDiagram.png" alt="CommandClassDiagram">
+</div>
+<div class="title">Figure 10. Class diagram illustrating all classes extending from <code>Command</code></div>
+</div>
+<div class="paragraph">
+<p>The sections below gives more details on each <code>Command</code> feature.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="new-profile-feature"><a class="link" href="#new-profile-feature">4.3. New Profile Feature</a></h3>
+<div class="paragraph">
+<p>The <code>new</code> feature allows the user to create a <code>Profile</code> with the command <code>new</code>, appended with the tags.</p>
 </div>
 <div class="paragraph">
 <p>The tags are:</p>
@@ -467,53 +486,54 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p><code>c/course</code> for <code>Course</code></p>
 </li>
 <li>
-<p><code>cs/current_semester</code> for <code>Current Semester</code></p>
+<p><code>y/currentYear.currentSemester</code> for current year and semester</p>
 </li>
 <li>
-<p><code>s/focusArea</code> for <code>Specialisation</code></p>
+<p><code>f/focusArea</code> for <code>FocusArea</code></p>
 </li>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="current-implementations"><a class="link" href="#current-implementations">4.2.1. Current Implementations</a></h4>
+<h4 id="current-implementations"><a class="link" href="#current-implementations">4.3.1. Current Implementations</a></h4>
 <div class="paragraph">
 <p><code>NewCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>NewCommand</code> is parsed using <code>NewCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>new</code> operation works with the input: <code>new n/John c/Computer Science y/2.2</code></p>
+<p>The following sequence diagram shows how the <code>new</code> operation works with the input: <code>new n/John c/Computer Science y/2.2</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/NewCommandSequenceDiagram.png" alt="NewCommandSequenceDiagram">
 </div>
+<div class="title">Figure 11. Interactions between UI, Logic and Model components for <code>new n/John c/Computer Science y/2.2</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.3.2. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1:</strong> Have an additional tag <code>cs/currentYear.currentSemester</code> to identify the year and semester user is in</p>
+<p><strong>Alternative 1 (current choice):</strong> Use the <code>y/year.semester</code> tag like all other commands.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to differentiate the year and semester user is in among all <code>y/year.semester</code> tags</p>
+<p>Pros: More intuitive for user (only one tag related to year and semester).</p>
 </li>
 <li>
-<p>Cons: More tags to parse, and also less intuitive for user (have to use both <code>cs/</code> and <code>y/</code>)</p>
+<p>Cons: Harder to convey the idea that it has to be <strong>current</strong> year and <strong>current</strong> semester to user.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2 (current choice):</strong> Use the <code>y/year.semester</code> tag like all other commands</p>
+<p><strong>Alternative 2:</strong> Have an additional tag <code>cs/currentYear.currentSemester</code> instead of <code>y/year.semester</code> to identify the year and semester user is in.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More intuitive for user (only one tag related to year and semester)</p>
+<p>Pros: Easier to differentiate the current year and semester user is in among all <code>y/year.semester</code> tags.</p>
 </li>
 <li>
-<p>Cons: Harder to convey the idea that it has to be <strong>current</strong> year and <strong>current</strong> semester to user</p>
+<p>Cons: More tags to parse, and also less intuitive for user (have to use both <code>cs/</code> and <code>y/</code>).</p>
 </li>
 </ul>
 </div>
@@ -521,14 +541,14 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </ul>
 </div>
 <div class="paragraph">
-<p>Eventually, we decided on alternative 2 to prioritize user-friendliness and cleaner code.</p>
+<p>Eventually, we decided on alternative 1 to prioritize user-friendliness and cleaner code.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-module-task-feature"><a class="link" href="#add-module-task-feature">4.3. Add Module / Task Feature</a></h3>
+<h3 id="add-module-task-feature"><a class="link" href="#add-module-task-feature">4.4. Add Module / Task Feature</a></h3>
 <div class="paragraph">
-<p>The <code>add</code> feature allows the user to add a module and a task with a deadline for an existing module with the command <code>add</code>, appended with the tags.</p>
+<p>The <code>add</code> feature allows the user to add a <code>Module</code> and a <code>Task</code> with a <code>Deadline</code> for an existing module with the command <code>add</code>, appended with the tags.</p>
 </div>
 <div class="paragraph">
 <p>The tags are:</p>
@@ -536,10 +556,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="ulist">
 <ul>
 <li>
-<p><code>m/module_code y/year.semester</code> for adding a module</p>
+<p><code>m/moduleCode y/year.semester [g/grade]</code> for adding a module</p>
 </li>
 <li>
-<p><code>m/module_code y/year.semester t/task d/deadline</code> for adding a task to an existing module</p>
+<p><code>m/moduleCode y/year.semester t/task [d/deadline]</code> for adding a task to an existing module</p>
 </li>
 </ul>
 </div>
@@ -550,90 +570,81 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You can add multiple modules at once but only to the same year and semester, e.g. <code>add m/CS1231 m/IS1103 m/MA1521 y/1.1</code>
+<code>g/grade</code> is optional.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Multiple modules can be added at once but only to the <strong>same year and semester</strong>, e.g. <code>add m/CS1231 m/IS1103 m/MA1521 y/1.1</code>.<br>
+Multiple tasks can be added at once but only to the <strong>same module</strong>, e.g. <code>add m/CS1231 t/tutorial d/2020-04-20 18:00 t/assignment d/2020-04-25 23:59</code>.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>d/deadline</code> is optional.<br>
+However, for multiple tasks, as long as one <code>Task</code> has a <code>Deadline</code>, all <code>t/task</code> tags have to be appended with <code>d/deadline</code> tags. For the tasks with no deadlines, the tag can just be <code>d/</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect3">
-<h4 id="current-implementations-2"><a class="link" href="#current-implementations-2">4.3.1. Current Implementations</a></h4>
+<h4 id="current-implementations-2"><a class="link" href="#current-implementations-2">4.4.1. Current Implementations</a></h4>
 <div class="paragraph">
 <p><code>AddCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>AddCommand</code> is parsed using <code>AddCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>add</code> operation works with input: <code>add m/CS2105 y/2.2</code></p>
+<p>The following sequence diagram shows how the <code>add</code> operation works with input: <code>add m/CS2105 y/2.2</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddSequenceDiagram.png" alt="AddSequenceDiagram">
 </div>
+<div class="title">Figure 12. Interactions between Ui, Logic and Model components for <code>add m/CS2105 y/2.2</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.2. Design Considerations</a></h4>
 <div class="paragraph">
-<p>Aspect 1: How modules are added</p>
+<p><strong>Aspect 1: How modules are added</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1:</strong> Delete only one <code>Module</code> object with one <code>add</code> command</p>
+<p><strong>Alternative 1 (current choice):</strong> Add multiple <code>Module</code> objects with one <code>AddCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement and consistent across all commands</p>
+<p>Pros: More convenient for the user.</p>
 </li>
 <li>
-<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects</p>
+<p>Cons: Inconsistent with other commands, which can only take in one similar object with one <code>Command</code>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2 (current choice):</strong> Delete multiple <code>Module</code> objects with one <code>add</code> command</p>
+<p><strong>Alternative 2:</strong> Add only one <code>Module</code> object with one <code>AddCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More convenient for the user</p>
+<p>Pros: Easier to implement and consistent across all commands.</p>
 </li>
 <li>
-<p>Cons: Inconsistent with adding a task, which can only take in one task at a time</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Eventually, we decided on alternative 2 for the convenience of the user since the number of modules taken per semester is not low.</p>
-</div>
-<div class="paragraph">
-<p>Aspect 2: How <code>deadline</code> feature is implemented</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Both <code>date</code> and <code>time</code> is compulsory for a <code>deadline</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to implement since both date and time will be parsed</p>
-</li>
-<li>
-<p>Cons: Some tasks do not have a timing that it must be completed by, making it user-unfriendly</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> The <code>date</code> is compulsory while <code>time</code> is optional for a <code>deadline</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Gives user the flexibility to input different types of tasks</p>
-</li>
-<li>
-<p>Cons: More bugs in <code>deadline</code> related method calls</p>
+<p>Cons: More to type if user intends to add multiple <code>Module</code> objects.</p>
 </li>
 </ul>
 </div>
@@ -641,12 +652,48 @@ You can add multiple modules at once but only to the same year and semester, e.g
 </ul>
 </div>
 <div class="paragraph">
-<p>Eventually, we decided on alternative 2 for the benefits of the user. To tackle the cons, we have set <code>time</code> to be "23:59" by default if user did not specify.</p>
+<p>Eventually, we decided on alternative 1 for the convenience of the user since the number of modules taken per semester is not low.</p>
+</div>
+<div class="paragraph">
+<p><strong>Aspect 2: How <code>deadline</code> feature is implemented</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> The <code>date</code> is compulsory while <code>time</code> is optional for a <code>deadline</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Gives user the flexibility to input different types of tasks.</p>
+</li>
+<li>
+<p>Cons: More bugs in <code>deadline</code> related method calls.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Both <code>date</code> and <code>time</code> is compulsory for a <code>deadline</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement since both date and time will be parsed.</p>
+</li>
+<li>
+<p>Cons: Some tasks do not have a timing that it must be completed by, making it not user-friendly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Eventually, we decided on alternative 1 for the benefits of the user. To tackle the cons, we have set <code>time</code> to be "23:59" by default if user did not specify.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="show-feature"><a class="link" href="#show-feature">4.4. Show Feature</a></h3>
+<h3 id="show-feature"><a class="link" href="#show-feature">4.5. Show Feature</a></h3>
 <div class="paragraph">
 <p>The <code>show</code> feature allows the user to display information about a <code>Module</code>, <code>Course</code>, <code>FocusArea</code> or <code>Semester</code> with the command <code>show</code>, appended with the tags below. These information cannot be seen from the main UI and have to be displayed through the <code>show</code> command.</p>
 </div>
@@ -670,7 +717,7 @@ You can add multiple modules at once but only to the same year and semester, e.g
 </ul>
 </div>
 <div class="sect3">
-<h4 id="current-implementations-3"><a class="link" href="#current-implementations-3">4.4.1. Current Implementations</a></h4>
+<h4 id="current-implementations-3"><a class="link" href="#current-implementations-3">4.5.1. Current Implementations</a></h4>
 <div class="paragraph">
 <p><code>ShowCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>ShowCommand</code> is parsed using <code>ShowCommandParser</code> to split the user input into relevant fields.</p>
 </div>
@@ -681,7 +728,7 @@ You can add multiple modules at once but only to the same year and semester, e.g
 <div class="content">
 <img src="images/ShowCommandActivityDiagram.png" alt="ShowCommandActivityDiagram">
 </div>
-<div class="title">Figure 10. Activity Diagram for a Show Command input</div>
+<div class="title">Figure 13. Activity Diagram for a Show Command input</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -697,7 +744,7 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -734,7 +781,7 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-profile-module-feature"><a class="link" href="#edit-profile-module-feature">4.5. Edit Profile / Module Feature</a></h3>
+<h3 id="edit-profile-module-feature"><a class="link" href="#edit-profile-module-feature">4.6. Edit Profile / Module Feature</a></h3>
 <div class="paragraph">
 <p>The <code>edit</code> feature supports the editing of both <code>Profile</code> and <code>Module</code>. <code>Profile</code> is edited with the command <code>edit</code> and <code>Module</code> is edited with the command <code>edit</code> appended with <code>m/module_code</code>.<br></p>
 </div>
@@ -748,7 +795,7 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <p>Lastly, the edit deadline feature is a complementary feature to the add deadline feature. It allows the user to edit a deadline that has previously been added to a module. The user can edit deadline information such as it&#8217;s description, date and time.<br></p>
 </div>
 <div class="sect3">
-<h4 id="current-implementations-4"><a class="link" href="#current-implementations-4">4.5.1. Current Implementations</a></h4>
+<h4 id="current-implementations-4"><a class="link" href="#current-implementations-4">4.6.1. Current Implementations</a></h4>
 <div class="paragraph">
 <p><code>EditCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>EditCommannd</code> is parsed using <code>EditCommandParser</code> to split the user input into relevant fields.</p>
 </div>
@@ -807,11 +854,11 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <div class="content">
 <img src="images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
 </div>
-<div class="title">Figure 11. Interactions Inside the Logic Component for the <code>edit n/John</code> Command</div>
+<div class="title">Figure 14. Interactions Inside the Logic Component for the <code>edit n/John</code> Command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -855,12 +902,12 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <div class="content">
 <img src="images/EditCommandActivityDiagram.png" alt="EditCommandActivityDiagram">
 </div>
-<div class="title">Figure 12. Activity Diagram for an Edit Command input</div>
+<div class="title">Figure 15. Activity Diagram for an Edit Command input</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-profile-module-deadline-grade-feature"><a class="link" href="#delete-profile-module-deadline-grade-feature">4.6. Delete Profile / Module / Deadline / Grade Feature</a></h3>
+<h3 id="delete-profile-module-deadline-grade-feature"><a class="link" href="#delete-profile-module-deadline-grade-feature">4.7. Delete Profile / Module / Deadline / Grade Feature</a></h3>
 <div class="paragraph">
 <p>The <code>delete</code> feature allows the user to delete a <code>Profile</code>, <code>Module</code>, <code>Deadline</code> or <code>Grade</code> with the command <code>delete</code>, appended with the tags.</p>
 </div>
@@ -898,7 +945,7 @@ You can also delete multiple grades at once, e.g. <code>delete m/CS1231 m/IS1103
 </table>
 </div>
 <div class="sect3">
-<h4 id="current-implementations-5"><a class="link" href="#current-implementations-5">4.6.1. Current Implementations</a></h4>
+<h4 id="current-implementations-5"><a class="link" href="#current-implementations-5">4.7.1. Current Implementations</a></h4>
 <div class="paragraph">
 <p><code>DeleteCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>DeleteCommand</code> is parsed using <code>DeleteCommandParser</code> to split the user input into relevant fields.</p>
 </div>
@@ -909,11 +956,11 @@ You can also delete multiple grades at once, e.g. <code>delete m/CS1231 m/IS1103
 <div class="content">
 <img src="images/DeleteDeadlineSequenceDiagram.png" alt="DeleteDeadlineSequenceDiagram">
 </div>
-<div class="title">Figure 13. Interactions between UI, Logic and Model components for the <code>delete m/CS2101 t/work</code> command.</div>
+<div class="title">Figure 16. Interactions between UI, Logic and Model components for the <code>delete m/CS2101 t/work</code> command.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -950,27 +997,27 @@ You can also delete multiple grades at once, e.g. <code>delete m/CS1231 m/IS1103
 </div>
 </div>
 <div class="sect2">
-<h3 id="help-feature"><a class="link" href="#help-feature">4.7. Help Feature</a></h3>
+<h3 id="help-feature"><a class="link" href="#help-feature">4.8. Help Feature</a></h3>
 <div class="paragraph">
 <p>The <code>help</code> feature allows the user to view the pop-up help window with the command <code>help</code>. This feature allows the user to have a
 quick view of sample inputs if they run into trouble while using the application.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementations-6"><a class="link" href="#current-implementations-6">4.7.1. Current Implementations</a></h4>
+<h4 id="current-implementations-6"><a class="link" href="#current-implementations-6">4.8.1. Current Implementations</a></h4>
 <div class="paragraph">
 <p><code>HelpCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1001,7 +1048,7 @@ quick view of sample inputs if they run into trouble while using the application
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2130,4 +2177,4 @@ Expected: Shows the GUI with a Quick Start page.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:51:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 13:56:04 UTC</div></div></div></body></html>
