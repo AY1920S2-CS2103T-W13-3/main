@@ -159,11 +159,14 @@
 <div class="paragraph">
 <p>Format: <code>show n/NAME</code></p>
 </div>
+<div class="paragraph">
+<p>Example: <code>shown n/Brad</code> shows the profile overview of user "Brad", as shown in Figure 10 below.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ShowProfile.png" alt="ShowProfile" width="790">
 </div>
-<div class="title">Figure 1. Entire profile is shown in the Main Panel</div>
+<div class="title">Figure 1. Profile overview of "Brad" is shown in the Overview Panel</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -184,13 +187,13 @@ All the modules under every semester, grades of completed modules, as well as yo
 <p>Format: <code>show m/moduleCode</code></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>show m/CS3230</code></p>
+<p>Example: <code>show m/CS2103T</code> show all the module details of CS2103T, as shown in Figure 11 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ShowModule.png" alt="ShowModule" width="790">
 </div>
-<div class="title">Figure 2. Details of the module CS3230 shown in the Main Panel</div>
+<div class="title">Figure 2. Details of the module CS2103T shown in the Main Panel</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -224,13 +227,14 @@ MODdy will remind you that you can only display one object at a time.
 <p>Format: <code>show y/year.semester</code></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>show y/2.2</code></p>
+<p>Example: <code>show y/1.1</code> shows all modules taken in Year 1 Semester 1, as shown in Figure 12 below. If grades for these modules
+are available, it will be displayed as well.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ShowSemester.png" alt="ShowSemester" width="790">
 </div>
-<div class="title">Figure 3. Modules added to Year 2 Semester 2 shown in Main Panel</div>
+<div class="title">Figure 3. Modules added to Year 1 Semester 1 are shown in Main Panel</div>
 </div>
 </div>
 <div class="sect3">
@@ -239,13 +243,13 @@ MODdy will remind you that you can only display one object at a time.
 <p>Format: <code>show c/course</code></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>show c/Information Systems</code></p>
+<p>Example: <code>show c/Computer Science</code> shows the Course Requirement and Focus Area of "Computer Science", as shown in Figure 13 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ShowCourse.png" alt="ShowCourse" width="790">
 </div>
-<div class="title">Figure 4. Course requirement and focus areas of Information Systems shown in the Main Panel</div>
+<div class="title">Figure 4. Course requirement and focus areas of Computer Science is shown in the Main Panel</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -266,7 +270,8 @@ You need to enter the course name in full!
 <p>Format: <code>show f/focusArea</code></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>show f/Electronic Commerce</code></p>
+<p>Example: <code>show f/Software Engineering</code> shows the Primaries and Electives of focus area "Software Engineering",
+as shown in Figure 14 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -304,6 +309,9 @@ You can retrieve the list of focus areas under a course using the <a href="#show
 <div class="paragraph">
 <p>Format: <code>delete n/name</code></p>
 </div>
+<div class="paragraph">
+<p>Example: <code>delete n/Brad</code> deletes "Brad" from the profile panel as well as all other data, as shown in Figure 15 below.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/DeleteProfile.png" alt="DeleteProfile" width="790">
@@ -334,11 +342,15 @@ Your profile, including all modules, grades and deadlines under your name, will 
 <div class="paragraph">
 <p>You can delete multiple modules at the same time. To delete multiple modules, just append the <code>m/moduleCode</code> tags one after another, e.g. <code>delete m/CS1231 m/IS1130 m/MA1521</code>.</p>
 </div>
+<div class="paragraph">
+<p>Example: <code>delete m/CS2103T</code> deletes CS2103T from Year 2 Semester 2 and also removes all tasks related to CS2103T from the deadline panel, as
+shown in Figure 16 below.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/DeleteModule.png" alt="DeleteModule" width="790">
 </div>
-<div class="title">Figure 7. CS2107 and its tasks deleted from <strong>MODdy</strong></div>
+<div class="title">Figure 7. CS2103T and its tasks are deleted from <strong>MODdy</strong></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -364,11 +376,14 @@ The specified module, including all tasks and deadlines of that module, will be 
 <div class="paragraph">
 <p>You can delete multiple tasks at the same time but only from the <strong>same</strong> module. To delete multiple tasks, just append the <code>t/task</code> tags one after another, e.g. <code>delete m/CS1231 t/quiz t/exam</code>.</p>
 </div>
+<div class="paragraph">
+<p>Example: <code>delete m/CS2103T t/Quiz</code> deletes the task "Quiz" of module CS2103T from the Deadline Panel, as shown in Figure 17 below.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/DeleteTask.png" alt="DeleteTask" width="790">
 </div>
-<div class="title">Figure 8. "Project Submission" for CS2103 deleted from the Deadline Panel</div>
+<div class="title">Figure 8. "Quiz" for CS2103T deleted from the Deadline Panel</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -378,19 +393,6 @@ The specified module, including all tasks and deadlines of that module, will be 
 </td>
 <td class="content">
 The specified task and its deadline will be deleted from the specified module
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<code>delete m/CS2103 t/Project Submission</code><br>
-Deletes the task "Assignment" from the module CS2103 in your profile
 </td>
 </tr>
 </table>
@@ -405,12 +407,18 @@ Deletes the task "Assignment" from the module CS2103 in your profile
 <p>Format: <code>delete m/moduleCode g/</code></p>
 </div>
 <div class="paragraph">
-<p>(to include screenshot of MODdy on Mac and the caption)</p>
+<p>Example: <code>delete m/CS2103T g/</code> deletes the grade of module CS2103T, as shown in Figure 18 below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteGrade.png" alt="DeleteGrade" width="790">
+</div>
+<div class="title">Figure 9. Grade of CS2103T is deleted</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Home"><a class="link" href="#Home">Returning to Homepage : <code>home</code></a></h3>
+<h3 id="returning-to-homepage-code-home-code"><a class="link" href="#returning-to-homepage-code-home-code">Returning to Homepage : <code>home</code></a></h3>
 <div class="paragraph">
 <p>If you want to return to <strong>MODdy</strong>'s Homepage, use this command, as shown in the figure below.</p>
 </div>
@@ -421,7 +429,7 @@ Deletes the task "Assignment" from the module CS2103 in your profile
 <div class="content">
 <img src="../images/Home.png" alt="Home" width="790">
 </div>
-<div class="title">Figure 9. Homepage of <strong>MODdy</strong> shown in Main Panel</div>
+<div class="title">Figure 10. Homepage of <strong>MODdy</strong> shown in Main Panel</div>
 </div>
 </div>
 <div class="sect2">
@@ -436,7 +444,7 @@ Deletes the task "Assignment" from the module CS2103 in your profile
 <div class="content">
 <img src="../images/Clear.png" alt="Clear" width="790">
 </div>
-<div class="title">Figure 10. All entries from <strong>MODdy</strong> cleared</div>
+<div class="title">Figure 11. All entries from <strong>MODdy</strong> cleared</div>
 </div>
 </div>
 <div class="sect2">
@@ -840,4 +848,4 @@ e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</c
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 14:01:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 16:51:02 UTC</div></div></div></body></html>
