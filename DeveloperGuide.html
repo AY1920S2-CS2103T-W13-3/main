@@ -300,7 +300,7 @@ are in the <code>src/main/resources/view</code> folder. For example, the layout 
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a module).</p>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a <code>Module</code>).</p>
 </li>
 <li>
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
@@ -438,18 +438,18 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="ulist">
 <ul>
 <li>
-<p><code>Grade</code> : the user&#8217;s grade for te particular module</p>
+<p><code>Grade</code> : the user&#8217;s grade for the particular module</p>
 </li>
 <li>
-<p><code>Status</code> : the status of the module (<code>IN_PROGRESS</code>, <code>TAKING</code> or <code>TAKEN</code>)</p>
+<p><code>Status</code> : the status of the module (IN_PROGRESS, PLANNING or COMPLETED)</p>
 </li>
 <li>
-<p><code>DeadlineList</code> : a list of deadline tasks added by the user</p>
+<p><code>DeadlineList</code> : a list of <code>Deadline</code> tasks added by the user</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These attributes were included in <code>Personal</code> as they are the attributes that are personal to the user, and which the user can edit at any time.</p>
+<p>These attributes were included in <code>Personal</code> as they are the attributes that are personal to the user, and which the user can edit at any time. ModuleGrade and ModuleStatus are enumeration classes that store valid grades and module statuses.</p>
 </div>
 </div>
 <div class="sect2">
@@ -784,7 +784,7 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <div class="sect2">
 <h3 id="edit-profile-module-feature"><a class="link" href="#edit-profile-module-feature">4.6. Edit Profile / Module Feature</a></h3>
 <div class="paragraph">
-<p>The <code>edit</code> feature supports the editing of both <code>Profile</code> and <code>Module</code>. <code>Profile</code> is edited with the command <code>edit</code> and <code>Module</code> is edited with the command <code>edit</code> appended with <code>m/module_code</code>.<br></p>
+<p>The <code>edit</code> feature supports the editing of both <code>Profile</code> and <code>Module</code>. <code>Profile</code> is edited with the command <code>edit</code> and <code>Module</code> is edited with the command <code>edit</code> appended with <code>m/moduleCode</code>.<br></p>
 </div>
 <div class="paragraph">
 <p>The edit profile feature is a complementary feature to the new profile feature. It allows the user to edit their profile that was created at the start. Profile features such as name, course, current semester and focus area can be edited using this command.<br></p>
@@ -795,27 +795,22 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <div class="paragraph">
 <p>Lastly, the edit deadline feature is a complementary feature to the add deadline feature. It allows the user to edit a deadline that has previously been added to a module. The user can edit deadline information such as it&#8217;s description, date and time.<br></p>
 </div>
-<div class="sect3">
-<h4 id="current-implementations-4"><a class="link" href="#current-implementations-4">4.6.1. Current Implementations</a></h4>
-<div class="paragraph">
-<p><code>EditCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>EditCommannd</code> is parsed using <code>EditCommandParser</code> to split the user input into relevant fields.</p>
-</div>
 <div class="paragraph">
 <p>To edit the profile, the command <code>edit</code> should be appended with one or more of the tags:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>n/NAME</code> : New name</p>
+<p><code>n/name</code> : New name</p>
 </li>
 <li>
-<p><code>c/COURSE</code> : New course</p>
+<p><code>c/course</code> : New course</p>
 </li>
 <li>
-<p><code>y/CURRENT_SEMESTER</code> : New current semester</p>
+<p><code>y/year.semester</code> : New current semester</p>
 </li>
 <li>
-<p><code>f/FOCUS_AREA</code> : New focus area</p>
+<p><code>f/focusArea</code> : New focus area</p>
 </li>
 </ul>
 </div>
@@ -825,20 +820,20 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <div class="ulist">
 <ul>
 <li>
-<p><code>y/SEMESTER</code> : New semester where module is taken</p>
+<p><code>y/year.semester</code> : New semester where module is taken</p>
 </li>
 <li>
-<p><code>g/GRADE</code> : New grade for the module</p>
+<p><code>g/grade</code> : New grade for the module</p>
 </li>
 <li>
-<p><code>t/TASK</code> : Old task description</p>
+<p><code>t/task</code> : Old task description</p>
 <div class="ulist">
 <ul>
 <li>
 <p><code>nt/newTask</code> : New task description</p>
 </li>
 <li>
-<p><code>d/DEADLINE</code> : New date and time</p>
+<p><code>d/deadline</code> : New date and time</p>
 </li>
 </ul>
 </div>
@@ -846,7 +841,12 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 </ul>
 </div>
 <div class="paragraph">
-<p>To edit a deadline, append <code>edit m/moduleCode</code> with <code>t/TASK</code> that already exists and is to be edited, followed by either <code>nt/NEW_TASK</code> and/or <code>d/DEADLINE</code> which contain the new task or deadline that will replace the existing one.</p>
+<p>To edit a deadline that has previously been added, append <code>edit m/moduleCode</code> with <code>t/task</code> which is the description of the task to be edited, followed by either <code>nt/newTask</code> which is the new description of the task and/or <code>d/deadline</code> which is the new  deadline that will replace the existing one.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementations-4"><a class="link" href="#current-implementations-4">4.6.1. Current Implementations</a></h4>
+<div class="paragraph">
+<p><code>EditCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>EditCommannd</code> is parsed using <code>EditCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>edit</code> command works: <code>edit n/John</code>:</p>
@@ -855,7 +855,7 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <div class="content">
 <img src="images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
 </div>
-<div class="title">Figure 14. Interactions Inside the Logic Component for the <code>edit n/John</code> Command</div>
+<div class="title">Figure 14. Interactions between UI, Logic and Model components for the <code>edit n/John</code> Command</div>
 </div>
 </div>
 <div class="sect3">
@@ -2232,4 +2232,4 @@ Expected: Shows the GUI with a Quick Start page.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 20:28:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 20:35:09 UTC</div></div></div></body></html>

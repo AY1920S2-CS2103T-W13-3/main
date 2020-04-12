@@ -461,7 +461,7 @@ Green: ≥ 11 days
 <div class="sect2">
 <h3 id="Edit"><a class="link" href="#Edit">4.4. Editing: <code>edit</code></a></h3>
 <div class="paragraph">
-<p>This command edits your profile or a module in <strong>MODdy</strong>.<br></p>
+<p>If you want to edit any of the attributes you have previously added to <strong>MODdy</strong>, you can do so by using the <code>edit</code> command to edit your profile, module details or deadline task. You don&#8217;t have to worry about adding any wrong information as you can edit them at any time!<br></p>
 </div>
 <div class="paragraph">
 <p>There are <strong>three</strong> ways you can use the <code>edit</code> command:<br></p>
@@ -476,10 +476,13 @@ Green: ≥ 11 days
 <div class="ulist">
 <ul>
 <li>
-<p>Fields in brackets [] are optional, but at least one of these fields should be present to be edited</p>
+<p>Fields in brackets [] are optional, but at least one of these fields should be present to be edited.</p>
 </li>
 <li>
-<p>If you did not specify your focus area when you created your profile, <code>edit f/focusArea</code> adds the focusArea to your profile</p>
+<p>If you did not specify your focus area when you created your profile, <code>edit f/focusArea</code> adds the focus area to your profile.</p>
+</li>
+<li>
+<p>If you&#8217;ve moved on to a new semester, <code>edit y/year.semester</code> changes your current semester in your MODdy profile for you.</p>
 </li>
 </ul>
 </div>
@@ -511,7 +514,7 @@ Alongside your name and course, you can edit your focus area to match your curre
 <div class="sect3">
 <h4 id="edit-a-module-s-details-in-strong-moddy-strong-br"><a class="link" href="#edit-a-module-s-details-in-strong-moddy-strong-br">4.4.2. Edit a module&#8217;s details in <strong>MODdy</strong><br></a></h4>
 <div class="paragraph">
-<p>Format: <code>edit m/MODULE [y/SEMESTER_TAKEN] [g/GRADE]</code></p>
+<p>Format: <code>edit m/moduleCode [y/year.semester] [g/grade]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -553,20 +556,23 @@ You can edit the grade of module CS2103T to A+ and change the semester module is
 <div class="sect3">
 <h4 id="edit-a-task-s-description-or-deadline-br"><a class="link" href="#edit-a-task-s-description-or-deadline-br">4.4.3. Edit a task&#8217;s description or deadline<br></a></h4>
 <div class="paragraph">
-<p>Format: <code>edit m/MODULE t/TASK [nt/NEW_TASK] [d/DEADLINE]</code></p>
+<p>Format: <code>edit m/moduleCode t/task [nt/newTask] [d/deadline]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Fields in brackets [] are optional, but at least one of these fields should be present to be edited</p>
+<p>Fields in brackets [] are optional, but at least one of these fields should be present to be edited.</p>
 </li>
 <li>
-<p><code>nt/NEW_TASK</code> represents the new description of the existing task</p>
+<p><code>t/task</code> represents the description of the existing task you want to edit.</p>
 </li>
 <li>
-<p><code>d/DEADLINE</code> represents to new deadline of the existing task</p>
+<p><code>nt/newTask</code> represents the new description of the existing task.</p>
+</li>
+<li>
+<p><code>d/deadline</code> represents to new deadline of the existing task.</p>
 </li>
 </ul>
 </div>
@@ -1118,4 +1124,4 @@ e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</c
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 20:28:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 20:35:09 UTC</div></div></div></body></html>
