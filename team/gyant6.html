@@ -147,15 +147,15 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="Show"><a class="link" href="#Show">Showing: <code>show</code></a></h3>
+<h3 id="Show"><a class="link" href="#Show">Showing profile, module, semester, course or focus area: <code>show</code></a></h3>
 <div class="paragraph">
-<p>To see the information you have added previously, use the <code>show</code> command to do so.<br></p>
+<p>Not all information can be seen all at once. To see this information you have added previously, use the <code>show</code> command to switch your current <strong>MODdy</strong> display.<br></p>
 </div>
 <div class="paragraph">
 <p>There are <strong>five</strong> ways you can use the <code>show</code> command:</p>
 </div>
 <div class="sect3">
-<h4 id="show-your-profile-br"><a class="link" href="#show-your-profile-br">Show your profile<br></a></h4>
+<h4 id="showing-your-profile-br"><a class="link" href="#showing-your-profile-br">Showing your profile<br></a></h4>
 <div class="paragraph">
 <p>Format: <code>show n/NAME</code></p>
 </div>
@@ -179,100 +179,18 @@ All the modules under every semester, grades of completed modules, as well as yo
 </div>
 </div>
 <div class="sect3">
-<h4 id="show-modules-in-the-specified-semester-br"><a class="link" href="#show-modules-in-the-specified-semester-br">Show modules in the specified semester<br></a></h4>
+<h4 id="showing-details-of-a-module-br"><a class="link" href="#showing-details-of-a-module-br">Showing details of a module<br></a></h4>
 <div class="paragraph">
-<p>Format: <code>show y/YEAR_SEMESTER</code></p>
-</div>
-<div class="paragraph">
-<p>Example: <code>show y/2.2</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ShowSemester.png" alt="ShowSemester" width="790">
-</div>
-<div class="title">Figure 2. Modules added to Year 2 Semester 2 shown in Main Panel</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<code>show y/2.2</code><br>
-Use this function to quickly display the modules in a particular semester without scrolling for it.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="showCourse"><a class="link" href="#showCourse">Show the course&#8217;s requirements<br></a></h4>
-<div class="paragraph">
-<p>Format: <code>show c/COURSE_NAME</code></p>
+<p>Format: <code>show m/moduleCode</code></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>show c/Information Systems</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ShowCourse.png" alt="ShowCourse" width="790">
-</div>
-<div class="title">Figure 3. Course requirement and focus areas of Information Systems shown in the Main Panel</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-All required modules as well as modules under focus areas of the course will be displayed.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="show-modules-under-the-specified-focus-area-br"><a class="link" href="#show-modules-under-the-specified-focus-area-br">Show modules under the specified focus area<br></a></h4>
-<div class="paragraph">
-<p>Format: <code>show f/FOCUS_AREA</code></p>
-</div>
-<div class="paragraph">
-<p>Example: <code>show f/Electronic Commerce</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ShowFocusArea.png" alt="ShowFocusArea" width="790">
-</div>
-<div class="title">Figure 4. Modules under Electronic Commerce, which is a focus area of Information Systems, shown in the Main Panel</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-You can retrieve the list of focus areas under a course using the <a href="#showCourse"><code>show c/COURSE</code></a> command. This list can also be found in the <a href="#appendix">Appendix</a>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="show-details-of-a-module-br"><a class="link" href="#show-details-of-a-module-br">Show details of a module<br></a></h4>
-<div class="paragraph">
-<p>Format: <code>show m/MODULE_CODE</code></p>
-</div>
-<div class="paragraph">
-<p>Example: <code>show CS3230</code></p>
+<p>Example: <code>show m/CS3230</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ShowModule.png" alt="ShowModule" width="790">
 </div>
-<div class="title">Figure 5. Details of the module CS3230 shown in the Main Panel</div>
+<div class="title">Figure 2. Details of the module CS3230 shown in the Main Panel</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -295,6 +213,75 @@ The module name, prerequisites, modular credits, description and semesters the m
 <td class="content">
 If you request for MODdy to show multiple information at one time, such as course information on Computer Science and module information on CS1101S, using the command <code>show c/Computer Science m/1101s</code>, no objects will be displayed.<br>
 MODdy will remind you that you can only display one object at a time.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="showing-modules-in-the-specified-semester-br"><a class="link" href="#showing-modules-in-the-specified-semester-br">Showing modules in the specified semester<br></a></h4>
+<div class="paragraph">
+<p>Format: <code>show y/year.semester</code></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>show y/2.2</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ShowSemester.png" alt="ShowSemester" width="790">
+</div>
+<div class="title">Figure 3. Modules added to Year 2 Semester 2 shown in Main Panel</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="showCourse"><a class="link" href="#showCourse">Showing the course&#8217;s requirements<br></a></h4>
+<div class="paragraph">
+<p>Format: <code>show c/course</code></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>show c/Information Systems</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ShowCourse.png" alt="ShowCourse" width="790">
+</div>
+<div class="title">Figure 4. Course requirement and focus areas of Information Systems shown in the Main Panel</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You need to enter the course name in full!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="showing-modules-under-the-specified-focus-area-br"><a class="link" href="#showing-modules-under-the-specified-focus-area-br">Showing modules under the specified focus area<br></a></h4>
+<div class="paragraph">
+<p>Format: <code>show f/focusArea</code></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>show f/Electronic Commerce</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ShowFocusArea.png" alt="ShowFocusArea" width="790">
+</div>
+<div class="title">Figure 5. Modules under Electronic Commerce, which is a focus area of Information Systems, shown in the Main Panel</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can retrieve the list of focus areas under a course using the <a href="#showCourse"><code>show c/course</code></a> command. This list can also be found in the <a href="#appendix">Appendix</a> of this guide.
 </td>
 </tr>
 </table>
@@ -483,4 +470,4 @@ MODdy will remind you that you can only display one object at a time.
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 09:32:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 10:20:01 UTC</div></div></div></body></html>
