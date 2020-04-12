@@ -19,7 +19,7 @@
 <li><a href="#Add">4.3. Adding a module / task: <code>add</code></a></li>
 <li><a href="#Edit">4.4. Editing: <code>edit</code></a></li>
 <li><a href="#Show">4.5. Showing profile, module, semester, course or focus area: <code>show</code></a></li>
-<li><a href="#Delete">4.6. Deleting a grade / task / module / profile: <code>delete</code></a></li>
+<li><a href="#Delete">4.6. Deleting a profile / module / task / grade: <code>delete</code></a></li>
 <li><a href="#Home">4.7. Returning to Homepage : <code>home</code></a></li>
 <li><a href="#Clear">4.8. Resetting <strong>MODdy</strong>: <code>clear</code></a></li>
 <li><a href="#Exit">4.9. Exiting <strong>MODdy</strong>: <code>exit</code></a></li>
@@ -660,38 +660,86 @@ You can retrieve the list of focus areas under a course using the <a href="#show
 </div>
 </div>
 <div class="sect2">
-<h3 id="Delete"><a class="link" href="#Delete">4.6. Deleting a grade / task / module / profile: <code>delete</code></a></h3>
+<h3 id="Delete"><a class="link" href="#Delete">4.6. Deleting a profile / module / task / grade: <code>delete</code></a></h3>
 <div class="paragraph">
-<p>To remove a grade, task, module or profile from <strong>MODdy</strong>, use the <code>delete</code> command.</p>
+<p>To remove a profile, module, task or grade from <strong>MODdy</strong>, use the <code>delete</code> command.</p>
 </div>
 <div class="paragraph">
 <p>There are <strong>four</strong> ways you can use the <code>delete</code> command:</p>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-grade-br"><a class="link" href="#deleting-a-grade-br">4.6.1. Deleting a grade<br></a></h4>
+<h4 id="deleting-your-profile-br"><a class="link" href="#deleting-your-profile-br">4.6.1. Deleting your profile<br></a></h4>
 <div class="paragraph">
-<p>If you have been using MODdy to simulate your grades or you have entered a grade for the wrong module, you can delete the grade using the command below. The effect of using this command is shown in the figure below.</p>
+<p>If you wish to remove your profile, you can do so with the command below. The effect of using this command is shown in the figure below.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete m/MODULE_CODE g/</code></p>
+<p>Format: <code>delete n/name</code></p>
 </div>
-<div class="paragraph">
-<p>(to include screenshot of MODdy on Mac and the caption)</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteProfile.png" alt="DeleteProfile" width="790">
+</div>
+<div class="title">Figure 14. Entire profile deleted from <strong>MODdy</strong></div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Your profile, including all modules, grades and deadlines under your name, will be deleted from <strong>MODdy</strong>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-task-br"><a class="link" href="#deleting-a-task-br">4.6.2. Deleting a task<br></a></h4>
+<h4 id="deleting-a-module-br"><a class="link" href="#deleting-a-module-br">4.6.2. Deleting a module<br></a></h4>
+<div class="paragraph">
+<p>If you have decided not to take a module you were planning to take or to drop a module which you are currently taking, you can delete it with the command below. The effect of using this command is shown in the figure below.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete m/moduleCode</code></p>
+</div>
+<div class="paragraph">
+<p>You can delete multiple modules at the same time. To delete multiple modules, just append the <code>m/moduleCode</code> tags one after another, e.g. <code>delete m/CS1231 m/IS1130 m/MA1521</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteModule.png" alt="DeleteModule" width="790">
+</div>
+<div class="title">Figure 15. CS2107 and its tasks deleted from <strong>MODdy</strong></div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The specified module, including all tasks and deadlines of that module, will be deleted from <strong>MODdy</strong>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-task-br"><a class="link" href="#deleting-a-task-br">4.6.3. Deleting a task<br></a></h4>
 <div class="paragraph">
 <p>Once you have completed a task, you can delete it using the command below. The effect of using this command is shown in the figure below.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete m/MODULE_CODE t/TASK</code></p>
+<p>Format: <code>delete m/moduleCode t/task</code></p>
+</div>
+<div class="paragraph">
+<p>You can delete multiple tasks at the same time but only from the <strong>same</strong> module. To delete multiple tasks, just append the <code>t/task</code> tags one after another, e.g. <code>delete m/CS1231 t/quiz t/exam</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteTask.png" alt="DeleteTask" width="790">
 </div>
-<div class="title">Figure 14. "Project Submission" for CS2103 deleted from the Deadline Panel</div>
+<div class="title">Figure 16. "Project Submission" for CS2103 deleted from the Deadline Panel</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -720,57 +768,15 @@ Deletes the task "Assignment" from the module CS2103 in your profile
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-module-br"><a class="link" href="#deleting-a-module-br">4.6.3. Deleting a module<br></a></h4>
+<h4 id="deleting-a-grade-br"><a class="link" href="#deleting-a-grade-br">4.6.4. Deleting a grade<br></a></h4>
 <div class="paragraph">
-<p>If you have decided not to take a module you were planning to take or to drop a module which you are currently taking, you can delete it with the command below. The effect of using this command is shown in the figure below.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete m/MODULE_CODE</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DeleteModule.png" alt="DeleteModule" width="790">
-</div>
-<div class="title">Figure 15. CS2107 and its tasks deleted from <strong>MODdy</strong></div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The specified module, including all tasks and deadlines of that module, will be deleted from <strong>MODdy</strong>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-your-profile-br"><a class="link" href="#deleting-your-profile-br">4.6.4. Deleting your profile<br></a></h4>
-<div class="paragraph">
-<p>If you wish to remove your profile, you can do so with the command below. The effect of using this command is shown in the figure below.</p>
+<p>If you have been using <strong>MODdy</strong> to simulate your grades or you have entered a grade for the wrong module, you can delete the grade using the command below. The effect of using this command is shown in the figure below.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete n/NAME</code></p>
+<p>Format: <code>delete m/moduleCode g/</code></p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DeleteProfile.png" alt="DeleteProfile" width="790">
-</div>
-<div class="title">Figure 16. Entire profile deleted from <strong>MODdy</strong></div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Your profile, including all modules, grades and deadlines under your name, will be deleted from <strong>MODdy</strong>
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>(to include screenshot of MODdy on Mac and the caption)</p>
 </div>
 </div>
 </div>
@@ -1003,4 +1009,4 @@ e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</c
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 10:57:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:05:48 UTC</div></div></div></body></html>

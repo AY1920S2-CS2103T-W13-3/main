@@ -64,7 +64,8 @@
 <li><a href="#viewing-course-information">F.18. Viewing course information</a></li>
 <li><a href="#viewing-focus-area-information">F.19. Viewing focus area information</a></li>
 <li><a href="#returning-to-home-screen">F.20. Returning to home screen</a></li>
-<li><a href="#saving-data">F.21. Saving data</a></li>
+<li><a href="#resetting-moddy">F.21. Resetting MODdy</a></li>
+<li><a href="#saving-data">F.22. Saving data</a></li>
 </ul>
 </li>
 <li><a href="#effort">Appendix G: Effort</a>
@@ -861,16 +862,40 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <div class="sect2">
 <h3 id="delete-profile-module-deadline-grade-feature"><a class="link" href="#delete-profile-module-deadline-grade-feature">4.6. Delete Profile / Module / Deadline / Grade Feature</a></h3>
 <div class="paragraph">
-<p>The delete profile feature is a complementary feature to the new profile feature. It enables the removal of a profile from a <code>ProfileList</code>. This also deletes all modules and their deadlines under the <code>Profile</code>. This <code>delete</code> feature can be used by appending the command with the tag <code>n/name</code></p>
+<p>The <code>delete</code> feature allows the user to delete a <code>Profile</code>, <code>Module</code>, <code>Deadline</code> or <code>Grade</code> with the command <code>delete</code>, appended with the tags.</p>
 </div>
 <div class="paragraph">
-<p>In addition, the delete module feature is a complementary feature to the add module feature. It enables the removal of a <code>Module</code> from the list of modules the user is taking in his <code>Profile</code>. As a consequence, all deadlines stored under the module will be deleted. This <code>delete</code> feature can be used by appending the command with the tag <code>m/module_code</code>.</p>
+<p>The tags are:</p>
 </div>
-<div class="paragraph">
-<p>Next, the delete deadline feature is a complementary feature to the add deadline feature. It enables the removal of a <code>Deadline</code> of a particular <code>Module</code>. This <code>delete</code> feature can be used by appending the command with the tags <code>m/module_code</code> and <code>t/deadline</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>n/name</code> for deleting a <code>Profile</code></p>
+</li>
+<li>
+<p><code>m/moduleCode</code> for deleting a <code>Module</code></p>
+</li>
+<li>
+<p><code>m/moduleCode t/task</code> for deleting a <code>Deadline</code></p>
+</li>
+<li>
+<p><code>m/moduleCode g/</code> for deleting a <code>Grade</code></p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Lastly, the delete grade feature enables the removal of a <code>Grade</code> from a particular <code>Module</code>. This <code>delete</code> feature can be used by appending the command with the tags <code>m/module_code</code> and <code>g/</code> without any grade.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can delete multiple modules at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA1521</code>.<br>
+You can also delete multiple deadlines at once but only from the same module, e.g. <code>delete m/CS1231 t/task t/exam</code>.<br>
+You can also delete multiple grades at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA1521 g/</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="current-implementations-5"><a class="link" href="#current-implementations-5">4.6.1. Current Implementations</a></h4>
@@ -878,13 +903,13 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <p><code>DeleteCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>DeleteCommand</code> is parsed using <code>DeleteCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows the interactions between <code>Ui</code>, <code>Logic</code> and <code>Model</code> components when a task is deleted.</p>
+<p>The following sequence diagram shows how the <code>delete</code> operation works with input: <code>delete m/CS2101 t/work</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteDeadlineSequenceDiagram.png" alt="DeleteDeadlineSequenceDiagram">
 </div>
-<div class="title">Figure 13. Interactions between <code>Ui</code>, <code>Logic</code> and <code>Model</code> components for the <code>delete m/CS2101 t/work</code> command.</div>
+<div class="title">Figure 13. Interactions between UI, Logic and Model components for the <code>delete m/CS2101 t/work</code> command.</div>
 </div>
 </div>
 <div class="sect3">
@@ -892,27 +917,27 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Delete only one <code>Module</code> or <code>Deadline</code> object with one delete command</p>
+<p><strong>Alternative 1 (current choice):</strong> Delete only one <code>Module</code> or <code>Deadline</code> object with one <code>DeleteCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement and consistent across all inputs</p>
+<p>Pros: Easier to implement and consistent across all inputs.</p>
 </li>
 <li>
-<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects or <code>Deadline</code> objects</p>
+<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects or <code>Deadline</code> objects.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Delete multiple <code>Module</code> or <code>Deadline</code> objects with one delete command</p>
+<p><strong>Alternative 2:</strong> Delete multiple <code>Module</code> or <code>Deadline</code> objects with one <code>DeleteCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More convenient for the user</p>
+<p>Pros: More convenient for the user.</p>
 </li>
 <li>
-<p>Cons: Inconsistent with deleting a profile, which can only take in at most one profile</p>
+<p>Cons: Inconsistent with deleting a <code>Profile</code>, which can only take in at most one <code>Profile</code>.</p>
 </li>
 </ul>
 </div>
@@ -1064,9 +1089,9 @@ quick view of sample inputs if they run into trouble while using the application
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Computing student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">plan for specialisations</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">complete the requirements for my focusArea</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">complete the requirements for my focus area</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1139,13 +1164,13 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to add a module for a particular semester</p>
+<p>User requests to add a module for a particular semester.</p>
 </li>
 <li>
-<p>User provides the module code for that module</p>
+<p>User provides the module code for that module.</p>
 </li>
 <li>
-<p>MODdy adds the module to that semester</p>
+<p>MODdy adds the module to that semester.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1158,11 +1183,11 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="ulist">
 <ul>
 <li>
-<p>2a. The module code does not exist</p>
+<p>2a. The module code provided is typed wrongly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. MODdy shows an error message</p>
+<p>2a1. MODdy prompts the user to provide a valid module code.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1171,27 +1196,14 @@ quick view of sample inputs if they run into trouble while using the application
 </div>
 </li>
 <li>
-<p>3a. The user has not started his first semester in NUS</p>
+<p>3a. The user has not fulfilled the prerequisites of the module before the specified semester.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. MODdy adds the module to that semester, noting that it is under planning</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
+<p>3a1. MODdy shows a warning that the module prerequisites have not been fulfilled prior to that semester.</p>
 </li>
 <li>
-<p>3b. The user has not fulfilled the prerequisites of the module before the specified semester</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3b1. MODdy shows a warning that the module prerequisites have not been fulfilled prior to that semester</p>
-</li>
-<li>
-<p>3b2. MODdy adds the module to that semester</p>
+<p>3a2. MODdy adds the module to that semester.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1208,13 +1220,13 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view a module</p>
+<p>User requests to view a module.</p>
 </li>
 <li>
-<p>User provides the module code for that module</p>
+<p>User provides the module code for that module.</p>
 </li>
 <li>
-<p>MODdy shows all information related to the module</p>
+<p>MODdy shows all information related to the module.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1227,11 +1239,11 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="ulist">
 <ul>
 <li>
-<p>2a. The module code does not exist</p>
+<p>2a. The module code provided is typed wrongly.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. MODdy shows an error message</p>
+<p>2a1. MODdy prompts the user to provide a valid module code.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1248,13 +1260,13 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to update his results at the end of a semester</p>
+<p>User requests to update his results at the end of a semester.</p>
 </li>
 <li>
-<p>User provides the alphabet grade for a module that was taken</p>
+<p>User provides the alphabet grade for a module that was taken.</p>
 </li>
 <li>
-<p>MODdy adds the alphabet grade to the module and updates overall CAP</p>
+<p>MODdy adds the alphabet grade to the module and updates overall CAP.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1267,11 +1279,11 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="ulist">
 <ul>
 <li>
-<p>2a. The grade entered is invalid</p>
+<p>2a. The grade entered is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. MODdy shows an error message</p>
+<p>2a1. MODdy shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1288,10 +1300,10 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view his academic overview</p>
+<p>User requests to view his academic overview.</p>
 </li>
 <li>
-<p>MODdy shows a list of the modules he has taken, his grades and overall CAP</p>
+<p>MODdy shows a list of the modules he has taken, his grades and overall CAP.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1304,11 +1316,11 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="ulist">
 <ul>
 <li>
-<p>1a. The user has not created a user profile</p>
+<p>1a. The user has not created a user profile.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MODdy shows an error message</p>
+<p>1a1. MODdy shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1325,13 +1337,13 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to add a task with a deadline to a particular module</p>
+<p>User requests to add a task with a deadline to a particular module.</p>
 </li>
 <li>
-<p>User provides the task description and deadline</p>
+<p>User provides the task description and deadline.</p>
 </li>
 <li>
-<p>MODdy displays the newly added task in the deadline pane</p>
+<p>MODdy displays the newly added task in the deadline pane.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1344,11 +1356,11 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="ulist">
 <ul>
 <li>
-<p>1a. The user is not taking the specified module in the current semester</p>
+<p>1a. The user is not taking the specified module in the current semester.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MODdy shows an error message</p>
+<p>1a1. MODdy shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1357,11 +1369,11 @@ quick view of sample inputs if they run into trouble while using the application
 </div>
 </li>
 <li>
-<p>2a. The format of the deadline provided is wrong</p>
+<p>2a. The format of the deadline provided is wrong.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. MODdy shows an error message</p>
+<p>2a1. MODdy shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1371,20 +1383,20 @@ quick view of sample inputs if they run into trouble while using the application
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc05-edit-task" class="discrete">Use case: UC05 - Edit task</h3>
+<h3 id="use-case-uc06-edit-task" class="discrete">Use case: UC06 - Edit task</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to edit the task description (shown in deadline pane) of a particular module</p>
+<p>User requests to edit the task description (shown in deadline pane) of a particular module.</p>
 </li>
 <li>
-<p>User provides the new task description</p>
+<p>User provides the new task description.</p>
 </li>
 <li>
-<p>MODdy displays the updated task in the deadline pane</p>
+<p>MODdy displays the updated task in the deadline pane.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1397,11 +1409,11 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="ulist">
 <ul>
 <li>
-<p>1a. The user is not taking the specified module</p>
+<p>1a. The user is not taking the specified module.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MODdy shows an error message</p>
+<p>1a1. MODdy shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1410,11 +1422,11 @@ quick view of sample inputs if they run into trouble while using the application
 </div>
 </li>
 <li>
-<p>2a. The task description provided does not exist</p>
+<p>2a. The task description provided does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. MODdy shows an error message</p>
+<p>2a1. MODdy shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1499,10 +1511,10 @@ These instructions only provide a starting point for testers to work on; testers
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Download the jar file and copy into an empty folder with both read and write permissions granted</p>
+<p>Download the jar file and copy into an empty folder with both read and write permissions granted.</p>
 </li>
 <li>
-<p>Double-click the jar file<br>
+<p>Double-click the jar file.<br>
 Expected: Shows the GUI with a Quick Start page. The window size may not be optimum.</p>
 </li>
 </ol>
@@ -1641,7 +1653,7 @@ Expected: No module is deleted. Error details shown in the status message. All p
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete m/CS1111</code>, <code>delete m/CS101</code>, <code>delete m/</code><br>
-Expected: Similar to previous</p>
+Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
@@ -1770,7 +1782,7 @@ Expected: No grade is deleted. Error details shown in the status message. All pa
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Editing the name of an existing profile.</p>
+<p>Editing the name of an existing profile</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1795,7 +1807,7 @@ Expected: Name of profile is not modified. Error details shown in the status mes
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Editing the course of an existing profile.</p>
+<p>Editing the course of an existing profile</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1820,7 +1832,7 @@ Expected: Course of profile is not modified. Error details shown in the status m
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Editing the focus area of an existing profile.</p>
+<p>Editing the focus area of an existing profile</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1845,7 +1857,7 @@ Expected: Focus area of profile is not modified. Error details shown in the stat
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Editing the semester of an existing module.</p>
+<p>Editing the semester of an existing module</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1870,7 +1882,7 @@ Expected: Semester of the module is not modified. Error details shown in the sta
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Editing the name of a task of a module.</p>
+<p>Editing the name of a task of a module</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1920,7 +1932,7 @@ Expected: User interface does not change. Error details shown in the status mess
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Viewing the module overview for a particular semester.</p>
+<p>Viewing the module overview for a particular semester</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2015,6 +2027,9 @@ Expected: User interface does not change. Error details shown in the status mess
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
+<p>Prerequisites: The Quick Start page is not shown in the overview panel.</p>
+</li>
+<li>
 <p>Test case: <code>home</code><br>
 Expected: The Quick Start page is shown in the overview panel.</p>
 </li>
@@ -2025,7 +2040,28 @@ Expected: The Quick Start page is shown in the overview panel.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.21. Saving data</a></h3>
+<h3 id="resetting-moddy"><a class="link" href="#resetting-moddy">F.21. Resetting MODdy</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Clears all user information inside MODdy, including user profile, modules taken and deadlines.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Profile has been created.</p>
+</li>
+<li>
+<p>Test case: <code>clear</code><br>
+Expected: The Quick Start page is shown in the overview panel. Profile panel and deadline panel becomes empty.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">F.22. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2094,4 +2130,4 @@ Expected: Shows the GUI with a Quick Start page.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 10:57:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:05:48 UTC</div></div></div></body></html>
