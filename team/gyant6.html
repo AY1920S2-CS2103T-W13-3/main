@@ -150,7 +150,7 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="Show"><a class="link" href="#Show">Showing profile, module, semester, course or focus area: <code>show</code> (Tang Guang Yan)</a></h3>
+<h3 id="Show"><a class="link" href="#Show">Showing profile, module, semester, course or focus area: <code>show</code></a></h3>
 <div class="paragraph">
 <p>Not all information can be seen at once. To see this information you have added previously, use the <code>show</code> command to switch your current <strong>MODdy</strong> display.<br></p>
 </div>
@@ -163,11 +163,11 @@
 <p>Format: <code>show n/name</code></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>shown n/Brad</code> shows the profile overview of user "Brad", as shown in Figure 11 below.</p>
+<p>Example: <code>show n/Brad</code> shows the profile overview of user "Brad", as shown in Figure 11 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ShowProfile.png" alt="ShowProfile" width="790">
+<img src="../images/ShowProfile.png" alt="ShowProfile" width="760">
 </div>
 <div class="title">Figure 1. Profile overview of "Brad" is shown in the Overview Panel</div>
 </div>
@@ -194,7 +194,7 @@ All the modules under every semester, their grades, as well as your current CAP 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ShowModule.png" alt="ShowModule" width="790">
+<img src="../images/ShowModule.png" alt="ShowModule" width="760">
 </div>
 <div class="title">Figure 2. Details of the module CS2103T shown in the Main Panel</div>
 </div>
@@ -217,7 +217,7 @@ The module name, prerequisites, modular credits, description and semesters the m
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you request for MODdy to show multiple information at one time, such as course information on Computer Science and module information on CS1101S, using the command <code>show c/Computer Science m/1101s</code>, no objects will be displayed.<br>
+If you request for MODdy to show multiple information at one time, such as course information on Computer Science and module information on CS1101S, using the command <code>show c/Computer Science m/CS1101S</code>, no objects will be displayed.<br>
 MODdy will remind you that you can only display one object at a time.
 </td>
 </tr>
@@ -235,7 +235,7 @@ are available, it will be displayed as well.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ShowSemester.png" alt="ShowSemester" width="790">
+<img src="../images/ShowSemester.png" alt="ShowSemester" width="760">
 </div>
 <div class="title">Figure 3. Modules added to Year 1 Semester 1 are shown in Main Panel</div>
 </div>
@@ -246,13 +246,13 @@ are available, it will be displayed as well.</p>
 <p>Format: <code>show c/course</code></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>show c/Computer Science</code> shows the Course Requirement and Focus Area of "Computer Science", as shown in Figure 14 below.</p>
+<p>Example: <code>show c/Computer Science</code> shows the course requirements and focus areas of "Computer Science", as shown in Figure 14 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ShowCourse.png" alt="ShowCourse" width="790">
 </div>
-<div class="title">Figure 4. Course requirement and focus areas of Computer Science are shown in the Main Panel</div>
+<div class="title">Figure 4. Course requirements and focus areas of Computer Science are shown in the Main Panel</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -278,7 +278,7 @@ as shown in Figure 15 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ShowFocusArea.png" alt="ShowFocusArea" width="790">
+<img src="../images/ShowFocusArea.png" alt="ShowFocusArea" width="760">
 </div>
 <div class="title">Figure 5. Modules under Software Engineering, which is a focus area of Computer Science, are shown in the Main Panel</div>
 </div>
@@ -289,7 +289,7 @@ as shown in Figure 15 below.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-You can retrieve the list of focus areas under a course using the <a href="#showCourse"><code>show c/course</code></a> command. This list can also be found in the <a href="#Appendix">Appendix</a> of this guide.
+You can retrieve the list of focus areas under a course using the <a href="#showCourse"><code>show c/course</code></a> command. This list can also be found in the <a href="#appendix">Appendix</a> of this guide.
 </td>
 </tr>
 </table>
@@ -299,12 +299,12 @@ You can retrieve the list of focus areas under a course using the <a href="#show
 </div>
 </div>
 <div class="sect1">
-<h2 id="appendix-chan-choon-kong"><a class="link" href="#appendix-chan-choon-kong">Appendix (Chan Choon Kong)</a></h2>
+<h2 id="appendix"><a class="link" href="#appendix">Appendix</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>List of courses and focus areas (if applicable) currently supported by <strong>MODdy</strong></p>
+<p>List of courses and focus areas (if applicable) under each course currently supported by <strong>MODdy</strong></p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -485,13 +485,22 @@ You can retrieve the list of focus areas under a course using the <a href="#show
 <p><code>ShowCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>ShowCommand</code> is parsed using <code>ShowCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
+<p>The following sequence diagram shows how the <code>show</code> command works: <code>show n/John</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ShowSequenceDiagram.png" alt="ShowSequenceDiagram">
+</div>
+<div class="title">Figure 7. Interactions between UI, Logic and Model components for <code>show n/John</code> command</div>
+</div>
+<div class="paragraph">
 <p>The following activity diagram shows how the <code>show</code> operation works with input: <code>show c/Computer Science</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ShowCommandActivityDiagram.png" alt="ShowCommandActivityDiagram">
 </div>
-<div class="title">Figure 7. Activity Diagram for a Show Command input</div>
+<div class="title">Figure 8. Activity Diagram for a Show Command input</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -600,4 +609,4 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:36:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:41:11 UTC</div></div></div></body></html>

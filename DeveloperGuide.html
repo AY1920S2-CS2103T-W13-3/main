@@ -851,13 +851,22 @@ However, for multiple tasks, as long as one <code>Task</code> has a <code>Deadli
 <p><code>ShowCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>ShowCommand</code> is parsed using <code>ShowCommandParser</code> to split the user input into relevant fields.</p>
 </div>
 <div class="paragraph">
+<p>The following sequence diagram shows how the <code>show</code> command works: <code>show n/John</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ShowSequenceDiagram.png" alt="ShowSequenceDiagram">
+</div>
+<div class="title">Figure 15. Interactions between UI, Logic and Model components for <code>show n/John</code> command</div>
+</div>
+<div class="paragraph">
 <p>The following activity diagram shows how the <code>show</code> operation works with input: <code>show c/Computer Science</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ShowCommandActivityDiagram.png" alt="ShowCommandActivityDiagram">
 </div>
-<div class="title">Figure 15. Activity Diagram for a Show Command input</div>
+<div class="title">Figure 16. Activity Diagram for a Show Command input</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -959,13 +968,16 @@ Multiple grades can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA
 <div class="content">
 <img src="images/DeleteDeadlineSequenceDiagram.png" alt="DeleteDeadlineSequenceDiagram">
 </div>
-<div class="title">Figure 16. Interactions between UI, Logic and Model components for the <code>delete m/CS2101 t/work</code> command.</div>
+<div class="title">Figure 17. Interactions between UI, Logic and Model components for the <code>delete m/CS2101 t/work</code> command.</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows how the <code>show</code> command decides what to show (profile, module details, semester, course, module or focus area):</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteCommandActivityDiagram.png" alt="DeleteCommandActivityDiagram">
 </div>
-<div class="title">Figure 17. Activity Diagram for a Delete Command input</div>
+<div class="title">Figure 18. Activity Diagram for a Delete Command input</div>
 </div>
 </div>
 <div class="sect3">
@@ -2234,4 +2246,4 @@ Expected: Shows the GUI with a Quick Start page.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:36:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:41:10 UTC</div></div></div></body></html>
