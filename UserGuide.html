@@ -401,7 +401,7 @@ You can add up to a maximum of 10 modules per semester in <strong>MODdy</strong>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Checking of Prerequisites</strong><br>
+<p><strong>Checking of Prerequisites:</strong><br>
 If you have not met the prerequisites of a module, you will receive a warning message as shown in Figure 6 below. You can ignore the message if you have already taken the preclusion of that prerequisite module.</p>
 </div>
 </div>
@@ -417,26 +417,6 @@ If you have not met the prerequisites of a module, you will receive a warning me
 <h4 id="adding-a-task-with-a-deadline-to-a-module-in-strong-moddy-strong-br"><a class="link" href="#adding-a-task-with-a-deadline-to-a-module-in-strong-moddy-strong-br">4.3.2. Adding a task with a deadline to a module in <strong>MODdy</strong><br></a></h4>
 <div class="paragraph">
 <p>Format: <code>add m/moduleCode t/task [d/deadline]</code><br></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>You can only add a task to the module if the module has been added to your current semester in <strong>MODdy</strong> previously.</p>
-</li>
-<li>
-<p><code>d/deadline</code> must be entered in the format <code>d/YYYY-MM-DD HH:mm</code>, e.g. <code>d/2020-03-31 23:59</code>.</p>
-</li>
-<li>
-<p><code>d/deadline</code> is optional if you are only adding one task and your task has no deadline. If your task has a <code>Date</code> due but no <code>Time</code> due, just enter <code>d/YYYY-MM-DD</code> and we will set the <code>Time</code> to default (23:59).</p>
-</li>
-<li>
-<p>You can delete a completed task using the delete feature mentioned in <a href="#Delete">Section 4.6</a>.</p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -459,11 +439,33 @@ You can add multiple tasks at once but only to the <strong>same module</strong>,
 <td class="content">
 However, for multiple tasks, as long as one task has a deadline, all <code>t/task</code> tags have to be appended with <code>d/deadline</code> tags.<br>
 For the tasks with no deadlines, the tag can just be <code>d/</code>, e.g. <code>add m/IS1103 t/project d/2020-05-01 23:59 t/reflection d/</code>.
-Example: <code>add m/CS2105 t/Assignment d/2020-04-20 23:59</code> adds a task named "Assignment"
-with the deadline "20 April 2020 23:59" to the already-existing module CS2105, as shown in Figure 7 below.
 </td>
 </tr>
 </table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You can only add a task to the module if the module has been added to your current semester in <strong>MODdy</strong> previously.</p>
+</li>
+<li>
+<p><code>d/deadline</code> must be entered in the format <code>d/YYYY-MM-DD HH:mm</code>, e.g. <code>d/2020-03-31 23:59</code>.</p>
+</li>
+<li>
+<p><code>d/deadline</code> is optional if you are only adding one task and your task has no deadline. If your task has a <code>Date</code> due but no <code>Time</code> due, just enter <code>d/YYYY-MM-DD</code> and we will set the <code>Time</code> to default (23:59).</p>
+</li>
+<li>
+<p>You can delete a completed task using the delete feature mentioned in <a href="#Delete">Section 4.6</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example: <code>add m/CS2105 t/Assignment d/2020-04-20 23:59</code> adds a task named "Assignment"
+with the deadline "20 April 2020 23:59" to the already-existing module CS2105, as shown in Figure 7 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -877,8 +879,17 @@ The specified module, including all tasks and deadlines of that module, will be 
 <div class="paragraph">
 <p>Format: <code>delete m/moduleCode t/task</code></p>
 </div>
-<div class="paragraph">
-<p>You can delete multiple tasks at the same time but only from the <strong>same</strong> module. To delete multiple tasks, just append the <code>t/task</code> tags one after another, e.g. <code>delete m/CS1231 t/quiz t/exam</code>.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can delete multiple tasks at the same time but only from the <strong>same</strong> module. To delete multiple tasks, just append the <code>t/task</code> tags one after another, e.g. <code>delete m/CS1231 t/quiz t/exam</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example: <code>delete m/CS2103T t/Quiz</code> deletes the task "Quiz" of module CS2103T from the Deadline Panel, as shown in Figure 18 below.</p>
@@ -1266,4 +1277,4 @@ e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</c
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:24:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:46:22 UTC</div></div></div></body></html>
