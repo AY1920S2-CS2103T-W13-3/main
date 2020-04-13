@@ -138,9 +138,9 @@ It is an application developed by a team of 5 NUS Computing students, adapted fr
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="New"><a class="link" href="#New">Creating new user profile : <code>new</code></a></h3>
+<h3 id="New"><a class="link" href="#New">Creating new user profile : <code>new</code> (Jade Tay)</a></h3>
 <div class="paragraph">
-<p>If you want to get started on using MODdy, you will have to create a new profile. By using this command, it creates a profile for you as shown in the figure below. You will have to provide your details as parameters.</p>
+<p>If you want to get started on using <strong>MODdy</strong>, you will have to create a new profile. By using this command, it creates a profile for you as shown in the figure below. You will have to provide your details as parameters.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>new n/name c/course y/year.semester [f/focusArea]</code></p>
@@ -150,23 +150,23 @@ It is an application developed by a team of 5 NUS Computing students, adapted fr
 <div class="ulist">
 <ul>
 <li>
-<p><code>c/course</code> and <code>f/focusArea</code> is case-insensitive but has to be its <strong>full name</strong>. If you are unsure of what is allowed, you can refer to the <a href="#Appendix">Appendix</a> for the list of courses and focus areas supported by MODdy.</p>
+<p><code>c/course</code> and <code>f/focusArea</code> is case-insensitive but has to be its <strong>full name</strong>. If you are unsure of what is allowed, you can refer to the <a href="#Appendix">Appendix</a> for the list of courses and focus areas supported by <strong>MODdy</strong>.</p>
 </li>
 <li>
-<p>If you have yet to decide on a focus area, you can choose to add it to your profile later using the <a href="#Edit">edit</a> feature mentioned in <a href="#Edit">Section 4.4</a>. Other profile fields can be changed using the <a href="#Edit">edit</a> feature as well.</p>
+<p>If you have yet to decide on a focus area, you can choose to add it to your profile later using the edit feature mentioned in <a href="#Edit">Section 4.4</a>. Other profile fields can be changed using the edit feature as well.</p>
 </li>
 <li>
-<p><code>y/year.semester</code> must be entered as an integer. You should only enter the year and semester that you are <strong>currently</strong> in. If you are now a year 2 semester 1 student, enter <code>y/2.1</code>.</p>
+<p><code>y/year.semester</code> must be entered as an integer. You should only enter the year and semester that you are <strong>currently</strong> in. If you are now a Year 2 Semester 1 student, enter <code>y/2.1</code>.</p>
 </li>
 <li>
-<p>You can only have one profile! If you wish to create a new profile, you can remove it with the <a href="#Delete">delete</a> feature mentioned in <a href="#Delete">Section 4.6</a>.</p>
+<p>You can only have one profile! If you wish to create a new profile, you can remove it with the delete feature mentioned in <a href="#Delete">Section 4.6</a>.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Example: <code>new n/John c/Computer Science y/2.2</code> creates a new profile with the name "John", currently majoring in "Computer Science" and is a year 2 semester 2 student, as shown in Figure 4 below.</p>
+<p>Example: <code>new n/John c/Computer Science y/2.2</code> creates a new profile with the name "John", currently majoring in "Computer Science" and is a Year 2 Semester 2 student, as shown in Figure 4 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -189,7 +189,7 @@ If you know your focus area, using this command will add focus area "Software En
 </div>
 </div>
 <div class="sect2">
-<h3 id="Add"><a class="link" href="#Add">Adding module or task: <code>add</code></a></h3>
+<h3 id="Add"><a class="link" href="#Add">Adding module or task: <code>add</code> (Ong Wan Xuan)</a></h3>
 <div class="paragraph">
 <p>If you want to add modules to each of your semesters or add tasks to each of your modules in the current semester, this command is the right one for you!</p>
 </div>
@@ -231,26 +231,26 @@ However, you cannot add grades when adding multiple modules.
 <div class="ulist">
 <ul>
 <li>
-<p><code>y/year.semester</code> must be entered as an integer. You should enter the year and semester that you <strong>took the module</strong> in. If you took the module in year 2 semester 1, enter <code>y/2.1</code>.</p>
+<p><code>y/year.semester</code> must be entered as an integer. You should enter the year and semester that you <strong>took the module</strong> in. If you took the module in Year 2 Semester 1, enter <code>y/2.1</code>.</p>
 </li>
 <li>
 <p>As you have already specified the current semester you are currently in when creating your profile, <strong>MODdy</strong> will indicate modules added to prior semesters, current semester and future semesters as <strong>"COMPLETED"</strong>, <strong>"IN_PROGRESS"</strong> and <strong>"PLANNING"</strong> respectively.</p>
 </li>
 <li>
-<p><code>g/grade</code> is optional. If you have yet to obtain a grade for the module, don&#8217;t worry, you can always add it to the module later using the <a href="#Edit">edit</a> feature mentioned in <a href="#Edit">Section 4.4</a>.</p>
+<p><code>g/grade</code> is optional. If you have yet to obtain a grade for the module, don&#8217;t worry, you can always add it to the module later using the edit feature mentioned in <a href="#Edit">Section 4.4</a>.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Example: <code>add m/CS2103T y/2.2</code> adds CS2103T to year 2 semester 2, as shown in Figure 5 below.</p>
+<p>Example: <code>add m/CS2103T y/2.2</code> adds CS2103T to Year 2 Semester 2, as shown in Figure 5 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/AddModule.png" alt="AddModule" width="790">
 </div>
-<div class="title">Figure 2. CS2105 is added as a module under year 2 semester 1</div>
+<div class="title">Figure 2. CS2103T is added as a module under Year 2 Semester 2</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -260,7 +260,7 @@ However, you cannot add grades when adding multiple modules.
 </td>
 <td class="content">
 <code>add m/CS2105 y/2.1 g/A+</code><br>
-You can add CS2105 with its resulting grade, A+, concurrently to the list of modules under year 2 semester 1.
+You can add CS2105 with its resulting grade, A+, concurrently to the list of modules under Year 2 Semester 1.
 </td>
 </tr>
 </table>
@@ -277,7 +277,7 @@ If you have not met the prerequisites of a module, you will receive a warning me
 <div class="content">
 <img src="../images/PreReq.png" alt="PreReq" width="790">
 </div>
-<div class="title">Figure 3. Warning message shown when adding CS2030 to year 1 semester 1</div>
+<div class="title">Figure 3. Warning message shown when adding CS2030 to Year 1 Semester 1</div>
 </div>
 </div>
 <div class="sect3">
@@ -290,7 +290,7 @@ If you have not met the prerequisites of a module, you will receive a warning me
 <div class="ulist">
 <ul>
 <li>
-<p>You can only add a task to the module if the module has been added to a semester in <strong>MODdy</strong> previously.</p>
+<p>You can only add a task to the module if the module has been added to your current semester in <strong>MODdy</strong> previously.</p>
 </li>
 <li>
 <p><code>d/deadline</code> must be entered in the format <code>d/YYYY-MM-DD HH:mm</code>, e.g. <code>d/2020-03-31 23:59</code>.</p>
@@ -299,21 +299,21 @@ If you have not met the prerequisites of a module, you will receive a warning me
 <p><code>d/deadline</code> is optional if you are only adding one task and your task has no deadline. If your task has a <code>Date</code> due but no <code>Time</code> due, just enter <code>d/YYYY-MM-DD</code> and we will set the <code>Time</code> to default (23:59).</p>
 </li>
 <li>
-<p>You can delete a completed task using the <a href="#Delete">delete</a> feature mentioned in <a href="#Delete">Section 4.6</a>.</p>
+<p>You can delete a completed task using the delete feature mentioned in <a href="#Delete">Section 4.6</a>.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Example: <code>add m/CS2101 t/Presentation d/2020-04-25 17:00</code> adds a task named "Presentation"
-with the deadline "25 April 2020 17:00" to the already-existing module CS2101, as shown in Figure 7 below.</p>
+<p>Example: <code>add m/CS2105 t/Assignment d/2020-04-20 23:59</code> adds a task named "Presentation"
+with the deadline "20 April 2020 23:59" to the already-existing module CS2105, as shown in Figure 7 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/DeadlinePanel.png" alt="DeadlinePanel" width="790">
 </div>
-<div class="title">Figure 4. CS2101 task is added into and displayed on the sorted Deadline Panel</div>
+<div class="title">Figure 4. CS2105 task is added into and displayed on the Deadline Panel</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -615,4 +615,4 @@ However, for multiple tasks, as long as one <code>Task</code> has a <code>Deadli
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:01:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:26:15 UTC</div></div></div></body></html>

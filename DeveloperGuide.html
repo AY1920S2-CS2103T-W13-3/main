@@ -27,8 +27,8 @@
 <li><a href="#structure-of-command-features">4.2. Structure of Command Features</a></li>
 <li><a href="#new-profile-feature">4.3. New Profile Feature</a></li>
 <li><a href="#add-module-task-feature">4.4. Add Module / Task Feature</a></li>
-<li><a href="#show-feature">4.5. Show Feature</a></li>
-<li><a href="#edit-profile-module-feature">4.6. Edit Profile / Module Feature</a></li>
+<li><a href="#edit-profile-module-feature">4.5. Edit Profile / Module Feature</a></li>
+<li><a href="#show-profile-module-semester-course-focus-area-feature">4.6. Show Profile / Module / Semester / Course / Focus Area Feature</a></li>
 <li><a href="#delete-profile-module-task-grade-feature">4.7. Delete Profile / Module / Task / Grade Feature</a></li>
 <li><a href="#help-feature">4.8. Help Feature</a></li>
 <li><a href="#home-feature">4.9. Home Feature</a></li>
@@ -60,11 +60,11 @@
 <li><a href="#editing-the-focus-area-of-a-profile">F.12. Editing the focus area of a profile</a></li>
 <li><a href="#editing-the-semester-of-a-module">F.13. Editing the semester of a module</a></li>
 <li><a href="#editing-a-task-of-a-module">F.14. Editing a task of a module</a></li>
-<li><a href="#viewing-module-overview">F.15. Viewing module overview</a></li>
-<li><a href="#viewing-semester-overview">F.16. Viewing semester overview</a></li>
-<li><a href="#viewing-module-information">F.17. Viewing module information</a></li>
-<li><a href="#viewing-course-information">F.18. Viewing course information</a></li>
-<li><a href="#viewing-focus-area-information">F.19. Viewing focus area information</a></li>
+<li><a href="#showing-module-overview">F.15. Showing module overview</a></li>
+<li><a href="#showing-semester-overview">F.16. Showing semester overview</a></li>
+<li><a href="#showing-module-information">F.17. Showing module information</a></li>
+<li><a href="#showing-course-information">F.18. Showing course information</a></li>
+<li><a href="#showing-focus-area-information">F.19. Showing focus area information</a></li>
 <li><a href="#returning-to-home-screen">F.20. Returning to home screen</a></li>
 <li><a href="#resetting-moddy">F.21. Resetting MODdy</a></li>
 <li><a href="#saving-data">F.22. Saving data</a></li>
@@ -142,7 +142,7 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/blob/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/blob/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -289,7 +289,7 @@ are in the <code>src/main/resources/view</code> folder. For example, the layout 
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/AY1920S2-CS2103T-W13-3/main/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S2-CS2103T-W13-3/main/blob/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -372,7 +372,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/blob/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The Storage component consists of the following three main parts:</p>
@@ -380,13 +380,13 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Profiles: <code>JsonProfileListStorage</code> handles reading and saving of profiles from json to <code>Profile</code> objects and vice versa. The <code>Profile</code> objects are stored in a <code>ProfileList</code>.</p>
+<p>Profiles: <code>JsonProfileListStorage</code> handles reading and saving of profiles from JSON to <code>Profile</code> objects and vice versa. The <code>Profile</code> objects are stored in a <code>ProfileList</code>.</p>
 </li>
 <li>
-<p>Modules: <code>JsonModuleListStorage</code> handles only reading of modules from json to <code>Module</code> objects, which are stored in a <code>ModuleList</code>.</p>
+<p>Modules: <code>JsonModuleListStorage</code> handles only reading of modules from JSON to <code>Module</code> objects, which are stored in a <code>ModuleList</code>.</p>
 </li>
 <li>
-<p>Courses: <code>JsonCourseListStorage</code> handles only reading of courses from json to <code>Course</code> objects, which are stored in a <code>CourseList</code>.</p>
+<p>Courses: <code>JsonCourseListStorage</code> handles only reading of courses from JSON to <code>Course</code> objects, which are stored in a <code>CourseList</code>.</p>
 </li>
 </ol>
 </div>
@@ -396,16 +396,16 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="ulist">
 <ul>
 <li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+<p>can save <code>UserPref</code> objects in JSON format and read it back.</p>
 </li>
 <li>
-<p>can save the Profile List data in json format and read it back as a <code>ProfileList</code> object.</p>
+<p>can save the Profile List data in JSON format and read it back as a <code>ProfileList</code> object.</p>
 </li>
 <li>
-<p>can read Module List data from json format to a <code>ModuleList</code> object.</p>
+<p>can read Module List data from JSON format to a <code>ModuleList</code> object.</p>
 </li>
 <li>
-<p>can read Course List data from json format to a <code>CourseList</code> object.</p>
+<p>can read Course List data from JSON format to a <code>CourseList</code> object.</p>
 </li>
 </ul>
 </div>
@@ -433,7 +433,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="title">Figure 9. Structure of the Module Component</div>
 </div>
 <div class="paragraph">
-<p>Each Module class consists of a Personal class, alongside other module attributes from NUSMODS. In each Personal class, there are 3 attributes that are for the user to store their date:<br></p>
+<p>Each <code>Module</code> class consists of a <code>Personal</code> class, alongside other module attributes from NUSMODS. In each <code>Personal</code> class, there are 3 attributes that are for the user to store their data:<br></p>
 </div>
 <div class="ulist">
 <ul>
@@ -441,7 +441,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p><code>Grade</code> : the user&#8217;s grade for the particular module</p>
 </li>
 <li>
-<p><code>Status</code> : the status of the module (IN_PROGRESS, PLANNING or COMPLETED)</p>
+<p><code>Status</code> : the status of the module (COMPLETED, IN_PROGRESS, PLANNING)</p>
 </li>
 <li>
 <p><code>DeadlineList</code> : a list of <code>Deadline</code> tasks added by the user</p>
@@ -449,7 +449,8 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </ul>
 </div>
 <div class="paragraph">
-<p>These attributes were included in <code>Personal</code> as they are the attributes that are personal to the user, and which the user can edit at any time. ModuleGrade and ModuleStatus are enumeration classes that store valid grades and module statuses.</p>
+<p>These attributes were included in <code>Personal</code> as they are the attributes that are personal to the user, and which the user can edit at any time.
+<code>ModuleGrade</code> and <code>ModuleStatus</code> are enumeration classes that store valid grades and module statuses.</p>
 </div>
 </div>
 <div class="sect2">
@@ -695,15 +696,144 @@ However, for multiple tasks, as long as one <code>Task</code> has a <code>Deadli
 </div>
 </div>
 <div class="sect2">
-<h3 id="show-feature"><a class="link" href="#show-feature">4.5. Show Feature</a></h3>
+<h3 id="edit-profile-module-feature"><a class="link" href="#edit-profile-module-feature">4.5. Edit Profile / Module Feature</a></h3>
 <div class="paragraph">
-<p>The <code>show</code> feature allows the user to display information about a <code>Module</code>, <code>Course</code>, <code>FocusArea</code> or <code>Semester</code> with the command <code>show</code>, appended with the tags below. These information cannot be seen from the main UI and have to be displayed through the <code>show</code> command.</p>
+<p>The <code>edit</code> feature supports the editing of both <code>Profile</code> and <code>Module</code>. <code>Profile</code> is edited with the command <code>edit</code> and <code>Module</code> is edited with the command <code>edit</code> appended with <code>m/moduleCode</code>.<br></p>
+</div>
+<div class="paragraph">
+<p>The edit profile feature is a complementary feature to the new profile feature. It allows the user to edit their profile that was created at the start. Profile features such as name, course, current year/semester and focus area can be edited using this command.<br></p>
+</div>
+<div class="paragraph">
+<p>In addition, the edit module feature is a complementary feature to the add module feature. It allows the user to edit a module that has previously been added. The user can edit module information such as the semester it is taken and grade.<br></p>
+</div>
+<div class="paragraph">
+<p>Lastly, the edit deadline feature is a complementary feature to the add deadline feature. It allows the user to edit a deadline that has previously been added to a module. The user can edit deadline information such as its description, date and time.<br></p>
+</div>
+<div class="paragraph">
+<p>To edit the profile, the command <code>edit</code> should be appended with one or more of the tags:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>n/name</code> : New name</p>
+</li>
+<li>
+<p><code>c/course</code> : New course</p>
+</li>
+<li>
+<p><code>y/year.semester</code> : New current year/semester</p>
+</li>
+<li>
+<p><code>f/focusArea</code> : New focus area</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To edit a module, the command <code>edit</code> should be appended with <code>m/moduleCode</code>, followed by one or more of the tags:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>y/year.semester</code> : New year/semester where module is taken</p>
+</li>
+<li>
+<p><code>g/grade</code> : New grade for the module</p>
+</li>
+<li>
+<p><code>t/task</code> : Old task description</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>nt/newTask</code> : New task description</p>
+</li>
+<li>
+<p><code>d/deadline</code> : New date and time</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To edit a deadline that has previously been added, append <code>edit m/moduleCode</code> with <code>t/task</code> which is the description of the task to be edited, followed by either <code>nt/newTask</code> which is the new description of the task and/or <code>d/deadline</code> which is the new  deadline that will replace the existing one.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementations-3"><a class="link" href="#current-implementations-3">4.5.1. Current Implementations</a></h4>
+<div class="paragraph">
+<p><code>EditCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>EditCommannd</code> is parsed using <code>EditCommandParser</code> to split the user input into relevant fields.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>edit</code> command works: <code>edit n/John</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
+</div>
+<div class="title">Figure 13. Interactions between UI, Logic and Model components for the <code>edit n/John</code> Command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Edit <code>Profile</code>, <code>Module</code> or <code>Deadline</code>  with one <code>EditCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier for the user as they will not have to remember different edit commands for different purposes.</p>
+</li>
+<li>
+<p>Cons: More considerations to differentiate the intent of the user and there is more room for error.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Have separate commands to edit <code>Profile</code>, <code>Module</code> and <code>Deadline</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Makes it clearer what the user intent is and is easier to parse.</p>
+</li>
+<li>
+<p>Cons: Harder for the user to remember the commands and the user will not be allowed to edit both module details and deadline tasks within the module at the same time.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Eventually, we decided on alternative 1 due to the benefits of consistency. Additionally, by requiring a <code>m/moduleCode</code> field for the user to edit <code>Module</code>, it clearly shows the intent of the user, and whether the <code>Profile</code> or a <code>Module</code> should be edited.</p>
+</div>
+<div class="paragraph">
+<p>We also considered whether to allow users to edit the grade of a module that has yet to be taken. We eventually decided to allow that as many students may want to predict their <a href="#CAP">CAP</a>, which our CAP calculator will allow them to do.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows how the <code>edit</code> command decides what to edit (profile, module details or deadline task):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditCommandActivityDiagram.png" alt="EditCommandActivityDiagram">
+</div>
+<div class="title">Figure 14. Activity Diagram for an Edit Command input</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="show-profile-module-semester-course-focus-area-feature"><a class="link" href="#show-profile-module-semester-course-focus-area-feature">4.6. Show Profile / Module / Semester / Course / Focus Area Feature</a></h3>
+<div class="paragraph">
+<p>The <code>show</code> feature allows the user to display information about a <code>Profile</code>, <code>Module</code>, <code>Course</code>, <code>FocusArea</code> or <code>Semester</code> with the command <code>show</code>, appended with the tags below. These information cannot be seen from the main UI and have to be displayed through the <code>show</code> command.</p>
 </div>
 <div class="paragraph">
 <p>The tags are:</p>
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p><code>n/name</code> for <code>Profile</code></p>
+</li>
 <li>
 <p><code>m/moduleCode</code> for <code>Module</code></p>
 </li>
@@ -719,7 +849,7 @@ However, for multiple tasks, as long as one <code>Task</code> has a <code>Deadli
 </ul>
 </div>
 <div class="sect3">
-<h4 id="current-implementations-3"><a class="link" href="#current-implementations-3">4.5.1. Current Implementations</a></h4>
+<h4 id="current-implementations-4"><a class="link" href="#current-implementations-4">4.6.1. Current Implementations</a></h4>
 <div class="paragraph">
 <p><code>ShowCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>ShowCommand</code> is parsed using <code>ShowCommandParser</code> to split the user input into relevant fields.</p>
 </div>
@@ -730,7 +860,7 @@ However, for multiple tasks, as long as one <code>Task</code> has a <code>Deadli
 <div class="content">
 <img src="images/ShowCommandActivityDiagram.png" alt="ShowCommandActivityDiagram">
 </div>
-<div class="title">Figure 13. Activity Diagram for a Show Command input</div>
+<div class="title">Figure 15. Activity Diagram for a Show Command input</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -746,7 +876,7 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -779,132 +909,6 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 </div>
 <div class="paragraph">
 <p>Eventually, we decided on alternative 1 due to the benefits of avoiding repeated code. To tackle the cons from this, we implemented guard conditions to gracefully reject other Objects that may unintentionally call this method.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="edit-profile-module-feature"><a class="link" href="#edit-profile-module-feature">4.6. Edit Profile / Module Feature</a></h3>
-<div class="paragraph">
-<p>The <code>edit</code> feature supports the editing of both <code>Profile</code> and <code>Module</code>. <code>Profile</code> is edited with the command <code>edit</code> and <code>Module</code> is edited with the command <code>edit</code> appended with <code>m/moduleCode</code>.<br></p>
-</div>
-<div class="paragraph">
-<p>The edit profile feature is a complementary feature to the new profile feature. It allows the user to edit their profile that was created at the start. Profile features such as name, course, current semester and focus area can be edited using this command.<br></p>
-</div>
-<div class="paragraph">
-<p>In addition, the edit module feature is a complementary feature to the add module feature. It allows the user to edit a module that has previously been added. The user can edit module information such as the semester it is taken and grade.<br></p>
-</div>
-<div class="paragraph">
-<p>Lastly, the edit deadline feature is a complementary feature to the add deadline feature. It allows the user to edit a deadline that has previously been added to a module. The user can edit deadline information such as it&#8217;s description, date and time.<br></p>
-</div>
-<div class="paragraph">
-<p>To edit the profile, the command <code>edit</code> should be appended with one or more of the tags:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>n/name</code> : New name</p>
-</li>
-<li>
-<p><code>c/course</code> : New course</p>
-</li>
-<li>
-<p><code>y/year.semester</code> : New current semester</p>
-</li>
-<li>
-<p><code>f/focusArea</code> : New focus area</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>To edit a module, the command <code>edit</code> should be appended with <code>m/moduleCode</code>, followed by one or more of the tags:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>y/year.semester</code> : New semester where module is taken</p>
-</li>
-<li>
-<p><code>g/grade</code> : New grade for the module</p>
-</li>
-<li>
-<p><code>t/task</code> : Old task description</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>nt/newTask</code> : New task description</p>
-</li>
-<li>
-<p><code>d/deadline</code> : New date and time</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>To edit a deadline that has previously been added, append <code>edit m/moduleCode</code> with <code>t/task</code> which is the description of the task to be edited, followed by either <code>nt/newTask</code> which is the new description of the task and/or <code>d/deadline</code> which is the new  deadline that will replace the existing one.</p>
-</div>
-<div class="sect3">
-<h4 id="current-implementations-4"><a class="link" href="#current-implementations-4">4.6.1. Current Implementations</a></h4>
-<div class="paragraph">
-<p><code>EditCommand</code> extends from the <code>Command</code> class and uses the inheritance to facilitate the implementation. <code>EditCommannd</code> is parsed using <code>EditCommandParser</code> to split the user input into relevant fields.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the <code>edit</code> command works: <code>edit n/John</code>:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
-</div>
-<div class="title">Figure 14. Interactions between UI, Logic and Model components for the <code>edit n/John</code> Command</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Edit <code>Profile</code>, <code>Module</code> or <code>Deadline</code>  with one <code>EditCommand</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier for the user as they will not have to remember different edit commands for different purposes.</p>
-</li>
-<li>
-<p>Cons: More considerations to differentiate the intent of the user and there is more room for error.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Have separate commands to edit <code>Profile</code>, <code>Module</code> and <code>Deadline</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Makes it clearer what the user intent is and is easier to parse.</p>
-</li>
-<li>
-<p>Cons: Harder for the user to remember the commands and the user will not be allowed to edit both module details and deadline tasks within the module at the same time.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Eventually, we decided on alternative 1 due to the benefits of consistency. Additionally, by requiring a <code>m/MODULE</code> field for the user to edit <code>Module</code>, it clearly shows the intent of the user, and whether the <code>Profile</code> or a <code>Module</code> should be edited.</p>
-</div>
-<div class="paragraph">
-<p>We also considered whether to allow users to edit the grade of a module that has yet to be taken. We eventually decided to allow that as many students may want to predict their CAP, which our CAP calculator will allow them to do.</p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram shows how the <code>edit</code> command decides what to edit (profile, module details or deadline task):</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/EditCommandActivityDiagram.png" alt="EditCommandActivityDiagram">
-</div>
-<div class="title">Figure 15. Activity Diagram for an Edit Command input</div>
 </div>
 </div>
 </div>
@@ -972,20 +976,7 @@ Multiple grades can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Delete only one <code>Module</code> or <code>Task</code> object with one <code>DeleteCommand</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to implement and consistent with deleting <code>Profile</code>.</p>
-</li>
-<li>
-<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects or <code>Task</code> objects.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Delete multiple <code>Module</code> or <code>Task</code> objects with one <code>DeleteCommand</code>.</p>
+<p><strong>Alternative 1 (current choice):</strong> Delete multiple <code>Module</code> or <code>Task</code> objects with one <code>DeleteCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -997,10 +988,23 @@ Multiple grades can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA
 </ul>
 </div>
 </li>
+<li>
+<p><strong>Alternative 2:</strong> Delete only one <code>Module</code> or <code>Task</code> object with one <code>DeleteCommand</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement and consistent with deleting <code>Profile</code>.</p>
+</li>
+<li>
+<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects or <code>Task</code> objects.</p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Eventually, we decided on alternative 2 to provide more convenience and flexibility to users.</p>
+<p>Eventually, we decided on alternative 1 to provide more convenience and flexibility to users.</p>
 </div>
 </div>
 </div>
@@ -1021,7 +1025,7 @@ quick view of sample inputs if they run into trouble while using the application
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> <code>HelpWindow</code> exists as a pop-up window.</p>
+<p><strong>Alternative 1 (current choice):</strong> <code>HelpWindow</code> exists as a pop-up window</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1049,7 +1053,7 @@ quick view of sample inputs if they run into trouble while using the application
 </ul>
 </div>
 <div class="paragraph">
-<p>Eventually, we decided on alternative 1 due to the benefits of allowing user to cross-reference the commands.</p>
+<p>Eventually, we decided on alternative 1 due to the benefits of allowing user to cross-reference the commands while using the application.</p>
 </div>
 </div>
 </div>
@@ -2006,22 +2010,22 @@ Expected: Name of the task is not modified. Error details shown in the status me
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-module-overview"><a class="link" href="#viewing-module-overview">F.15. Viewing module overview</a></h3>
+<h3 id="showing-module-overview"><a class="link" href="#showing-module-overview">F.15. Showing module overview</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Viewing the module overview throughout all semesters.</p>
+<p>Showing the module overview throughout all semesters.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: Profile with name <code>john</code> has been created.</p>
 </li>
 <li>
-<p>Test case: <code>view n/john</code><br>
+<p>Test case: <code>show n/john</code><br>
 Expected: The overview panel is shown with all the added modules.</p>
 </li>
 <li>
-<p>Test case: <code>view n/tom</code><br>
+<p>Test case: <code>show n/tom</code><br>
 Expected: User interface does not change. Error details shown in the status message. All panels remain the same.</p>
 </li>
 </ol>
@@ -2031,22 +2035,22 @@ Expected: User interface does not change. Error details shown in the status mess
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-semester-overview"><a class="link" href="#viewing-semester-overview">F.16. Viewing semester overview</a></h3>
+<h3 id="showing-semester-overview"><a class="link" href="#showing-semester-overview">F.16. Showing semester overview</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Viewing the module overview for a particular semester</p>
+<p>Showing the module overview for a particular semester</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: Profile has been created. The module <code>CS1010</code> has been added to year 1 semester 1. No modules have been added to year 1 semester 2.</p>
 </li>
 <li>
-<p>Test case: <code>view y/1.1</code><br>
+<p>Test case: <code>show y/1.1</code><br>
 Expected: Module <code>CS1010</code> and its title appears in the overview panel.</p>
 </li>
 <li>
-<p>Test case: <code>view y/1.2</code><br>
+<p>Test case: <code>show y/1.2</code><br>
 Expected: User interface does not change. Error details shown in the status message.</p>
 </li>
 </ol>
@@ -2056,11 +2060,11 @@ Expected: User interface does not change. Error details shown in the status mess
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-module-information"><a class="link" href="#viewing-module-information">F.17. Viewing module information</a></h3>
+<h3 id="showing-module-information"><a class="link" href="#showing-module-information">F.17. Showing module information</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Viewing the information (description, prerequisites, preclusions, etc) of a module</p>
+<p>Showing the information (description, prerequisites, preclusions, etc) of a module</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2078,11 +2082,11 @@ Expected: User interface does not change. Error details shown in the status mess
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-course-information"><a class="link" href="#viewing-course-information">F.18. Viewing course information</a></h3>
+<h3 id="showing-course-information"><a class="link" href="#showing-course-information">F.18. Showing course information</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Viewing the information (course requirements, focus areas) of a course</p>
+<p>Showing the information (course requirements, focus areas) of a course</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2100,11 +2104,11 @@ Expected: User interface does not change. Error details shown in the status mess
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-focus-area-information"><a class="link" href="#viewing-focus-area-information">F.19. Viewing focus area information</a></h3>
+<h3 id="showing-focus-area-information"><a class="link" href="#showing-focus-area-information">F.19. Showing focus area information</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Viewing the information (modules in primaries and electives) of a focus area</p>
+<p>Showing the information (modules in primaries and electives) of a focus area</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2233,4 +2237,4 @@ Expected: Shows the GUI with a Quick Start page.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:01:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:26:15 UTC</div></div></div></body></html>

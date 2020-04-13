@@ -137,9 +137,10 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="Edit"><a class="link" href="#Edit">Editing profile, module or task: <code>edit</code></a></h3>
+<h3 id="Edit"><a class="link" href="#Edit">Editing profile, module or task: <code>edit</code> (Joycelyn Teo)</a></h3>
 <div class="paragraph">
-<p>If you want to edit any of the attributes you have previously added to <strong>MODdy</strong>, you can do so by using the <code>edit</code> command to edit your profile, module details or deadline task. You don&#8217;t have to worry about adding any wrong information as you can edit them at any time!<br></p>
+<p>If you want to edit any of the attributes you have previously added to <strong>MODdy</strong>, you can do so by using the <code>edit</code> command to edit your profile, module details or deadline tasks.
+You don&#8217;t have to worry about adding any wrong information as you can edit them at any time!<br></p>
 </div>
 <div class="paragraph">
 <p>There are <strong>three</strong> ways you can use the <code>edit</code> command:<br></p>
@@ -162,12 +163,16 @@
 <li>
 <p>If you&#8217;ve moved on to a new semester, <code>edit y/year.semester</code> changes your current semester in your MODdy profile for you.</p>
 </li>
+<li>
+<p>If you edit just your course, your focus area will revert back to UNDECIDED.</p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Example: <code>edit n/Brad c/Information Systems</code> edits your profile name to "Brad" and your course to "Information Systems", as shown in Figure 8 below.</p>
+<p>Example: <code>edit n/Brad c/Information Systems</code> edits your profile name to "Brad" and your course to "Information Systems",
+as shown in Figure 8 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -202,7 +207,7 @@ Alongside your name and course, you can edit your focus area to match your curre
 <p>Fields in brackets [] are optional, but at least one of these fields should be present to be edited.</p>
 </li>
 <li>
-<p>You are allowed to add a grade to a module you are planning to take in future, if you wish to predict your CAP. You can delete grades anytime using the <code>delete</code> command.</p>
+<p>You are allowed to add a grade to a module you are planning to take in future, if you wish to predict your Cumulative Average Point (CAP). You can delete grades anytime using the <code>delete</code> command.</p>
 </li>
 </ul>
 </div>
@@ -226,6 +231,19 @@ Alongside your name and course, you can edit your focus area to match your curre
 <td class="content">
 <code>edit m/CS2103T y/2.1 g/A+</code><br>
 You can edit the grade of module CS2103T to A+ and change the semester module is taken in to Year 2 Semester 1 concurrently.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you edit a module in your current semester to another semester, all tasks associated to this module will be removed
+from the deadline panel. To bring it back, edit the module&#8217;s semester back to your current semester.
 </td>
 </tr>
 </table>
@@ -257,8 +275,7 @@ You can edit the grade of module CS2103T to A+ and change the semester module is
 </div>
 </div>
 <div class="paragraph">
-<p>Example: <code>edit m/CS2103T t/tP Submission nt/UG and DG Submission</code><br>
-edits CS2103T task "tP Submission" to new task name "UG and DG Submission", as shown in Figure 10 below.</p>
+<p>Example: <code>edit m/CS2103T t/tP Submission nt/UG and DG Submission</code> edits an existing CS2103T task "tP Submission" to new task name "UG and DG Submission", as shown in Figure 10 below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -306,7 +323,7 @@ You can use this command to edit the deadline of Assignment, under module CS2105
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="{repoURL}/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="{repoURL}/blob/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -350,18 +367,47 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
+<h3 id="dependency-between-module-and-personal"><a class="link" href="#dependency-between-module-and-personal">Dependency between Module and Personal</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModuleClassDiagram.png" alt="ModuleClassDiagram">
+</div>
+<div class="title">Figure 6. Structure of the Module Component</div>
+</div>
+<div class="paragraph">
+<p>Each <code>Module</code> class consists of a <code>Personal</code> class, alongside other module attributes from NUSMODS. In each <code>Personal</code> class, there are 3 attributes that are for the user to store their data:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Grade</code> : the user&#8217;s grade for the particular module</p>
+</li>
+<li>
+<p><code>Status</code> : the status of the module (COMPLETED, IN_PROGRESS, PLANNING)</p>
+</li>
+<li>
+<p><code>DeadlineList</code> : a list of <code>Deadline</code> tasks added by the user</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These attributes were included in <code>Personal</code> as they are the attributes that are personal to the user, and which the user can edit at any time.
+<code>ModuleGrade</code> and <code>ModuleStatus</code> are enumeration classes that store valid grades and module statuses.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="edit-profile-module-feature"><a class="link" href="#edit-profile-module-feature">Edit Profile / Module Feature</a></h3>
 <div class="paragraph">
 <p>The <code>edit</code> feature supports the editing of both <code>Profile</code> and <code>Module</code>. <code>Profile</code> is edited with the command <code>edit</code> and <code>Module</code> is edited with the command <code>edit</code> appended with <code>m/moduleCode</code>.<br></p>
 </div>
 <div class="paragraph">
-<p>The edit profile feature is a complementary feature to the new profile feature. It allows the user to edit their profile that was created at the start. Profile features such as name, course, current semester and focus area can be edited using this command.<br></p>
+<p>The edit profile feature is a complementary feature to the new profile feature. It allows the user to edit their profile that was created at the start. Profile features such as name, course, current year/semester and focus area can be edited using this command.<br></p>
 </div>
 <div class="paragraph">
 <p>In addition, the edit module feature is a complementary feature to the add module feature. It allows the user to edit a module that has previously been added. The user can edit module information such as the semester it is taken and grade.<br></p>
 </div>
 <div class="paragraph">
-<p>Lastly, the edit deadline feature is a complementary feature to the add deadline feature. It allows the user to edit a deadline that has previously been added to a module. The user can edit deadline information such as it&#8217;s description, date and time.<br></p>
+<p>Lastly, the edit deadline feature is a complementary feature to the add deadline feature. It allows the user to edit a deadline that has previously been added to a module. The user can edit deadline information such as its description, date and time.<br></p>
 </div>
 <div class="paragraph">
 <p>To edit the profile, the command <code>edit</code> should be appended with one or more of the tags:</p>
@@ -375,7 +421,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p><code>c/course</code> : New course</p>
 </li>
 <li>
-<p><code>y/year.semester</code> : New current semester</p>
+<p><code>y/year.semester</code> : New current year/semester</p>
 </li>
 <li>
 <p><code>f/focusArea</code> : New focus area</p>
@@ -388,7 +434,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="ulist">
 <ul>
 <li>
-<p><code>y/year.semester</code> : New semester where module is taken</p>
+<p><code>y/year.semester</code> : New year/semester where module is taken</p>
 </li>
 <li>
 <p><code>g/grade</code> : New grade for the module</p>
@@ -423,7 +469,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="../images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions between UI, Logic and Model components for the <code>edit n/John</code> Command</div>
+<div class="title">Figure 7. Interactions between UI, Logic and Model components for the <code>edit n/John</code> Command</div>
 </div>
 </div>
 <div class="sect3">
@@ -431,7 +477,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Edit <code>Profile</code>, <code>Module</code> or <code>Deadline</code>  with one <code>EditCommand</code>.</p>
+<p><strong>Alternative 1 (current choice):</strong> Edit <code>Profile</code>, <code>Module</code> or <code>Deadline</code>  with one <code>EditCommand</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -444,7 +490,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Have separate commands to edit <code>Profile</code>, <code>Module</code> and <code>Deadline</code>.</p>
+<p><strong>Alternative 2:</strong> Have separate commands to edit <code>Profile</code>, <code>Module</code> and <code>Deadline</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -459,10 +505,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </ul>
 </div>
 <div class="paragraph">
-<p>Eventually, we decided on alternative 1 due to the benefits of consistency. Additionally, by requiring a <code>m/MODULE</code> field for the user to edit <code>Module</code>, it clearly shows the intent of the user, and whether the <code>Profile</code> or a <code>Module</code> should be edited.</p>
+<p>Eventually, we decided on alternative 1 due to the benefits of consistency. Additionally, by requiring a <code>m/moduleCode</code> field for the user to edit <code>Module</code>, it clearly shows the intent of the user, and whether the <code>Profile</code> or a <code>Module</code> should be edited.</p>
 </div>
 <div class="paragraph">
-<p>We also considered whether to allow users to edit the grade of a module that has yet to be taken. We eventually decided to allow that as many students may want to predict their CAP, which our CAP calculator will allow them to do.</p>
+<p>We also considered whether to allow users to edit the grade of a module that has yet to be taken. We eventually decided to allow that as many students may want to predict their <a href="#CAP">CAP</a>, which our CAP calculator will allow them to do.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram shows how the <code>edit</code> command decides what to edit (profile, module details or deadline task):</p>
@@ -471,9 +517,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="../images/EditCommandActivityDiagram.png" alt="EditCommandActivityDiagram">
 </div>
-<div class="title">Figure 7. Activity Diagram for an Edit Command input</div>
+<div class="title">Figure 8. Activity Diagram for an Edit Command input</div>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:01:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:26:15 UTC</div></div></div></body></html>

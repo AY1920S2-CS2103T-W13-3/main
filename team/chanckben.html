@@ -128,7 +128,7 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="Delete"><a class="link" href="#Delete">Deleting profile, module, task or grade: <code>delete</code></a></h3>
+<h3 id="Delete"><a class="link" href="#Delete">Deleting profile, module, task or grade: <code>delete</code> (Chan Choon Kong)</a></h3>
 <div class="paragraph">
 <p>To remove a profile, module, task or grade from <strong>MODdy</strong>, use the <code>delete</code> command.</p>
 </div>
@@ -138,7 +138,7 @@
 <div class="sect3">
 <h4 id="deleting-your-profile-br"><a class="link" href="#deleting-your-profile-br">Deleting your profile<br></a></h4>
 <div class="paragraph">
-<p>If you wish to remove your profile, you can do so with the command below. The effect of using this command is shown in the figure below.</p>
+<p>If you wish to remove your profile, you can do so with the command below. The effect of using this command is also shown in the figure below.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>delete n/name</code></p>
@@ -168,13 +168,13 @@ Your profile, including all modules, grades and deadlines under your name, will 
 <div class="sect3">
 <h4 id="deleting-a-module-br"><a class="link" href="#deleting-a-module-br">Deleting a module<br></a></h4>
 <div class="paragraph">
-<p>If you have decided not to take a module you were planning to take or to drop a module which you are currently taking, you can delete it with the command below. The effect of using this command is shown in the figure below.</p>
+<p>If you have decided not to take a module you were planning to take, or to drop a module which you are currently taking, you can delete it with the command below. The effect of using this command is shown in the figure below.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>delete m/moduleCode</code></p>
 </div>
 <div class="paragraph">
-<p>You can delete multiple modules at the same time. To delete multiple modules, just append the <code>m/moduleCode</code> tags one after another, e.g. <code>delete m/CS1231 m/IS1130 m/MA1521</code>.</p>
+<p>You can also delete multiple modules at the same time. To delete multiple modules, just append the <code>m/moduleCode</code> tags one after another, e.g. <code>delete m/CS1231 m/IS1130 m/MA1521</code>.</p>
 </div>
 <div class="paragraph">
 <p>Example: <code>delete m/CS2103T</code> deletes CS2103T from Year 2 Semester 2 and also removes all tasks related to CS2103T from the deadline panel, as
@@ -193,7 +193,7 @@ shown in Figure 17 below.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The specified module, including all tasks and deadlines of that module, will be deleted from <strong>MODdy</strong>
+The specified module, including all tasks and deadlines of that module, will be deleted from <strong>MODdy</strong>.
 </td>
 </tr>
 </table>
@@ -226,7 +226,7 @@ The specified module, including all tasks and deadlines of that module, will be 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The specified task and its deadline will be deleted from the specified module
+The specified task and its deadline will be deleted from the specified module.
 </td>
 </tr>
 </table>
@@ -287,7 +287,7 @@ Any input after the <code>g/</code> tag will be ignored.
 <div class="title">Figure 5. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="{repoURL}/blob/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The Storage component consists of the following three main parts:</p>
@@ -295,13 +295,13 @@ Any input after the <code>g/</code> tag will be ignored.
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Profiles: <code>JsonProfileListStorage</code> handles reading and saving of profiles from json to <code>Profile</code> objects and vice versa. The <code>Profile</code> objects are stored in a <code>ProfileList</code>.</p>
+<p>Profiles: <code>JsonProfileListStorage</code> handles reading and saving of profiles from JSON to <code>Profile</code> objects and vice versa. The <code>Profile</code> objects are stored in a <code>ProfileList</code>.</p>
 </li>
 <li>
-<p>Modules: <code>JsonModuleListStorage</code> handles only reading of modules from json to <code>Module</code> objects, which are stored in a <code>ModuleList</code>.</p>
+<p>Modules: <code>JsonModuleListStorage</code> handles only reading of modules from JSON to <code>Module</code> objects, which are stored in a <code>ModuleList</code>.</p>
 </li>
 <li>
-<p>Courses: <code>JsonCourseListStorage</code> handles only reading of courses from json to <code>Course</code> objects, which are stored in a <code>CourseList</code>.</p>
+<p>Courses: <code>JsonCourseListStorage</code> handles only reading of courses from JSON to <code>Course</code> objects, which are stored in a <code>CourseList</code>.</p>
 </li>
 </ol>
 </div>
@@ -311,16 +311,16 @@ Any input after the <code>g/</code> tag will be ignored.
 <div class="ulist">
 <ul>
 <li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+<p>can save <code>UserPref</code> objects in JSON format and read it back.</p>
 </li>
 <li>
-<p>can save the Profile List data in json format and read it back as a <code>ProfileList</code> object.</p>
+<p>can save the Profile List data in JSON format and read it back as a <code>ProfileList</code> object.</p>
 </li>
 <li>
-<p>can read Module List data from json format to a <code>ModuleList</code> object.</p>
+<p>can read Module List data from JSON format to a <code>ModuleList</code> object.</p>
 </li>
 <li>
-<p>can read Course List data from json format to a <code>CourseList</code> object.</p>
+<p>can read Course List data from JSON format to a <code>CourseList</code> object.</p>
 </li>
 </ul>
 </div>
@@ -389,20 +389,7 @@ Multiple grades can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Delete only one <code>Module</code> or <code>Task</code> object with one <code>DeleteCommand</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to implement and consistent with deleting <code>Profile</code>.</p>
-</li>
-<li>
-<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects or <code>Task</code> objects.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Delete multiple <code>Module</code> or <code>Task</code> objects with one <code>DeleteCommand</code>.</p>
+<p><strong>Alternative 1 (current choice):</strong> Delete multiple <code>Module</code> or <code>Task</code> objects with one <code>DeleteCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -414,10 +401,23 @@ Multiple grades can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA
 </ul>
 </div>
 </li>
+<li>
+<p><strong>Alternative 2:</strong> Delete only one <code>Module</code> or <code>Task</code> object with one <code>DeleteCommand</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement and consistent with deleting <code>Profile</code>.</p>
+</li>
+<li>
+<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects or <code>Task</code> objects.</p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Eventually, we decided on alternative 2 to provide more convenience and flexibility to users.</p>
+<p>Eventually, we decided on alternative 1 to provide more convenience and flexibility to users.</p>
 </div>
 </div>
 </div>
@@ -508,4 +508,4 @@ Multiple grades can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:01:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:26:15 UTC</div></div></div></body></html>
