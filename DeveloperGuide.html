@@ -29,7 +29,7 @@
 <li><a href="#add-module-task-feature">4.4. Add Module / Task Feature</a></li>
 <li><a href="#show-feature">4.5. Show Feature</a></li>
 <li><a href="#edit-profile-module-feature">4.6. Edit Profile / Module Feature</a></li>
-<li><a href="#delete-profile-module-deadline-grade-feature">4.7. Delete Profile / Module / Deadline / Grade Feature</a></li>
+<li><a href="#delete-profile-module-task-grade-feature">4.7. Delete Profile / Module / Task / Grade Feature</a></li>
 <li><a href="#help-feature">4.8. Help Feature</a></li>
 <li><a href="#home-feature">4.9. Home Feature</a></li>
 <li><a href="#logging">4.10. Logging</a></li>
@@ -47,7 +47,7 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#adding-a-profile">F.2. Adding a profile</a></li>
+<li><a href="#creating-a-new-profile">F.2. Creating a new profile</a></li>
 <li><a href="#deleting-a-profile">F.3. Deleting a profile</a></li>
 <li><a href="#adding-a-module">F.4. Adding a module</a></li>
 <li><a href="#deleting-a-module">F.5. Deleting a module</a></li>
@@ -909,9 +909,9 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-profile-module-deadline-grade-feature"><a class="link" href="#delete-profile-module-deadline-grade-feature">4.7. Delete Profile / Module / Deadline / Grade Feature</a></h3>
+<h3 id="delete-profile-module-task-grade-feature"><a class="link" href="#delete-profile-module-task-grade-feature">4.7. Delete Profile / Module / Task / Grade Feature</a></h3>
 <div class="paragraph">
-<p>The <code>delete</code> feature allows the user to delete a <code>Profile</code>, <code>Module</code>, <code>Deadline</code> or <code>Grade</code> with the command <code>delete</code>, appended with the tags.</p>
+<p>The <code>delete</code> feature allows the user to delete a <code>Profile</code>, <code>Module</code>, <code>Task</code> or <code>Grade</code> with the command <code>delete</code>, appended with the tags.</p>
 </div>
 <div class="paragraph">
 <p>The tags are:</p>
@@ -925,7 +925,7 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <p><code>m/moduleCode</code> for deleting a <code>Module</code></p>
 </li>
 <li>
-<p><code>m/moduleCode t/task</code> for deleting a <code>Deadline</code></p>
+<p><code>m/moduleCode t/task</code> for deleting a <code>Task</code></p>
 </li>
 <li>
 <p><code>m/moduleCode g/</code> for deleting a <code>Grade</code></p>
@@ -939,9 +939,9 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You can delete multiple modules at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA1521</code>.<br>
-You can also delete multiple deadlines at once but only from the same module, e.g. <code>delete m/CS1231 t/task t/exam</code>.<br>
-You can also delete multiple grades at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA1521 g/</code>.
+Multiple modules can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA1521</code>.<br>
+Multiple tasks can be deleted at once but only from the <strong>same module</strong>, e.g. <code>delete m/CS1231 t/task t/exam</code>.<br>
+Multiple grades can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA1521 g/</code>.
 </td>
 </tr>
 </table>
@@ -972,24 +972,24 @@ You can also delete multiple grades at once, e.g. <code>delete m/CS1231 m/IS1103
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Delete only one <code>Module</code> or <code>Deadline</code> object with one <code>DeleteCommand</code>.</p>
+<p><strong>Alternative 1 (current choice):</strong> Delete only one <code>Module</code> or <code>Task</code> object with one <code>DeleteCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement and consistent across all inputs.</p>
+<p>Pros: Easier to implement and consistent with deleting <code>Profile</code>.</p>
 </li>
 <li>
-<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects or <code>Deadline</code> objects.</p>
+<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects or <code>Task</code> objects.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Delete multiple <code>Module</code> or <code>Deadline</code> objects with one <code>DeleteCommand</code>.</p>
+<p><strong>Alternative 2:</strong> Delete multiple <code>Module</code> or <code>Task</code> objects with one <code>DeleteCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More convenient for the user.</p>
+<p>Pros: More convenient for users.</p>
 </li>
 <li>
 <p>Cons: Inconsistent with deleting a <code>Profile</code>, which can only take in at most one <code>Profile</code>.</p>
@@ -1000,7 +1000,7 @@ You can also delete multiple grades at once, e.g. <code>delete m/CS1231 m/IS1103
 </ul>
 </div>
 <div class="paragraph">
-<p>Eventually, we decided on alternative 1 due to the benefits of consistency in the number of items to be deleted, as well as to reduce the number of bugs faced.</p>
+<p>Eventually, we decided on alternative 2 to provide more convenience and flexibility to users.</p>
 </div>
 </div>
 </div>
@@ -1641,15 +1641,15 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-profile"><a class="link" href="#adding-a-profile">F.2. Adding a profile</a></h3>
+<h3 id="creating-a-new-profile"><a class="link" href="#creating-a-new-profile">F.2. Creating a new profile</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Adding a new profile while at Quick Start page</p>
+<p>Creating a new profile while at Quick Start page</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: Currently at the Quick Start page. No profiles added.</p>
+<p>Prerequisites: Currently at the Quick Start page. No profiles created.</p>
 </li>
 <li>
 <p>Test case: <code>new n/john y/2.2 c/computer science f/computer security</code><br>
@@ -1661,7 +1661,7 @@ Expected: Details of the new profile are shown in the profile panel. Focus area 
 </li>
 <li>
 <p>Test case: <code>new n/john y/2.2</code><br>
-Expected: No profile is added. Error details shown in the status message. All panels remain the same.</p>
+Expected: No profile is created. Error details shown in the status message. All panels remain the same.</p>
 </li>
 <li>
 <p>Other incorrect new commands to try: <code>new n/john y/2.2 c/abc</code>, <code>new n/john y/2.x c/computer science</code> (where x is larger than 2), <code>new n/john&amp; y/2.1 c/computer science</code><br>
@@ -2233,4 +2233,4 @@ Expected: Shows the GUI with a Quick Start page.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 03:55:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 04:42:24 UTC</div></div></div></body></html>

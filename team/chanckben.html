@@ -249,6 +249,18 @@ The specified task and its deadline will be deleted from the specified module
 </div>
 <div class="title">Figure 4. Grade of CS2103T is deleted</div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Any input after the <code>g/</code> tag will be ignored.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -314,9 +326,9 @@ The specified task and its deadline will be deleted from the specified module
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-profile-module-deadline-grade-feature"><a class="link" href="#delete-profile-module-deadline-grade-feature">Delete Profile / Module / Deadline / Grade Feature</a></h3>
+<h3 id="delete-profile-module-task-grade-feature"><a class="link" href="#delete-profile-module-task-grade-feature">Delete Profile / Module / Task / Grade Feature</a></h3>
 <div class="paragraph">
-<p>The <code>delete</code> feature allows the user to delete a <code>Profile</code>, <code>Module</code>, <code>Deadline</code> or <code>Grade</code> with the command <code>delete</code>, appended with the tags.</p>
+<p>The <code>delete</code> feature allows the user to delete a <code>Profile</code>, <code>Module</code>, <code>Task</code> or <code>Grade</code> with the command <code>delete</code>, appended with the tags.</p>
 </div>
 <div class="paragraph">
 <p>The tags are:</p>
@@ -330,7 +342,7 @@ The specified task and its deadline will be deleted from the specified module
 <p><code>m/moduleCode</code> for deleting a <code>Module</code></p>
 </li>
 <li>
-<p><code>m/moduleCode t/task</code> for deleting a <code>Deadline</code></p>
+<p><code>m/moduleCode t/task</code> for deleting a <code>Task</code></p>
 </li>
 <li>
 <p><code>m/moduleCode g/</code> for deleting a <code>Grade</code></p>
@@ -344,9 +356,9 @@ The specified task and its deadline will be deleted from the specified module
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You can delete multiple modules at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA1521</code>.<br>
-You can also delete multiple deadlines at once but only from the same module, e.g. <code>delete m/CS1231 t/task t/exam</code>.<br>
-You can also delete multiple grades at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA1521 g/</code>.
+Multiple modules can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA1521</code>.<br>
+Multiple tasks can be deleted at once but only from the <strong>same module</strong>, e.g. <code>delete m/CS1231 t/task t/exam</code>.<br>
+Multiple grades can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA1521 g/</code>.
 </td>
 </tr>
 </table>
@@ -377,24 +389,24 @@ You can also delete multiple grades at once, e.g. <code>delete m/CS1231 m/IS1103
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Delete only one <code>Module</code> or <code>Deadline</code> object with one <code>DeleteCommand</code>.</p>
+<p><strong>Alternative 1 (current choice):</strong> Delete only one <code>Module</code> or <code>Task</code> object with one <code>DeleteCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement and consistent across all inputs.</p>
+<p>Pros: Easier to implement and consistent with deleting <code>Profile</code>.</p>
 </li>
 <li>
-<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects or <code>Deadline</code> objects.</p>
+<p>Cons: More to type if user intends to delete multiple <code>Module</code> objects or <code>Task</code> objects.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Delete multiple <code>Module</code> or <code>Deadline</code> objects with one <code>DeleteCommand</code>.</p>
+<p><strong>Alternative 2:</strong> Delete multiple <code>Module</code> or <code>Task</code> objects with one <code>DeleteCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More convenient for the user.</p>
+<p>Pros: More convenient for users.</p>
 </li>
 <li>
 <p>Cons: Inconsistent with deleting a <code>Profile</code>, which can only take in at most one <code>Profile</code>.</p>
@@ -405,7 +417,7 @@ You can also delete multiple grades at once, e.g. <code>delete m/CS1231 m/IS1103
 </ul>
 </div>
 <div class="paragraph">
-<p>Eventually, we decided on alternative 1 due to the benefits of consistency in the number of items to be deleted, as well as to reduce the number of bugs faced.</p>
+<p>Eventually, we decided on alternative 2 to provide more convenience and flexibility to users.</p>
 </div>
 </div>
 </div>
@@ -496,4 +508,4 @@ You can also delete multiple grades at once, e.g. <code>delete m/CS1231 m/IS1103
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 03:55:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 04:42:24 UTC</div></div></div></body></html>
