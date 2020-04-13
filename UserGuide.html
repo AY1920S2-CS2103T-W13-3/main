@@ -330,7 +330,7 @@ The maximum Year and Semester you can go up to is Year 8 Semester 2.
 </td>
 <td class="content">
 You can add multiple modules at the same time but only to the <strong>same</strong> year and semester.<br>
-To add multiple modules, just append the <code>m/moduleCode</code> tags right after another, e.g. <code>add m/CS1231 m/IS1130 m/MA1521 y/1.1</code>.
+To add multiple modules, just append the <code>m/moduleCode</code> tags right after another, e.g. <code>add m/CS1231 m/IS1103 m/MA1521 y/1.1</code>.
 </td>
 </tr>
 </table>
@@ -410,7 +410,7 @@ If you have not met the prerequisites of a module, you will receive a warning me
 <div class="content">
 <img src="images/PreReq.png" alt="PreReq" width="790">
 </div>
-<div class="title">Figure 6. Warning message shown when adding CS2030 to Year 1 Semester 1</div>
+<div class="title">Figure 6. Warning message shown when adding CS2030 to Year 2 Semester 2</div>
 </div>
 </div>
 <div class="sect3">
@@ -462,6 +462,31 @@ For the tasks with no deadlines, the tag can just be <code>d/</code>, e.g. <code
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can add multiple tasks at once but only to the <strong>same module</strong>, e.g. <code>add m/CS1231 t/tutorial d/2020-04-20 18:00 t/assignment d/2020-04-25 23:59</code>.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+However, for multiple tasks, as long as one task has a deadline, all <code>t/task</code> tags have to be appended with <code>d/deadline</code> tags.<br>
+For the tasks with no deadlines, the tag can just be <code>d/</code>, e.g. <code>add m/IS1103 t/project d/2020-05-01 23:59 t/reflection d/</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example: <code>add m/CS2105 t/Assignment d/2020-04-20 23:59</code> adds a task named "Assignment"
@@ -574,7 +599,7 @@ Alongside your name and course, you can edit your focus area to match your curre
 <div class="content">
 <img src="images/EditModule.png" alt="EditModule" width="760">
 </div>
-<div class="title">Figure 9. Module detail of CS2103T edited</div>
+<div class="title">Figure 9. Module grade of CS2103T edited</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -584,7 +609,7 @@ Alongside your name and course, you can edit your focus area to match your curre
 </td>
 <td class="content">
 <code>edit m/CS2103T y/2.1 g/A+</code><br>
-You can edit the grade of module CS2103T to A+ and change the semester module is taken in to Year 2 Semester 1 concurrently.
+You can edit the grade of module CS2103T to A+ and change the semester which the module is taken in to Year 2 Semester 1 concurrently.
 </td>
 </tr>
 </table>
@@ -622,7 +647,7 @@ from the deadline panel. To bring it back, edit the module&#8217;s semester back
 <p><code>nt/newTask</code> represents the new description of the existing task.</p>
 </li>
 <li>
-<p><code>d/deadline</code> represents to new deadline of the existing task.</p>
+<p><code>d/deadline</code> represents the new deadline of the existing task.</p>
 </li>
 </ul>
 </div>
@@ -846,7 +871,7 @@ Your profile, including all modules, grades and deadlines under your name, will 
 <p>Format: <code>delete m/moduleCode</code></p>
 </div>
 <div class="paragraph">
-<p>You can also delete multiple modules at the same time. To delete multiple modules, just append the <code>m/moduleCode</code> tags one after another, e.g. <code>delete m/CS1231 m/IS1130 m/MA1521</code>.</p>
+<p>You can also delete multiple modules at the same time. To delete multiple modules, just append the <code>m/moduleCode</code> tags one after another, e.g. <code>delete m/CS1231 m/IS1103 m/MA1521</code>.</p>
 </div>
 <div class="paragraph">
 <p>Example: <code>delete m/CS2103T</code> deletes CS2103T from Year 2 Semester 2 and also removes all tasks related to CS2103T from the deadline panel, as
@@ -1277,4 +1302,4 @@ e.g. <code>delete m/CS2107</code>, <code>delete m/CS2103 t/Project Submission</c
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:46:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:25:43 UTC</div></div></div></body></html>

@@ -17,7 +17,8 @@
 <li><a href="#Design-Ui">3.2. UI component</a></li>
 <li><a href="#Design-Logic">3.3. Logic component</a></li>
 <li><a href="#Design-Model">3.4. Model component</a></li>
-<li><a href="#Design-Commons">3.5. Common classes</a></li>
+<li><a href="#Design-Storage">3.5. Storage component</a></li>
+<li><a href="#Design-Commons">3.6. Common classes</a></li>
 </ul>
 </li>
 <li><a href="#implementation">4. Implementation</a>
@@ -106,7 +107,7 @@ Feel free to open an issue in our <a href="https://github.com/AY1920S2-CS2103T-W
 <p>This is a guide on how to set up MODdy as a project on your computer.</p>
 </div>
 <div class="paragraph">
-<p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
+<p>Refer to the guide <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/blob/master/docs/SettingUp.adoc">here</a>.</p>
 </div>
 </div>
 </div>
@@ -135,7 +136,7 @@ Feel free to open an issue in our <a href="https://github.com/AY1920S2-CS2103T-W
 </td>
 <td class="content">
 The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/tree/master/docs/diagrams">diagrams</a> folder.
-Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
+Refer to the <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/blob/master/docs/UsingPlantUml.adoc">Using PlantUML guide</a> to learn how to create and edit diagrams.
 </td>
 </tr>
 </table>
@@ -335,7 +336,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
+<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="400">
 </div>
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
@@ -357,14 +358,16 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>exposes an unmodifiable <code>ObservableList&lt;Deadline&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list changes.</p>
 </li>
 <li>
-<p>does not depend on any of the other three components.
-=== Storage component</p>
+<p>does not depend on any of the other three components.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
+<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="500">
 </div>
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
@@ -408,7 +411,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.5. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.address.commons</code> package.</p>
 </div>
@@ -512,7 +515,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use the <code>y/year.semester</code> tag like all other commands.</p>
+<p><strong>Alternative 1 (current choice):</strong> Use the <code>y/year.semester</code> tag like all other commands</p>
 <div class="ulist">
 <ul>
 <li>
@@ -525,7 +528,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Have an additional tag <code>cs/currentYear.currentSemester</code> instead of <code>y/year.semester</code> to identify the year and semester user is in.</p>
+<p><strong>Alternative 2:</strong> Have an additional tag <code>cs/currentYear.currentSemester</code> instead of <code>y/year.semester</code> to identify the year and semester user is in</p>
 <div class="ulist">
 <ul>
 <li>
@@ -624,7 +627,7 @@ However, for multiple tasks, as long as one <code>Task</code> has a <code>Deadli
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Add multiple <code>Module</code> objects with one <code>AddCommand</code>.</p>
+<p><strong>Alternative 1 (current choice):</strong> Add multiple <code>Module</code> objects with one <code>AddCommand</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -637,7 +640,7 @@ However, for multiple tasks, as long as one <code>Task</code> has a <code>Deadli
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Add only one <code>Module</code> object with one <code>AddCommand</code>.</p>
+<p><strong>Alternative 2:</strong> Add only one <code>Module</code> object with one <code>AddCommand</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -660,7 +663,7 @@ However, for multiple tasks, as long as one <code>Task</code> has a <code>Deadli
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> The <code>date</code> is compulsory while <code>time</code> is optional for a <code>deadline</code>.</p>
+<p><strong>Alternative 1 (current choice):</strong> The <code>date</code> is compulsory while <code>time</code> is optional for a <code>deadline</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -673,7 +676,7 @@ However, for multiple tasks, as long as one <code>Task</code> has a <code>Deadli
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Both <code>date</code> and <code>time</code> is compulsory for a <code>deadline</code>.</p>
+<p><strong>Alternative 2:</strong> Both <code>date</code> and <code>time</code> is compulsory for a <code>deadline</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -914,7 +917,7 @@ If more than one accepted tag is given, such as <code>show c/Computer Science m/
 </ul>
 </div>
 <div class="paragraph">
-<p>Eventually, we decided on alternative 1 due to the benefits of avoiding repeated code. To tackle the cons from this, we implemented guard conditions to gracefully reject other Objects that may unintentionally call this method.</p>
+<p>Eventually, we decided on alternative 1 due to the benefits of avoiding repeated code. To tackle the cons from this, we implemented guard conditions to gracefully reject other objects that may unintentionally call this method.</p>
 </div>
 </div>
 </div>
@@ -985,7 +988,7 @@ Multiple grades can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Delete multiple <code>Module</code> or <code>Task</code> objects with one <code>DeleteCommand</code>.</p>
+<p><strong>Alternative 1 (current choice):</strong> Delete multiple <code>Module</code> or <code>Task</code> objects with one <code>DeleteCommand</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -998,7 +1001,7 @@ Multiple grades can be deleted at once, e.g. <code>delete m/CS1231 m/IS1103 m/MA
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Delete only one <code>Module</code> or <code>Task</code> object with one <code>DeleteCommand</code>.</p>
+<p><strong>Alternative 2:</strong> Delete only one <code>Module</code> or <code>Task</code> object with one <code>DeleteCommand</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -1128,7 +1131,7 @@ quick view of sample inputs if they run into trouble while using the application
 <h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the guide <a href="Documentation.html">here</a>.</p>
+<p>Refer to the guide <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/blob/master/docs/Documentation.adoc">here</a>.</p>
 </div>
 </div>
 </div>
@@ -1136,7 +1139,7 @@ quick view of sample inputs if they run into trouble while using the application
 <h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the guide <a href="Testing.html">here</a>.</p>
+<p>Refer to the guide <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/blob/master/docs/Testing.adoc">here</a>.</p>
 </div>
 </div>
 </div>
@@ -1144,7 +1147,7 @@ quick view of sample inputs if they run into trouble while using the application
 <h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the guide <a href="DevOps.html">here</a>.</p>
+<p>Refer to the guide <a href="https://github.com/AY1920S2-CS2103T-W13-3/main/blob/master/docs/DevOps.adoc">here</a>.</p>
 </div>
 </div>
 </div>
@@ -2246,4 +2249,4 @@ Expected: Shows the GUI with a Quick Start page.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:46:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:25:43 UTC</div></div></div></body></html>
